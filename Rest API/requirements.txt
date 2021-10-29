@@ -1,0 +1,11 @@
+azure-storage-blob
+fastapi
+azure-core
+gunicorn
+uvicorn
+uvloop
+httptools
+python-multipart
+pydantic
+loguru
+pymssql

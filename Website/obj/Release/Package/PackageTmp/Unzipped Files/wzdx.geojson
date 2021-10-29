@@ -1,0 +1,649 @@
+{
+  "road_event_feed_info": {
+    "feed_info_id": "866f6523-9bd2-4d5f-91cd-c4f890659e28",
+    "update_date": "2020-12-10T19:00:09Z",
+    "publisher": "POC Work Zone Integrated Mapping",
+    "contact_name": "Tony English",
+    "contact_email": "tony@neaeraconsulting.com",
+    "update_frequency": 86400,
+    "version": "3.0",
+    "data_sources": [
+      {
+        "data_source_id": "f9077737-a20d-4d43-a210-f9e89d898082",
+        "feed_info_id": "866f6523-9bd2-4d5f-91cd-c4f890659e28",
+        "organization_name": "Neaera Consulting Group, LLC",
+        "contact_name": "Debbie",
+        "contact_email": "debbie@neaera.net",
+        "update_frequency": 86400,
+        "update_date": "2020-12-10T19:00:09Z",
+        "location_verify_method": "Location",
+        "location_method": "channel-device-method",
+        "lrs_type": "LRS Type"
+      }
+    ]
+  },
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "road_event_id": "eec35b4e-5d0c-41a4-9940-872edf931a19",
+        "data_source_id": "f9077737-a20d-4d43-a210-f9e89d898082",
+        "event_type": "work-zone",
+        "relationship": {
+          "relationship_id": "6e4afdb8-575f-4601-b083-7604afadf494",
+          "road_event_id": "eec35b4e-5d0c-41a4-9940-872edf931a19",
+          "first": [
+            "eec35b4e-5d0c-41a4-9940-872edf931a19",
+            "577d941b-6b19-4c46-ac28-6996829e5b30",
+            "e11a0689-1fde-43d6-986a-6e5b3a3dd5aa",
+            "60b0e93a-6a0b-48f8-b8f4-03598aca7fa7",
+            "506485dd-0ad4-41aa-b345-1d64bbb7c120",
+            "a0cb2065-fe47-4eb5-accc-1d9e38b5bfc3"
+          ]
+        },
+        "road_name": "392",
+        "road_number": "",
+        "direction": "northbound",
+        "beginning_cross_street": "5819 Highland Hills Cir",
+        "beginning_milepost": 1,
+        "ending_milepost": 3,
+        "beginning_accuracy": "estimated",
+        "ending_accuracy": "estimated",
+        "start_date": "2021-01-06T08:00:00Z",
+        "end_date": "2021-01-10T08:00:00Z",
+        "start_date_accuracy": "estimated",
+        "end_date_accuracy": "estimated",
+        "issuing_organization": "Neaera Consulting Group, LLC",
+        "update_date": "2020-12-10T19:00:09Z",
+        "creation_date": "2020-12-10T19:00:09Z",
+        "types_of_work": [
+          {
+            "types_of_work_id": "07a220d1-4a2c-4410-8ab5-d46d19082d5d",
+            "road_event_id": "eec35b4e-5d0c-41a4-9940-872edf931a19",
+            "type_name": "maintenance",
+            "is_architectural_change": false
+          }
+        ],
+        "total_num_lanes": 2,
+        "vehicle_impact": "all-lanes-open",
+        "workers_present": false,
+        "reduced_speed_limit": 20,
+        "description": "11-2-2020_Internal",
+        "restrictions": [
+          "no-trucks",
+          "reduced-width"
+        ],
+        "lanes": [
+          {
+            "lane_id": "22d84263-5f0b-433a-93c3-1f76748612f6",
+            "road_event_id": "eec35b4e-5d0c-41a4-9940-872edf931a19",
+            "order": 1,
+            "lane_number": 1,
+            "status": "open",
+            "type": "left-lane",
+            "restrictions": [
+              {
+                "lane_restriction_id": "81442824-0023-424b-a4ae-fde810d0e2aa",
+                "lane_id": "22d84263-5f0b-433a-93c3-1f76748612f6",
+                "restriction_type": "no-trucks"
+              }
+            ]
+          },
+          {
+            "lane_id": "46d885ad-444b-4cd9-b348-b037cf0738ad",
+            "road_event_id": "eec35b4e-5d0c-41a4-9940-872edf931a19",
+            "order": 2,
+            "lane_number": 2,
+            "status": "open",
+            "type": "right-lane",
+            "restrictions": [
+              {
+                "lane_restriction_id": "9577757f-22b1-4aec-b73c-4166fe1dc8e8",
+                "lane_id": "46d885ad-444b-4cd9-b348-b037cf0738ad",
+                "restriction_type": "reduced-width",
+                "restriction_value": 10.0,
+                "restriction_units": "feet"
+              }
+            ]
+          }
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -104.9820792,
+            40.4763103,
+            1500
+          ],
+          [
+            -104.9820304,
+            40.479649,
+            1491
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_event_id": "577d941b-6b19-4c46-ac28-6996829e5b30",
+        "data_source_id": "f9077737-a20d-4d43-a210-f9e89d898082",
+        "event_type": "work-zone",
+        "relationship": {
+          "relationship_id": "7e5b36ed-e6c3-40b9-ae68-e47a308cd55a",
+          "road_event_id": "577d941b-6b19-4c46-ac28-6996829e5b30",
+          "next": [
+            "eec35b4e-5d0c-41a4-9940-872edf931a19",
+            "577d941b-6b19-4c46-ac28-6996829e5b30",
+            "e11a0689-1fde-43d6-986a-6e5b3a3dd5aa",
+            "60b0e93a-6a0b-48f8-b8f4-03598aca7fa7",
+            "506485dd-0ad4-41aa-b345-1d64bbb7c120",
+            "a0cb2065-fe47-4eb5-accc-1d9e38b5bfc3"
+          ]
+        },
+        "road_name": "392",
+        "road_number": "",
+        "direction": "northbound",
+        "beginning_cross_street": "5819 Highland Hills Cir",
+        "beginning_milepost": 1,
+        "ending_milepost": 3,
+        "beginning_accuracy": "estimated",
+        "ending_accuracy": "estimated",
+        "start_date": "2021-01-06T08:00:00Z",
+        "end_date": "2021-01-10T08:00:00Z",
+        "start_date_accuracy": "estimated",
+        "end_date_accuracy": "estimated",
+        "issuing_organization": "Neaera Consulting Group, LLC",
+        "update_date": "2020-12-10T19:00:09Z",
+        "creation_date": "2020-12-10T19:00:09Z",
+        "types_of_work": [
+          {
+            "types_of_work_id": "6fdddf8e-4c03-4d20-a7af-c00ff5bc5956",
+            "road_event_id": "577d941b-6b19-4c46-ac28-6996829e5b30",
+            "type_name": "maintenance",
+            "is_architectural_change": false
+          }
+        ],
+        "total_num_lanes": 2,
+        "vehicle_impact": "some-lanes-closed",
+        "workers_present": false,
+        "reduced_speed_limit": 20,
+        "description": "11-2-2020_Internal",
+        "restrictions": [
+          "no-trucks",
+          "reduced-width"
+        ],
+        "lanes": [
+          {
+            "lane_id": "0709a9d1-4055-4f2a-a7a8-51d4ec98ebd2",
+            "road_event_id": "577d941b-6b19-4c46-ac28-6996829e5b30",
+            "order": 1,
+            "lane_number": 1,
+            "status": "open",
+            "type": "left-lane",
+            "restrictions": [
+              {
+                "lane_restriction_id": "11dd4206-a2ce-4cb4-a1f4-f04efdca55dd",
+                "lane_id": "0709a9d1-4055-4f2a-a7a8-51d4ec98ebd2",
+                "restriction_type": "no-trucks"
+              }
+            ]
+          },
+          {
+            "lane_id": "b6f1e6c1-4660-43d2-8de8-5582592431d1",
+            "road_event_id": "577d941b-6b19-4c46-ac28-6996829e5b30",
+            "order": 2,
+            "lane_number": 2,
+            "status": "merge-left",
+            "type": "right-lane",
+            "restrictions": [
+              {
+                "lane_restriction_id": "698fbb23-e44a-40df-9952-07b7ad1629ff",
+                "lane_id": "b6f1e6c1-4660-43d2-8de8-5582592431d1",
+                "restriction_type": "reduced-width",
+                "restriction_value": 10.0,
+                "restriction_units": "feet"
+              }
+            ]
+          }
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -104.9820304,
+            40.479649,
+            1491
+          ],
+          [
+            -104.982024,
+            40.4799719,
+            1491
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_event_id": "e11a0689-1fde-43d6-986a-6e5b3a3dd5aa",
+        "data_source_id": "f9077737-a20d-4d43-a210-f9e89d898082",
+        "event_type": "work-zone",
+        "relationship": {
+          "relationship_id": "2095e85e-de75-4ed1-9154-c346c2b7b1f3",
+          "road_event_id": "e11a0689-1fde-43d6-986a-6e5b3a3dd5aa",
+          "next": [
+            "eec35b4e-5d0c-41a4-9940-872edf931a19",
+            "577d941b-6b19-4c46-ac28-6996829e5b30",
+            "e11a0689-1fde-43d6-986a-6e5b3a3dd5aa",
+            "60b0e93a-6a0b-48f8-b8f4-03598aca7fa7",
+            "506485dd-0ad4-41aa-b345-1d64bbb7c120",
+            "a0cb2065-fe47-4eb5-accc-1d9e38b5bfc3"
+          ]
+        },
+        "road_name": "392",
+        "road_number": "",
+        "direction": "northbound",
+        "beginning_cross_street": "5819 Highland Hills Cir",
+        "beginning_milepost": 1,
+        "ending_milepost": 3,
+        "beginning_accuracy": "estimated",
+        "ending_accuracy": "estimated",
+        "start_date": "2021-01-06T08:00:00Z",
+        "end_date": "2021-01-10T08:00:00Z",
+        "start_date_accuracy": "estimated",
+        "end_date_accuracy": "estimated",
+        "issuing_organization": "Neaera Consulting Group, LLC",
+        "update_date": "2020-12-10T19:00:09Z",
+        "creation_date": "2020-12-10T19:00:09Z",
+        "types_of_work": [
+          {
+            "types_of_work_id": "650ffcc1-bcf9-4470-bcc0-8b43e87d751c",
+            "road_event_id": "e11a0689-1fde-43d6-986a-6e5b3a3dd5aa",
+            "type_name": "maintenance",
+            "is_architectural_change": false
+          }
+        ],
+        "total_num_lanes": 2,
+        "vehicle_impact": "some-lanes-closed",
+        "workers_present": true,
+        "reduced_speed_limit": 15,
+        "description": "11-2-2020_Internal",
+        "restrictions": [
+          "no-trucks",
+          "reduced-width"
+        ],
+        "lanes": [
+          {
+            "lane_id": "12164a9a-d90c-4a77-b0ec-9f4d3c68fbf6",
+            "road_event_id": "e11a0689-1fde-43d6-986a-6e5b3a3dd5aa",
+            "order": 1,
+            "lane_number": 1,
+            "status": "open",
+            "type": "left-lane",
+            "restrictions": [
+              {
+                "lane_restriction_id": "a1589556-7cbc-4c29-9f8d-2330bcac4a40",
+                "lane_id": "12164a9a-d90c-4a77-b0ec-9f4d3c68fbf6",
+                "restriction_type": "no-trucks"
+              }
+            ]
+          },
+          {
+            "lane_id": "e28f6ba1-ebda-4b84-a401-7be5cff86591",
+            "road_event_id": "e11a0689-1fde-43d6-986a-6e5b3a3dd5aa",
+            "order": 2,
+            "lane_number": 2,
+            "status": "merge-left",
+            "type": "right-lane",
+            "restrictions": [
+              {
+                "lane_restriction_id": "a68d6090-6fd4-43a1-912b-b0c442db65d0",
+                "lane_id": "e28f6ba1-ebda-4b84-a401-7be5cff86591",
+                "restriction_type": "reduced-width",
+                "restriction_value": 10.0,
+                "restriction_units": "feet"
+              }
+            ]
+          }
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -104.982024,
+            40.4799719,
+            1491
+          ],
+          [
+            -104.9820201,
+            40.480104,
+            1491
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_event_id": "60b0e93a-6a0b-48f8-b8f4-03598aca7fa7",
+        "data_source_id": "f9077737-a20d-4d43-a210-f9e89d898082",
+        "event_type": "work-zone",
+        "relationship": {
+          "relationship_id": "c06d28e3-4fa1-4ee7-9876-ea04ba77c45a",
+          "road_event_id": "60b0e93a-6a0b-48f8-b8f4-03598aca7fa7",
+          "next": [
+            "eec35b4e-5d0c-41a4-9940-872edf931a19",
+            "577d941b-6b19-4c46-ac28-6996829e5b30",
+            "e11a0689-1fde-43d6-986a-6e5b3a3dd5aa",
+            "60b0e93a-6a0b-48f8-b8f4-03598aca7fa7",
+            "506485dd-0ad4-41aa-b345-1d64bbb7c120",
+            "a0cb2065-fe47-4eb5-accc-1d9e38b5bfc3"
+          ]
+        },
+        "road_name": "392",
+        "road_number": "",
+        "direction": "northbound",
+        "beginning_cross_street": "5819 Highland Hills Cir",
+        "beginning_milepost": 1,
+        "ending_milepost": 3,
+        "beginning_accuracy": "estimated",
+        "ending_accuracy": "estimated",
+        "start_date": "2021-01-06T08:00:00Z",
+        "end_date": "2021-01-10T08:00:00Z",
+        "start_date_accuracy": "estimated",
+        "end_date_accuracy": "estimated",
+        "issuing_organization": "Neaera Consulting Group, LLC",
+        "update_date": "2020-12-10T19:00:09Z",
+        "creation_date": "2020-12-10T19:00:09Z",
+        "types_of_work": [
+          {
+            "types_of_work_id": "9183889c-6f85-4466-a67c-a3dfec522f16",
+            "road_event_id": "60b0e93a-6a0b-48f8-b8f4-03598aca7fa7",
+            "type_name": "maintenance",
+            "is_architectural_change": false
+          }
+        ],
+        "total_num_lanes": 2,
+        "vehicle_impact": "some-lanes-closed",
+        "workers_present": true,
+        "reduced_speed_limit": 15,
+        "description": "11-2-2020_Internal",
+        "restrictions": [
+          "no-trucks",
+          "reduced-width"
+        ],
+        "lanes": [
+          {
+            "lane_id": "d11772ed-97d0-495b-9f40-392ef32ac239",
+            "road_event_id": "60b0e93a-6a0b-48f8-b8f4-03598aca7fa7",
+            "order": 1,
+            "lane_number": 1,
+            "status": "open",
+            "type": "left-lane",
+            "restrictions": [
+              {
+                "lane_restriction_id": "4e5186b2-6d98-4b1b-aa31-09df9b9b2a0d",
+                "lane_id": "d11772ed-97d0-495b-9f40-392ef32ac239",
+                "restriction_type": "no-trucks"
+              }
+            ]
+          },
+          {
+            "lane_id": "bf0b1017-a3a1-467a-85cc-c56e1395e9b2",
+            "road_event_id": "60b0e93a-6a0b-48f8-b8f4-03598aca7fa7",
+            "order": 2,
+            "lane_number": 2,
+            "status": "closed",
+            "type": "right-lane",
+            "restrictions": [
+              {
+                "lane_restriction_id": "ea9e3884-4f70-482c-8b5d-fead4d337568",
+                "lane_id": "bf0b1017-a3a1-467a-85cc-c56e1395e9b2",
+                "restriction_type": "reduced-width",
+                "restriction_value": 10.0,
+                "restriction_units": "feet"
+              }
+            ]
+          }
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -104.9820201,
+            40.480104,
+            1491
+          ],
+          [
+            -104.9819702,
+            40.4816559,
+            1491
+          ],
+          [
+            -104.9820034,
+            40.4819113,
+            1491
+          ],
+          [
+            -104.9819153,
+            40.4821916,
+            1492
+          ],
+          [
+            -104.9819445,
+            40.4822653,
+            1492
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_event_id": "506485dd-0ad4-41aa-b345-1d64bbb7c120",
+        "data_source_id": "f9077737-a20d-4d43-a210-f9e89d898082",
+        "event_type": "work-zone",
+        "relationship": {
+          "relationship_id": "6f7217ff-b1cd-438f-a05a-9ea9a0be77cb",
+          "road_event_id": "506485dd-0ad4-41aa-b345-1d64bbb7c120",
+          "next": [
+            "eec35b4e-5d0c-41a4-9940-872edf931a19",
+            "577d941b-6b19-4c46-ac28-6996829e5b30",
+            "e11a0689-1fde-43d6-986a-6e5b3a3dd5aa",
+            "60b0e93a-6a0b-48f8-b8f4-03598aca7fa7",
+            "506485dd-0ad4-41aa-b345-1d64bbb7c120",
+            "a0cb2065-fe47-4eb5-accc-1d9e38b5bfc3"
+          ]
+        },
+        "road_name": "392",
+        "road_number": "",
+        "direction": "northbound",
+        "beginning_cross_street": "5819 Highland Hills Cir",
+        "beginning_milepost": 1,
+        "ending_milepost": 3,
+        "beginning_accuracy": "estimated",
+        "ending_accuracy": "estimated",
+        "start_date": "2021-01-06T08:00:00Z",
+        "end_date": "2021-01-10T08:00:00Z",
+        "start_date_accuracy": "estimated",
+        "end_date_accuracy": "estimated",
+        "issuing_organization": "Neaera Consulting Group, LLC",
+        "update_date": "2020-12-10T19:00:09Z",
+        "creation_date": "2020-12-10T19:00:09Z",
+        "types_of_work": [
+          {
+            "types_of_work_id": "82700977-334b-46b8-b369-62d3456b7b72",
+            "road_event_id": "506485dd-0ad4-41aa-b345-1d64bbb7c120",
+            "type_name": "maintenance",
+            "is_architectural_change": false
+          }
+        ],
+        "total_num_lanes": 2,
+        "vehicle_impact": "some-lanes-closed",
+        "workers_present": true,
+        "reduced_speed_limit": 15,
+        "description": "11-2-2020_Internal",
+        "restrictions": [
+          "no-trucks",
+          "reduced-width"
+        ],
+        "lanes": [
+          {
+            "lane_id": "8bc604d9-9802-439c-89a3-e84f284c457c",
+            "road_event_id": "506485dd-0ad4-41aa-b345-1d64bbb7c120",
+            "order": 1,
+            "lane_number": 1,
+            "status": "open",
+            "type": "left-lane",
+            "restrictions": [
+              {
+                "lane_restriction_id": "3213a790-480d-474d-a4d1-44f8c0a56e03",
+                "lane_id": "8bc604d9-9802-439c-89a3-e84f284c457c",
+                "restriction_type": "no-trucks"
+              }
+            ]
+          },
+          {
+            "lane_id": "a88ab629-3726-425f-ab2a-44e8dd761a1c",
+            "road_event_id": "506485dd-0ad4-41aa-b345-1d64bbb7c120",
+            "order": 2,
+            "lane_number": 2,
+            "status": "merge-right",
+            "type": "right-lane",
+            "restrictions": [
+              {
+                "lane_restriction_id": "22154c98-0c74-4536-a22e-dcbe85ec87fc",
+                "lane_id": "a88ab629-3726-425f-ab2a-44e8dd761a1c",
+                "restriction_type": "reduced-width",
+                "restriction_value": 10.0,
+                "restriction_units": "feet"
+              }
+            ]
+          }
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -104.9819445,
+            40.4822653,
+            1492
+          ],
+          [
+            -104.9819878,
+            40.4823422,
+            1492
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_event_id": "a0cb2065-fe47-4eb5-accc-1d9e38b5bfc3",
+        "data_source_id": "f9077737-a20d-4d43-a210-f9e89d898082",
+        "event_type": "work-zone",
+        "relationship": {
+          "relationship_id": "51572aa0-62ff-402f-84e9-c189b6cad747",
+          "road_event_id": "a0cb2065-fe47-4eb5-accc-1d9e38b5bfc3",
+          "next": [
+            "eec35b4e-5d0c-41a4-9940-872edf931a19",
+            "577d941b-6b19-4c46-ac28-6996829e5b30",
+            "e11a0689-1fde-43d6-986a-6e5b3a3dd5aa",
+            "60b0e93a-6a0b-48f8-b8f4-03598aca7fa7",
+            "506485dd-0ad4-41aa-b345-1d64bbb7c120",
+            "a0cb2065-fe47-4eb5-accc-1d9e38b5bfc3"
+          ]
+        },
+        "road_name": "392",
+        "road_number": "",
+        "direction": "northbound",
+        "beginning_cross_street": "5819 Highland Hills Cir",
+        "beginning_milepost": 1,
+        "ending_milepost": 3,
+        "beginning_accuracy": "estimated",
+        "ending_accuracy": "estimated",
+        "start_date": "2021-01-06T08:00:00Z",
+        "end_date": "2021-01-10T08:00:00Z",
+        "start_date_accuracy": "estimated",
+        "end_date_accuracy": "estimated",
+        "issuing_organization": "Neaera Consulting Group, LLC",
+        "update_date": "2020-12-10T19:00:09Z",
+        "creation_date": "2020-12-10T19:00:09Z",
+        "types_of_work": [
+          {
+            "types_of_work_id": "80f0d9f3-8b90-43bd-a618-8349762243e2",
+            "road_event_id": "a0cb2065-fe47-4eb5-accc-1d9e38b5bfc3",
+            "type_name": "maintenance",
+            "is_architectural_change": false
+          }
+        ],
+        "total_num_lanes": 2,
+        "vehicle_impact": "some-lanes-closed",
+        "workers_present": false,
+        "reduced_speed_limit": 20,
+        "description": "11-2-2020_Internal",
+        "restrictions": [
+          "no-trucks",
+          "reduced-width"
+        ],
+        "lanes": [
+          {
+            "lane_id": "0c966401-d951-4963-9524-8558fd89afb6",
+            "road_event_id": "a0cb2065-fe47-4eb5-accc-1d9e38b5bfc3",
+            "order": 1,
+            "lane_number": 1,
+            "status": "open",
+            "type": "left-lane",
+            "restrictions": [
+              {
+                "lane_restriction_id": "9bd2342b-b314-456f-b015-bc4612877180",
+                "lane_id": "0c966401-d951-4963-9524-8558fd89afb6",
+                "restriction_type": "no-trucks"
+              }
+            ]
+          },
+          {
+            "lane_id": "70bd6bb5-1679-4840-9490-36f7ead515f3",
+            "road_event_id": "a0cb2065-fe47-4eb5-accc-1d9e38b5bfc3",
+            "order": 2,
+            "lane_number": 2,
+            "status": "merge-right",
+            "type": "right-lane",
+            "restrictions": [
+              {
+                "lane_restriction_id": "f4ff280b-ad43-441a-8a04-8e1b08f253c6",
+                "lane_id": "70bd6bb5-1679-4840-9490-36f7ead515f3",
+                "restriction_type": "reduced-width",
+                "restriction_value": 10.0,
+                "restriction_units": "feet"
+              }
+            ]
+          }
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -104.9819878,
+            40.4823422,
+            1492
+          ],
+          [
+            -104.9820288,
+            40.482432,
+            1492
+          ]
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,605 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5F2AE183-494D-4F91-971B-32C5956F18E9}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WZDCTool_Website</RootNamespace>
+    <AssemblyName>WZDCTool_Website</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44328</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Azure.Core, Version=1.17.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
+      <HintPath>..\packages\Azure.Core.1.17.0\lib\net461\Azure.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Azure.Core.Experimental, Version=0.1.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
+      <HintPath>..\packages\Azure.Core.Experimental.0.1.0-preview.14\lib\netstandard2.0\Azure.Core.Experimental.dll</HintPath>
+    </Reference>
+    <Reference Include="Azure.Identity, Version=1.4.1.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
+      <HintPath>..\packages\Azure.Identity.1.4.1\lib\netstandard2.0\Azure.Identity.dll</HintPath>
+    </Reference>
+    <Reference Include="Azure.Monitor.Query, Version=1.0.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
+      <HintPath>..\packages\Azure.Monitor.Query.1.0.0-beta.3\lib\netstandard2.0\Azure.Monitor.Query.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetZip, Version=1.15.0.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetZip.1.15.0\lib\net40\DotNetZip.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=1.3.2.10, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.1.3.2\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.18.0.315, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.18.0\lib\net46\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http, Version=2.2.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.2.2.2\lib\netstandard2.0\Microsoft.AspNetCore.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Features, Version=5.0.9.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Features.5.0.9\lib\net461\Microsoft.AspNetCore.Http.Features.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.WebUtilities, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.WebUtilities.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.WebUtilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.KeyVault.Core, Version=3.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.KeyVault.Core.3.0.5\lib\net461\Microsoft.Azure.KeyVault.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.ObjectPool, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.ObjectPool.2.2.0\lib\netstandard2.0\Microsoft.Extensions.ObjectPool.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=5.0.0.1, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.5.0.1\lib\net461\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Clients.ActiveDirectory, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Clients.ActiveDirectory.5.2.9\lib\net45\Microsoft.IdentityModel.Clients.ActiveDirectory.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=6.12.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.6.12.1\lib\net472\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=6.12.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.6.12.1\lib\net472\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Net.Http.Headers, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.Headers.2.2.0\lib\netstandard2.0\Microsoft.Net.Http.Headers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Rest.ClientRuntime, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Rest.ClientRuntime.2.3.23\lib\net461\Microsoft.Rest.ClientRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Rest.ClientRuntime.Azure.Authentication, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Rest.ClientRuntime.Azure.Authentication.2.4.1\lib\net461\Microsoft.Rest.ClientRuntime.Azure.Authentication.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=9.3.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAzure.Storage.9.3.3\lib\net45\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=106.12.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.12.0\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.5.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=5.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.5.0.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Pipelines, Version=5.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.5.0.1\lib\net461\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory.Data, Version=1.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.Data.1.0.2\lib\net461\System.Memory.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.1\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.1\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.2\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=5.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.5.0.1\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.5.0.2\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets_v2x\css\uswds.css" />
+    <Content Include="assets_v2x\css\uswds.min.css" />
+    <Content Include="assets_v2x\img\alerts\error.svg" />
+    <Content Include="assets_v2x\img\alerts\info.svg" />
+    <Content Include="assets_v2x\img\alerts\success.svg" />
+    <Content Include="assets_v2x\img\alerts\warning.svg" />
+    <Content Include="assets_v2x\img\favicons\favicon-114.png" />
+    <Content Include="assets_v2x\img\favicons\favicon-144.png" />
+    <Content Include="assets_v2x\img\favicons\favicon-16.png" />
+    <Content Include="assets_v2x\img\favicons\favicon-192.png" />
+    <Content Include="assets_v2x\img\favicons\favicon-40.png" />
+    <Content Include="assets_v2x\img\favicons\favicon-57.png" />
+    <Content Include="assets_v2x\img\favicons\favicon-72.png" />
+    <Content Include="assets_v2x\img\favicons\favicon.ico" />
+    <Content Include="assets_v2x\img\favicons\favicon.png" />
+    <Content Include="assets_v2x\img\social-icons\facebook25.png" />
+    <Content Include="assets_v2x\img\social-icons\facebook25.svg" />
+    <Content Include="assets_v2x\img\social-icons\rss25.png" />
+    <Content Include="assets_v2x\img\social-icons\rss25.svg" />
+    <Content Include="assets_v2x\img\social-icons\twitter16.png" />
+    <Content Include="assets_v2x\img\social-icons\twitter16.svg" />
+    <Content Include="assets_v2x\img\social-icons\youtube15.png" />
+    <Content Include="assets_v2x\img\social-icons\youtube15.svg" />
+    <Content Include="assets_v2x\js\jquery.timepicker.js" />
+    <Content Include="assets_v2x\js\jquery.timepicker.min.js" />
+    <Content Include="assets_v2x\js\uswds.js" />
+    <Content Include="assets_v2x\js\uswds.min.js" />
+    <Content Include="css\formdesign.css" />
+    <Content Include="css\jquery.fileupload-noscript.css" />
+    <Content Include="css\jquery.fileupload-ui-noscript.css" />
+    <Content Include="css\jquery.fileupload-ui.css" />
+    <Content Include="css\jquery.fileupload.css" />
+    <Content Include="css\jquery.timepicker.css" />
+    <Content Include="css\redesign_styles.css" />
+    <Content Include="css\styles.css" />
+    <Content Include="css\uswds.css" />
+    <Content Include="css\uswds.min.css" />
+    <Content Include="Icons\approachPoint.png" />
+    <Content Include="Icons\endDataLogPoint.png" />
+    <Content Include="Icons\lane1ClosedPoint.png" />
+    <Content Include="Icons\lane1ClosedPointO.png" />
+    <Content Include="Icons\lane1OpenPoint.png" />
+    <Content Include="Icons\lane2ClosedPoint.png" />
+    <Content Include="Icons\lane2ClosedPointO.png" />
+    <Content Include="Icons\lane2OpenPoint.png" />
+    <Content Include="Icons\lane3ClosedPoint.png" />
+    <Content Include="Icons\lane3ClosedPointO.png" />
+    <Content Include="Icons\lane3OpenPoint.png" />
+    <Content Include="Icons\lane4ClosedPoint.png" />
+    <Content Include="Icons\lane4ClosedPointO.png" />
+    <Content Include="Icons\lane4OpenPoint.png" />
+    <Content Include="Icons\lane5ClosedPointO.png" />
+    <Content Include="Icons\lane5OpenPoint.png" />
+    <Content Include="Icons\lane6ClosedPointO.png" />
+    <Content Include="Icons\lane6OpenPoint.png" />
+    <Content Include="Icons\lane7ClosedPointO.png" />
+    <Content Include="Icons\lane7OpenPoint.png" />
+    <Content Include="Icons\lane8ClosedPointO.png" />
+    <Content Include="Icons\lane8OpenPoint.png" />
+    <Content Include="Icons\laneClosedPoint.png" />
+    <Content Include="Icons\laneOpenPoint.png" />
+    <Content Include="Icons\Legends-RSZW5.png" />
+    <Content Include="Icons\Legends-RSZW6.png" />
+    <Content Include="Icons\Legends-RSZW8.png" />
+    <Content Include="Icons\orangeBarrelSmall1.png" />
+    <Content Include="Icons\pathEndPoint.png" />
+    <Content Include="Icons\pathStartPoint.png" />
+    <Content Include="Icons\refPoint3.png" />
+    <Content Include="Icons\refPoint3Green.png" />
+    <Content Include="Icons\refPoint3white.png" />
+    <Content Include="Icons\speed_limit_blank.jpg" />
+    <Content Include="Icons\speed_limit_main.jpg" />
+    <Content Include="Icons\speed_limit_wp.jpg" />
+    <Content Include="Icons\speed_limit_wz.jpg" />
+    <Content Include="Icons\startDataLogPoint.png" />
+    <Content Include="Icons\vehPath2.png" />
+    <Content Include="Icons\visualization_legend.png" />
+    <Content Include="Icons\wnpPoint.png" />
+    <Content Include="Icons\wpPoint.png" />
+    <Content Include="Icons\wpPointO.png" />
+    <Content Include="Icons\wzLaneOpen3.png" />
+    <Content Include="Icons\wzPoint2.png" />
+    <Content Include="Icons\wzWorkers4.png" />
+    <Content Include="Icons\WZ_MapVis3-1.png" />
+    <Content Include="Icons\WZ_MapVis3-2.png" />
+    <Content Include="Icons\WZ_MapVis3.png" />
+    <Content Include="js\configcreatorscripts.js" />
+    <Content Include="js\jquery.timepicker.js" />
+    <Content Include="js\jquery.timepicker.min.js" />
+    <Content Include="js\uswds.js" />
+    <Content Include="js\uswds.min.js" />
+    <Content Include="Map Visualizer\RSZW_MapVisualization_v5.js" />
+    <Content Include="Map Visualizer\RSZW_MAP_Data.js" />
+    <Content Include="ApplicationInsights.config" />
+    <None Include="Properties\PublishProfiles\wzdctool - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\wzdctool - Web Deploy1.pubxml" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Scripts\jquery-1.7-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.7.js" />
+    <Content Include="Scripts\jquery-1.7.min.js" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <Content Include="Scripts\jquery-ui-1.9.0.js" />
+    <Content Include="Scripts\jquery-ui-1.9.0.min.js" />
+    <Content Include="Scripts\jquery.datetimepicker.js" />
+    <Content Include="Scripts\jquery.timepicker.js" />
+    <Content Include="Scripts\jquery.timepicker.min.js" />
+    <Content Include="Unzipped Files\mapImage.png" />
+    <Content Include="V2X_ConfigCreator.aspx" />
+    <Content Include="V2x_Home.aspx" />
+    <Content Include="V2X_MapVisualizer.aspx" />
+    <Content Include="V2X_Logs.aspx" />
+    <Content Include="V2X_Published.aspx" />
+    <Content Include="V2X_Upload.aspx" />
+    <Content Include="V2X_Verification.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Code\cofigurationObject.cs" />
+    <Content Include="App_Code\configObj_json.cs" />
+    <Compile Include="App_Code\ErrorMessage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="V2X_ConfigCreator.aspx.cs">
+      <DependentUpon>V2X_ConfigCreator.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="V2X_ConfigCreator.aspx.designer.cs">
+      <DependentUpon>V2X_ConfigCreator.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="V2x_Home.aspx.cs">
+      <DependentUpon>V2x_Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="V2x_Home.aspx.designer.cs">
+      <DependentUpon>V2x_Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="V2X_MapVisualizer.aspx.cs">
+      <DependentUpon>V2X_MapVisualizer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="V2X_MapVisualizer.aspx.designer.cs">
+      <DependentUpon>V2X_MapVisualizer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="V2X_Logs.aspx.cs">
+      <DependentUpon>V2X_Logs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="V2X_Logs.aspx.designer.cs">
+      <DependentUpon>V2X_Logs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="V2X_Published.aspx.cs">
+      <DependentUpon>V2X_Published.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="V2X_Published.aspx.designer.cs">
+      <DependentUpon>V2X_Published.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="V2X_Upload.aspx.cs">
+      <DependentUpon>V2X_Upload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="V2X_Upload.aspx.designer.cs">
+      <DependentUpon>V2X_Upload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="V2X_Verification.aspx.cs">
+      <DependentUpon>V2X_Verification.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="V2X_Verification.aspx.designer.cs">
+      <DependentUpon>V2X_Verification.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets_v2x\css\uswds.min.css.map" />
+    <Content Include="assets_v2x\fonts\merriweather\Latin-Merriweather-Black.ttf" />
+    <Content Include="assets_v2x\fonts\merriweather\Latin-Merriweather-Black.woff" />
+    <Content Include="assets_v2x\fonts\merriweather\Latin-Merriweather-Black.woff2" />
+    <Content Include="assets_v2x\fonts\merriweather\Latin-Merriweather-BlackItalic.ttf" />
+    <Content Include="assets_v2x\fonts\merriweather\Latin-Merriweather-BlackItalic.woff" />
+    <Content Include="assets_v2x\fonts\merriweather\Latin-Merriweather-BlackItalic.woff2" />
+    <Content Include="assets_v2x\fonts\merriweather\Latin-Merriweather-Bold.ttf" />
+    <Content Include="assets_v2x\fonts\merriweather\Latin-Merriweather-Bold.woff" />
+    <Content Include="assets_v2x\fonts\merriweather\Latin-Merriweather-Bold.woff2" />
+    <Content Include="assets_v2x\fonts\merriweather\Latin-Merriweather-BoldItalic.ttf" />
+    <Content Include="assets_v2x\fonts\merriweather\Latin-Merriweather-BoldItalic.woff" />
+    <Content Include="assets_v2x\fonts\merriweather\Latin-Merriweather-BoldItalic.woff2" />
+    <Content Include="assets_v2x\fonts\merriweather\Latin-Merriweather-Italic.ttf" />
+    <Content Include="assets_v2x\fonts\merriweather\Latin-Merriweather-Italic.woff" />
+    <Content Include="assets_v2x\fonts\merriweather\Latin-Merriweather-Italic.woff2" />
+    <Content Include="assets_v2x\fonts\merriweather\Latin-Merriweather-Light.ttf" />
+    <Content Include="assets_v2x\fonts\merriweather\Latin-Merriweather-Light.woff" />
+    <Content Include="assets_v2x\fonts\merriweather\Latin-Merriweather-Light.woff2" />
+    <Content Include="assets_v2x\fonts\merriweather\Latin-Merriweather-LightItalic.ttf" />
+    <Content Include="assets_v2x\fonts\merriweather\Latin-Merriweather-LightItalic.woff" />
+    <Content Include="assets_v2x\fonts\merriweather\Latin-Merriweather-LightItalic.woff2" />
+    <Content Include="assets_v2x\fonts\merriweather\Latin-Merriweather-Regular.ttf" />
+    <Content Include="assets_v2x\fonts\merriweather\Latin-Merriweather-Regular.woff" />
+    <Content Include="assets_v2x\fonts\merriweather\Latin-Merriweather-Regular.woff2" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-Black.ttf" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-Black.woff" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-Black.woff2" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-BlackItalic.ttf" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-BlackItalic.woff" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-BlackItalic.woff2" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-Bold.ttf" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-Bold.woff" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-Bold.woff2" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-BoldItalic.ttf" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-BoldItalic.woff" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-BoldItalic.woff2" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-ExtraBold.ttf" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-ExtraBold.woff" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-ExtraBold.woff2" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-ExtraBoldItalic.ttf" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-ExtraBoldItalic.woff" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-ExtraBoldItalic.woff2" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-ExtraLight.ttf" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-ExtraLight.woff" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-ExtraLight.woff2" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-ExtraLightItalic.ttf" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-ExtraLightItalic.woff" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-ExtraLightItalic.woff2" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-Italic.ttf" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-Italic.woff" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-Italic.woff2" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-Light.ttf" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-Light.woff" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-Light.woff2" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-LightItalic.ttf" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-LightItalic.woff" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-LightItalic.woff2" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-Medium.ttf" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-Medium.woff" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-Medium.woff2" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-MediumItalic.ttf" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-MediumItalic.woff" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-MediumItalic.woff2" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-Regular.ttf" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-Regular.woff" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-Regular.woff2" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-SemiBold.ttf" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-SemiBold.woff" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-SemiBold.woff2" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-SemiBoldItalic.ttf" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-SemiBoldItalic.woff" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-SemiBoldItalic.woff2" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-Thin.ttf" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-Thin.woff" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-Thin.woff2" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-ThinItalic.ttf" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-ThinItalic.woff" />
+    <Content Include="assets_v2x\fonts\public-sans\PublicSans-ThinItalic.woff2" />
+    <Content Include="assets_v2x\fonts\roboto-mono\roboto-mono-v5-latin-100.ttf" />
+    <Content Include="assets_v2x\fonts\roboto-mono\roboto-mono-v5-latin-100.woff" />
+    <Content Include="assets_v2x\fonts\roboto-mono\roboto-mono-v5-latin-100.woff2" />
+    <Content Include="assets_v2x\fonts\roboto-mono\roboto-mono-v5-latin-100italic.ttf" />
+    <Content Include="assets_v2x\fonts\roboto-mono\roboto-mono-v5-latin-100italic.woff" />
+    <Content Include="assets_v2x\fonts\roboto-mono\roboto-mono-v5-latin-100italic.woff2" />
+    <Content Include="assets_v2x\fonts\roboto-mono\roboto-mono-v5-latin-300.ttf" />
+    <Content Include="assets_v2x\fonts\roboto-mono\roboto-mono-v5-latin-300.woff" />
+    <Content Include="assets_v2x\fonts\roboto-mono\roboto-mono-v5-latin-300.woff2" />
+    <Content Include="assets_v2x\fonts\roboto-mono\roboto-mono-v5-latin-300italic.ttf" />
+    <Content Include="assets_v2x\fonts\roboto-mono\roboto-mono-v5-latin-300italic.woff" />
+    <Content Include="assets_v2x\fonts\roboto-mono\roboto-mono-v5-latin-300italic.woff2" />
+    <Content Include="assets_v2x\fonts\roboto-mono\roboto-mono-v5-latin-500.ttf" />
+    <Content Include="assets_v2x\fonts\roboto-mono\roboto-mono-v5-latin-500.woff" />
+    <Content Include="assets_v2x\fonts\roboto-mono\roboto-mono-v5-latin-500.woff2" />
+    <Content Include="assets_v2x\fonts\roboto-mono\roboto-mono-v5-latin-500italic.ttf" />
+    <Content Include="assets_v2x\fonts\roboto-mono\roboto-mono-v5-latin-500italic.woff" />
+    <Content Include="assets_v2x\fonts\roboto-mono\roboto-mono-v5-latin-500italic.woff2" />
+    <Content Include="assets_v2x\fonts\roboto-mono\roboto-mono-v5-latin-700.ttf" />
+    <Content Include="assets_v2x\fonts\roboto-mono\roboto-mono-v5-latin-700.woff" />
+    <Content Include="assets_v2x\fonts\roboto-mono\roboto-mono-v5-latin-700.woff2" />
+    <Content Include="assets_v2x\fonts\roboto-mono\roboto-mono-v5-latin-700italic.ttf" />
+    <Content Include="assets_v2x\fonts\roboto-mono\roboto-mono-v5-latin-700italic.woff" />
+    <Content Include="assets_v2x\fonts\roboto-mono\roboto-mono-v5-latin-700italic.woff2" />
+    <Content Include="assets_v2x\fonts\roboto-mono\roboto-mono-v5-latin-italic.ttf" />
+    <Content Include="assets_v2x\fonts\roboto-mono\roboto-mono-v5-latin-italic.woff" />
+    <Content Include="assets_v2x\fonts\roboto-mono\roboto-mono-v5-latin-italic.woff2" />
+    <Content Include="assets_v2x\fonts\roboto-mono\roboto-mono-v5-latin-regular.ttf" />
+    <Content Include="assets_v2x\fonts\roboto-mono\roboto-mono-v5-latin-regular.woff" />
+    <Content Include="assets_v2x\fonts\roboto-mono\roboto-mono-v5-latin-regular.woff2" />
+    <Content Include="assets_v2x\fonts\source-sans-pro\sourcesanspro-black-webfont.ttf" />
+    <Content Include="assets_v2x\fonts\source-sans-pro\sourcesanspro-black-webfont.woff" />
+    <Content Include="assets_v2x\fonts\source-sans-pro\sourcesanspro-black-webfont.woff2" />
+    <Content Include="assets_v2x\fonts\source-sans-pro\sourcesanspro-blackitalic-webfont.ttf" />
+    <Content Include="assets_v2x\fonts\source-sans-pro\sourcesanspro-blackitalic-webfont.woff" />
+    <Content Include="assets_v2x\fonts\source-sans-pro\sourcesanspro-blackitalic-webfont.woff2" />
+    <Content Include="assets_v2x\fonts\source-sans-pro\sourcesanspro-bold-webfont.ttf" />
+    <Content Include="assets_v2x\fonts\source-sans-pro\sourcesanspro-bold-webfont.woff" />
+    <Content Include="assets_v2x\fonts\source-sans-pro\sourcesanspro-bold-webfont.woff2" />
+    <Content Include="assets_v2x\fonts\source-sans-pro\sourcesanspro-bolditalic-webfont.ttf" />
+    <Content Include="assets_v2x\fonts\source-sans-pro\sourcesanspro-bolditalic-webfont.woff" />
+    <Content Include="assets_v2x\fonts\source-sans-pro\sourcesanspro-bolditalic-webfont.woff2" />
+    <Content Include="assets_v2x\fonts\source-sans-pro\sourcesanspro-extralight-webfont.ttf" />
+    <Content Include="assets_v2x\fonts\source-sans-pro\sourcesanspro-extralight-webfont.woff" />
+    <Content Include="assets_v2x\fonts\source-sans-pro\sourcesanspro-extralight-webfont.woff2" />
+    <Content Include="assets_v2x\fonts\source-sans-pro\sourcesanspro-extralightitalic-webfont.ttf" />
+    <Content Include="assets_v2x\fonts\source-sans-pro\sourcesanspro-extralightitalic-webfont.woff" />
+    <Content Include="assets_v2x\fonts\source-sans-pro\sourcesanspro-extralightitalic-webfont.woff2" />
+    <Content Include="assets_v2x\fonts\source-sans-pro\sourcesanspro-italic-webfont.ttf" />
+    <Content Include="assets_v2x\fonts\source-sans-pro\sourcesanspro-italic-webfont.woff" />
+    <Content Include="assets_v2x\fonts\source-sans-pro\sourcesanspro-italic-webfont.woff2" />
+    <Content Include="assets_v2x\fonts\source-sans-pro\sourcesanspro-light-webfont.ttf" />
+    <Content Include="assets_v2x\fonts\source-sans-pro\sourcesanspro-light-webfont.woff" />
+    <Content Include="assets_v2x\fonts\source-sans-pro\sourcesanspro-light-webfont.woff2" />
+    <Content Include="assets_v2x\fonts\source-sans-pro\sourcesanspro-lightitalic-webfont.ttf" />
+    <Content Include="assets_v2x\fonts\source-sans-pro\sourcesanspro-lightitalic-webfont.woff" />
+    <Content Include="assets_v2x\fonts\source-sans-pro\sourcesanspro-lightitalic-webfont.woff2" />
+    <Content Include="assets_v2x\fonts\source-sans-pro\sourcesanspro-regular-webfont.ttf" />
+    <Content Include="assets_v2x\fonts\source-sans-pro\sourcesanspro-regular-webfont.woff" />
+    <Content Include="assets_v2x\fonts\source-sans-pro\sourcesanspro-regular-webfont.woff2" />
+    <Content Include="assets_v2x\fonts\source-sans-pro\sourcesanspro-semibold-webfont.ttf" />
+    <Content Include="assets_v2x\fonts\source-sans-pro\sourcesanspro-semibold-webfont.woff" />
+    <Content Include="assets_v2x\fonts\source-sans-pro\sourcesanspro-semibold-webfont.woff2" />
+    <Content Include="assets_v2x\fonts\source-sans-pro\sourcesanspro-semibolditalic-webfont.ttf" />
+    <Content Include="assets_v2x\fonts\source-sans-pro\sourcesanspro-semibolditalic-webfont.woff" />
+    <Content Include="assets_v2x\fonts\source-sans-pro\sourcesanspro-semibolditalic-webfont.woff2" />
+    <Content Include="assets_v2x\js\uswds.min.js.map" />
+    <Content Include="Map Visualizer\Icon List for Visualizer.xlsx" />
+    <Content Include="Icons\icons.pptx" />
+    <Content Include="js\uswds.min.js.map" />
+    <Content Include="css\styles.css.map" />
+    <Content Include="css\uswds.min.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Unzipped Files\config.json" />
+    <Content Include="Unzipped Files\data.csv" />
+    <Content Include="Unzipped Files\wzdx.geojson" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55494</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44328/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

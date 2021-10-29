@@ -1,0 +1,11 @@
+language: csharp
+
+install:
+  
+branches:
+    only:
+        - master
+        - develop
+addons:
+    sonarcloud:
+        organization: "v2xmanualdatacollection"

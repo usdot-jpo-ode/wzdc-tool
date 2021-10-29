@@ -1,0 +1,904 @@
+{
+  "road_event_feed_info": {
+    "feed_info_id": "1165fb22-0da0-49d0-9447-dea9f35f6eba",
+    "update_date": "2020-09-30T16:07:50Z",
+    "publisher": "POC Integrated Work Zone Mapping Toolset",
+    "contact_name": "Tony English",
+    "contact_email": "tony@neaeraconsulting.com",
+    "version": "3.0",
+    "data_sources": [
+      {
+        "data_source_id": "b7ca7603-abf9-4703-b1da-f2065e3426e5",
+        "feed_info_id": "1165fb22-0da0-49d0-9447-dea9f35f6eba",
+        "organization_name": "Neaera Consulting",
+        "contact_name": "test name",
+        "contact_email": "test@gmail.com",
+        "update_date": "2020-09-30T16:07:50Z",
+        "location_verify_method": "GPS equipment accurate to 1 m",
+        "location_method": "channel-device-method",
+        "lrs_type": "interlopative",
+        "lrs_url": "basic url"
+      }
+    ]
+  },
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "road_event_id": "5d642f7b-8c87-44c8-8c11-0db24de1b6bf",
+        "data_source_id": "b7ca7603-abf9-4703-b1da-f2065e3426e5",
+        "event_type": "work-zone",
+        "relationship": {
+          "relationship_id": "65f52e88-72d0-4927-96c9-9afc1cff4138",
+          "road_event_id": "5d642f7b-8c87-44c8-8c11-0db24de1b6bf",
+          "first": [
+            "5d642f7b-8c87-44c8-8c11-0db24de1b6bf",
+            "380c9c88-55b0-478f-9f40-48d97f59efc8",
+            "8373f28c-88e2-49d7-aaba-91771f379c58",
+            "ba05fd54-14eb-4e13-8907-7d3c66a105c9",
+            "99be087f-162b-4664-aaed-0ccf6615ecff",
+            "41afe4ec-544a-49c8-8b4f-3af64a284803",
+            "ad6f5666-8858-44b7-a979-518775599db4"
+          ]
+        },
+        "road_name": "White Rock Cir",
+        "road_number": "",
+        "direction": "southbound",
+        "beginning_cross_street": "Habitat Dr",
+        "ending_cross_street": "Spine Rd",
+        "beginning_milepost": 1,
+        "ending_milepost": 2,
+        "beginning_accuracy": "estimated",
+        "ending_accuracy": "estimated",
+        "start_date": "2020-06-06T00:00:00Z",
+        "end_date": "2020-06-15T23:48:00Z",
+        "start_date_accuracy": "estimated",
+        "end_date_accuracy": "estimated",
+        "event_status": "planned",
+        "issuing_organization": "Neaera Consulting",
+        "update_date": "2020-09-30T16:07:45Z",
+        "creation_date": "2020-09-30T16:07:45Z",
+        "types_of_work": [
+          {
+            "types_of_work_id": "1b3e3539-f451-437d-a431-ebea541125e1",
+            "road_event_id": "5d642f7b-8c87-44c8-8c11-0db24de1b6bf",
+            "type_name": "maintenance",
+            "is_architectural_change": false
+          }
+        ],
+        "total_num_lanes": 3,
+        "vehicle_impact": "all-lanes-open",
+        "workers_present": false,
+        "reduced_speed_limit": 20,
+        "description": "sample work zone",
+        "restrictions": [
+          "hov-3",
+          "reduced-height",
+          "reduced-weight"
+        ],
+        "lanes": [
+          {
+            "lane_id": "331dc215-c916-4421-b6a0-5dc38d43d9d5",
+            "road_event_id": "5d642f7b-8c87-44c8-8c11-0db24de1b6bf",
+            "order": 1,
+            "lane_number": 1,
+            "status": "open",
+            "type": "left-lane",
+            "restrictions": [
+              {
+                "lane_restriction_id": "b98050de-1347-40a7-a69a-e5ec7068793b",
+                "lane_id": "331dc215-c916-4421-b6a0-5dc38d43d9d5",
+                "restriction_type": "hov-3"
+              },
+              {
+                "lane_restriction_id": "7f3c30be-6956-428f-930d-c8a02028e559",
+                "lane_id": "331dc215-c916-4421-b6a0-5dc38d43d9d5",
+                "restriction_type": "reduced-height",
+                "restriction_value": 12.0,
+                "restriction_units": "feet"
+              }
+            ]
+          },
+          {
+            "lane_id": "c87441df-f054-40e7-b74e-c5bfbfa5d6db",
+            "road_event_id": "5d642f7b-8c87-44c8-8c11-0db24de1b6bf",
+            "order": 2,
+            "lane_number": 2,
+            "status": "open",
+            "type": "middle-lane",
+            "restrictions": [
+              {
+                "lane_restriction_id": "b57fe2c9-64f8-4b3e-94bc-a55c2d4bcb5f",
+                "lane_id": "c87441df-f054-40e7-b74e-c5bfbfa5d6db",
+                "restriction_type": "reduced-weight",
+                "restriction_value": 50.0,
+                "restriction_units": "tons"
+              }
+            ]
+          },
+          {
+            "lane_id": "b28ee094-52b9-4fd1-b55d-3c229ed22c1a",
+            "road_event_id": "5d642f7b-8c87-44c8-8c11-0db24de1b6bf",
+            "order": 3,
+            "lane_number": 3,
+            "status": "open",
+            "type": "right-lane",
+            "restrictions": []
+          }
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -105.2116795,
+            40.06101,
+            1589
+          ],
+          [
+            -105.2117175,
+            40.0609073,
+            1589
+          ],
+          [
+            -105.2117593,
+            40.0604095,
+            1589
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_event_id": "380c9c88-55b0-478f-9f40-48d97f59efc8",
+        "data_source_id": "b7ca7603-abf9-4703-b1da-f2065e3426e5",
+        "event_type": "work-zone",
+        "relationship": {
+          "relationship_id": "91ffd301-9453-4f89-b318-d488a8066868",
+          "road_event_id": "380c9c88-55b0-478f-9f40-48d97f59efc8",
+          "next": [
+            "5d642f7b-8c87-44c8-8c11-0db24de1b6bf",
+            "380c9c88-55b0-478f-9f40-48d97f59efc8",
+            "8373f28c-88e2-49d7-aaba-91771f379c58",
+            "ba05fd54-14eb-4e13-8907-7d3c66a105c9",
+            "99be087f-162b-4664-aaed-0ccf6615ecff",
+            "41afe4ec-544a-49c8-8b4f-3af64a284803",
+            "ad6f5666-8858-44b7-a979-518775599db4"
+          ]
+        },
+        "road_name": "White Rock Cir",
+        "road_number": "",
+        "direction": "southbound",
+        "beginning_cross_street": "Habitat Dr",
+        "ending_cross_street": "Spine Rd",
+        "beginning_milepost": 1,
+        "ending_milepost": 2,
+        "beginning_accuracy": "estimated",
+        "ending_accuracy": "estimated",
+        "start_date": "2020-06-06T00:00:00Z",
+        "end_date": "2020-06-15T23:48:00Z",
+        "start_date_accuracy": "estimated",
+        "end_date_accuracy": "estimated",
+        "event_status": "planned",
+        "issuing_organization": "Neaera Consulting",
+        "update_date": "2020-09-30T16:07:45Z",
+        "creation_date": "2020-09-30T16:07:45Z",
+        "types_of_work": [
+          {
+            "types_of_work_id": "f82ad581-34a7-4566-8f0b-522f12c9079c",
+            "road_event_id": "380c9c88-55b0-478f-9f40-48d97f59efc8",
+            "type_name": "maintenance",
+            "is_architectural_change": false
+          }
+        ],
+        "total_num_lanes": 3,
+        "vehicle_impact": "some-lanes-closed",
+        "workers_present": false,
+        "reduced_speed_limit": 20,
+        "description": "sample work zone",
+        "restrictions": [
+          "hov-3",
+          "reduced-height",
+          "reduced-weight"
+        ],
+        "lanes": [
+          {
+            "lane_id": "a3eeb34a-3039-4693-ae45-dcba3596b4f7",
+            "road_event_id": "380c9c88-55b0-478f-9f40-48d97f59efc8",
+            "order": 1,
+            "lane_number": 1,
+            "status": "merge-right",
+            "type": "left-lane",
+            "restrictions": [
+              {
+                "lane_restriction_id": "10d081d9-e5a2-439a-90c4-d58449eabe47",
+                "lane_id": "a3eeb34a-3039-4693-ae45-dcba3596b4f7",
+                "restriction_type": "hov-3"
+              },
+              {
+                "lane_restriction_id": "c98ffc23-9c6d-4359-a524-be7fae6fc2a0",
+                "lane_id": "a3eeb34a-3039-4693-ae45-dcba3596b4f7",
+                "restriction_type": "reduced-height",
+                "restriction_value": 12.0,
+                "restriction_units": "feet"
+              }
+            ]
+          },
+          {
+            "lane_id": "143c2222-0628-4dc4-a5d1-ea06e2fa4ef1",
+            "road_event_id": "380c9c88-55b0-478f-9f40-48d97f59efc8",
+            "order": 2,
+            "lane_number": 2,
+            "status": "open",
+            "type": "middle-lane",
+            "restrictions": [
+              {
+                "lane_restriction_id": "96cb112d-1ad9-4544-89ba-d6afa616941f",
+                "lane_id": "143c2222-0628-4dc4-a5d1-ea06e2fa4ef1",
+                "restriction_type": "reduced-weight",
+                "restriction_value": 50.0,
+                "restriction_units": "tons"
+              }
+            ]
+          },
+          {
+            "lane_id": "d6c9cf76-94cb-4c05-a13c-1c729b4a56df",
+            "road_event_id": "380c9c88-55b0-478f-9f40-48d97f59efc8",
+            "order": 3,
+            "lane_number": 3,
+            "status": "open",
+            "type": "right-lane",
+            "restrictions": []
+          }
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -105.2117593,
+            40.0604095,
+            1589
+          ],
+          [
+            -105.2118648,
+            40.0601166,
+            1589
+          ],
+          [
+            -105.2118823,
+            40.060086,
+            1589
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_event_id": "8373f28c-88e2-49d7-aaba-91771f379c58",
+        "data_source_id": "b7ca7603-abf9-4703-b1da-f2065e3426e5",
+        "event_type": "work-zone",
+        "relationship": {
+          "relationship_id": "a881ef94-7b70-46c2-bb1d-9d9c2bf9dd37",
+          "road_event_id": "8373f28c-88e2-49d7-aaba-91771f379c58",
+          "next": [
+            "5d642f7b-8c87-44c8-8c11-0db24de1b6bf",
+            "380c9c88-55b0-478f-9f40-48d97f59efc8",
+            "8373f28c-88e2-49d7-aaba-91771f379c58",
+            "ba05fd54-14eb-4e13-8907-7d3c66a105c9",
+            "99be087f-162b-4664-aaed-0ccf6615ecff",
+            "41afe4ec-544a-49c8-8b4f-3af64a284803",
+            "ad6f5666-8858-44b7-a979-518775599db4"
+          ]
+        },
+        "road_name": "White Rock Cir",
+        "road_number": "",
+        "direction": "southbound",
+        "beginning_cross_street": "Habitat Dr",
+        "ending_cross_street": "Spine Rd",
+        "beginning_milepost": 1,
+        "ending_milepost": 2,
+        "beginning_accuracy": "estimated",
+        "ending_accuracy": "estimated",
+        "start_date": "2020-06-06T00:00:00Z",
+        "end_date": "2020-06-15T23:48:00Z",
+        "start_date_accuracy": "estimated",
+        "end_date_accuracy": "estimated",
+        "event_status": "planned",
+        "issuing_organization": "Neaera Consulting",
+        "update_date": "2020-09-30T16:07:45Z",
+        "creation_date": "2020-09-30T16:07:45Z",
+        "types_of_work": [
+          {
+            "types_of_work_id": "9f9b2b5b-2a6b-46ae-8ba2-d340bb7dd060",
+            "road_event_id": "8373f28c-88e2-49d7-aaba-91771f379c58",
+            "type_name": "maintenance",
+            "is_architectural_change": false
+          }
+        ],
+        "total_num_lanes": 3,
+        "vehicle_impact": "some-lanes-closed",
+        "workers_present": false,
+        "reduced_speed_limit": 20,
+        "description": "sample work zone",
+        "restrictions": [
+          "hov-3",
+          "reduced-height",
+          "reduced-weight"
+        ],
+        "lanes": [
+          {
+            "lane_id": "984212b3-8d34-4261-9c12-a0953a3e92ca",
+            "road_event_id": "8373f28c-88e2-49d7-aaba-91771f379c58",
+            "order": 1,
+            "lane_number": 1,
+            "status": "closed",
+            "type": "left-lane",
+            "restrictions": [
+              {
+                "lane_restriction_id": "400ca909-64d0-4644-b675-29943a536b5b",
+                "lane_id": "984212b3-8d34-4261-9c12-a0953a3e92ca",
+                "restriction_type": "hov-3"
+              },
+              {
+                "lane_restriction_id": "d1fc06d5-767c-42f2-ae9e-723b4db42f78",
+                "lane_id": "984212b3-8d34-4261-9c12-a0953a3e92ca",
+                "restriction_type": "reduced-height",
+                "restriction_value": 12.0,
+                "restriction_units": "feet"
+              }
+            ]
+          },
+          {
+            "lane_id": "bd83dca9-de5b-4b67-bd62-10ac786ba56d",
+            "road_event_id": "8373f28c-88e2-49d7-aaba-91771f379c58",
+            "order": 2,
+            "lane_number": 2,
+            "status": "open",
+            "type": "middle-lane",
+            "restrictions": [
+              {
+                "lane_restriction_id": "6f3901f0-8b17-496f-bc31-a07525f1a90d",
+                "lane_id": "bd83dca9-de5b-4b67-bd62-10ac786ba56d",
+                "restriction_type": "reduced-weight",
+                "restriction_value": 50.0,
+                "restriction_units": "tons"
+              }
+            ]
+          },
+          {
+            "lane_id": "654d7fb4-4257-4554-b816-12011caa5117",
+            "road_event_id": "8373f28c-88e2-49d7-aaba-91771f379c58",
+            "order": 3,
+            "lane_number": 3,
+            "status": "open",
+            "type": "right-lane",
+            "restrictions": []
+          }
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -105.2118823,
+            40.060086,
+            1589
+          ],
+          [
+            -105.2119048,
+            40.0600496,
+            1589
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_event_id": "ba05fd54-14eb-4e13-8907-7d3c66a105c9",
+        "data_source_id": "b7ca7603-abf9-4703-b1da-f2065e3426e5",
+        "event_type": "work-zone",
+        "relationship": {
+          "relationship_id": "f9150300-495d-4ba8-be82-73caa3e5e341",
+          "road_event_id": "ba05fd54-14eb-4e13-8907-7d3c66a105c9",
+          "next": [
+            "5d642f7b-8c87-44c8-8c11-0db24de1b6bf",
+            "380c9c88-55b0-478f-9f40-48d97f59efc8",
+            "8373f28c-88e2-49d7-aaba-91771f379c58",
+            "ba05fd54-14eb-4e13-8907-7d3c66a105c9",
+            "99be087f-162b-4664-aaed-0ccf6615ecff",
+            "41afe4ec-544a-49c8-8b4f-3af64a284803",
+            "ad6f5666-8858-44b7-a979-518775599db4"
+          ]
+        },
+        "road_name": "White Rock Cir",
+        "road_number": "",
+        "direction": "southbound",
+        "beginning_cross_street": "Habitat Dr",
+        "ending_cross_street": "Spine Rd",
+        "beginning_milepost": 1,
+        "ending_milepost": 2,
+        "beginning_accuracy": "estimated",
+        "ending_accuracy": "estimated",
+        "start_date": "2020-06-06T00:00:00Z",
+        "end_date": "2020-06-15T23:48:00Z",
+        "start_date_accuracy": "estimated",
+        "end_date_accuracy": "estimated",
+        "event_status": "planned",
+        "issuing_organization": "Neaera Consulting",
+        "update_date": "2020-09-30T16:07:45Z",
+        "creation_date": "2020-09-30T16:07:45Z",
+        "types_of_work": [
+          {
+            "types_of_work_id": "54b8077d-485f-4c68-9dac-5104ea94494d",
+            "road_event_id": "ba05fd54-14eb-4e13-8907-7d3c66a105c9",
+            "type_name": "maintenance",
+            "is_architectural_change": false
+          }
+        ],
+        "total_num_lanes": 3,
+        "vehicle_impact": "some-lanes-closed",
+        "workers_present": true,
+        "reduced_speed_limit": 15,
+        "description": "sample work zone",
+        "restrictions": [
+          "hov-3",
+          "reduced-height",
+          "reduced-weight"
+        ],
+        "lanes": [
+          {
+            "lane_id": "2406e698-69cd-48a9-98d9-b736223d45cf",
+            "road_event_id": "ba05fd54-14eb-4e13-8907-7d3c66a105c9",
+            "order": 1,
+            "lane_number": 1,
+            "status": "closed",
+            "type": "left-lane",
+            "restrictions": [
+              {
+                "lane_restriction_id": "be96d1c1-b601-4372-849d-b9b2e92dd4f4",
+                "lane_id": "2406e698-69cd-48a9-98d9-b736223d45cf",
+                "restriction_type": "hov-3"
+              },
+              {
+                "lane_restriction_id": "91af1d90-8372-4af6-b4c0-ca385cd05cb7",
+                "lane_id": "2406e698-69cd-48a9-98d9-b736223d45cf",
+                "restriction_type": "reduced-height",
+                "restriction_value": 12.0,
+                "restriction_units": "feet"
+              }
+            ]
+          },
+          {
+            "lane_id": "eed9cc2f-ebbe-4684-93af-b76839ef2423",
+            "road_event_id": "ba05fd54-14eb-4e13-8907-7d3c66a105c9",
+            "order": 2,
+            "lane_number": 2,
+            "status": "open",
+            "type": "middle-lane",
+            "restrictions": [
+              {
+                "lane_restriction_id": "8ab25ff0-774f-4e2a-ab26-f6aa27b75691",
+                "lane_id": "eed9cc2f-ebbe-4684-93af-b76839ef2423",
+                "restriction_type": "reduced-weight",
+                "restriction_value": 50.0,
+                "restriction_units": "tons"
+              }
+            ]
+          },
+          {
+            "lane_id": "c10b3c03-72c4-4e42-a879-5d22610116d6",
+            "road_event_id": "ba05fd54-14eb-4e13-8907-7d3c66a105c9",
+            "order": 3,
+            "lane_number": 3,
+            "status": "open",
+            "type": "right-lane",
+            "restrictions": []
+          }
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -105.2119048,
+            40.0600496,
+            1589
+          ],
+          [
+            -105.2121268,
+            40.0597813,
+            1589
+          ],
+          [
+            -105.2124001,
+            40.0595783,
+            1589
+          ],
+          [
+            -105.2127816,
+            40.0593936,
+            1589
+          ],
+          [
+            -105.2128818,
+            40.0593565,
+            1589
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_event_id": "99be087f-162b-4664-aaed-0ccf6615ecff",
+        "data_source_id": "b7ca7603-abf9-4703-b1da-f2065e3426e5",
+        "event_type": "work-zone",
+        "relationship": {
+          "relationship_id": "f70dc5bf-4f74-45d4-9eeb-880c037dad9d",
+          "road_event_id": "99be087f-162b-4664-aaed-0ccf6615ecff",
+          "next": [
+            "5d642f7b-8c87-44c8-8c11-0db24de1b6bf",
+            "380c9c88-55b0-478f-9f40-48d97f59efc8",
+            "8373f28c-88e2-49d7-aaba-91771f379c58",
+            "ba05fd54-14eb-4e13-8907-7d3c66a105c9",
+            "99be087f-162b-4664-aaed-0ccf6615ecff",
+            "41afe4ec-544a-49c8-8b4f-3af64a284803",
+            "ad6f5666-8858-44b7-a979-518775599db4"
+          ]
+        },
+        "road_name": "White Rock Cir",
+        "road_number": "",
+        "direction": "southbound",
+        "beginning_cross_street": "Habitat Dr",
+        "ending_cross_street": "Spine Rd",
+        "beginning_milepost": 1,
+        "ending_milepost": 2,
+        "beginning_accuracy": "estimated",
+        "ending_accuracy": "estimated",
+        "start_date": "2020-06-06T00:00:00Z",
+        "end_date": "2020-06-15T23:48:00Z",
+        "start_date_accuracy": "estimated",
+        "end_date_accuracy": "estimated",
+        "event_status": "planned",
+        "issuing_organization": "Neaera Consulting",
+        "update_date": "2020-09-30T16:07:45Z",
+        "creation_date": "2020-09-30T16:07:45Z",
+        "types_of_work": [
+          {
+            "types_of_work_id": "7d594083-3613-4de0-810c-99fabf3aeabf",
+            "road_event_id": "99be087f-162b-4664-aaed-0ccf6615ecff",
+            "type_name": "maintenance",
+            "is_architectural_change": false
+          }
+        ],
+        "total_num_lanes": 3,
+        "vehicle_impact": "some-lanes-closed",
+        "workers_present": false,
+        "reduced_speed_limit": 20,
+        "description": "sample work zone",
+        "restrictions": [
+          "hov-3",
+          "reduced-height",
+          "reduced-weight"
+        ],
+        "lanes": [
+          {
+            "lane_id": "cbe3bf35-a909-4456-a656-5df0c707b840",
+            "road_event_id": "99be087f-162b-4664-aaed-0ccf6615ecff",
+            "order": 1,
+            "lane_number": 1,
+            "status": "closed",
+            "type": "left-lane",
+            "restrictions": [
+              {
+                "lane_restriction_id": "4720b13f-d912-4014-a1a9-ff877ce3c91f",
+                "lane_id": "cbe3bf35-a909-4456-a656-5df0c707b840",
+                "restriction_type": "hov-3"
+              },
+              {
+                "lane_restriction_id": "c9ed3d4d-c67f-4ba6-a58c-cba8794948b0",
+                "lane_id": "cbe3bf35-a909-4456-a656-5df0c707b840",
+                "restriction_type": "reduced-height",
+                "restriction_value": 12.0,
+                "restriction_units": "feet"
+              }
+            ]
+          },
+          {
+            "lane_id": "89dbed72-e046-4f68-aab0-9750e831dedc",
+            "road_event_id": "99be087f-162b-4664-aaed-0ccf6615ecff",
+            "order": 2,
+            "lane_number": 2,
+            "status": "open",
+            "type": "middle-lane",
+            "restrictions": [
+              {
+                "lane_restriction_id": "3a36ffff-0a95-425f-b097-cc0eb60afddc",
+                "lane_id": "89dbed72-e046-4f68-aab0-9750e831dedc",
+                "restriction_type": "reduced-weight",
+                "restriction_value": 50.0,
+                "restriction_units": "tons"
+              }
+            ]
+          },
+          {
+            "lane_id": "f313814b-16b4-40ca-b227-ed4f2d1321cc",
+            "road_event_id": "99be087f-162b-4664-aaed-0ccf6615ecff",
+            "order": 3,
+            "lane_number": 3,
+            "status": "open",
+            "type": "right-lane",
+            "restrictions": []
+          }
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -105.2128818,
+            40.0593565,
+            1589
+          ],
+          [
+            -105.2133256,
+            40.0592478,
+            1590
+          ],
+          [
+            -105.2134273,
+            40.059232,
+            1590
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_event_id": "41afe4ec-544a-49c8-8b4f-3af64a284803",
+        "data_source_id": "b7ca7603-abf9-4703-b1da-f2065e3426e5",
+        "event_type": "work-zone",
+        "relationship": {
+          "relationship_id": "0bb4363d-f771-4e24-be20-965efaeee70c",
+          "road_event_id": "41afe4ec-544a-49c8-8b4f-3af64a284803",
+          "next": [
+            "5d642f7b-8c87-44c8-8c11-0db24de1b6bf",
+            "380c9c88-55b0-478f-9f40-48d97f59efc8",
+            "8373f28c-88e2-49d7-aaba-91771f379c58",
+            "ba05fd54-14eb-4e13-8907-7d3c66a105c9",
+            "99be087f-162b-4664-aaed-0ccf6615ecff",
+            "41afe4ec-544a-49c8-8b4f-3af64a284803",
+            "ad6f5666-8858-44b7-a979-518775599db4"
+          ]
+        },
+        "road_name": "White Rock Cir",
+        "road_number": "",
+        "direction": "southbound",
+        "beginning_cross_street": "Habitat Dr",
+        "ending_cross_street": "Spine Rd",
+        "beginning_milepost": 1,
+        "ending_milepost": 2,
+        "beginning_accuracy": "estimated",
+        "ending_accuracy": "estimated",
+        "start_date": "2020-06-06T00:00:00Z",
+        "end_date": "2020-06-15T23:48:00Z",
+        "start_date_accuracy": "estimated",
+        "end_date_accuracy": "estimated",
+        "event_status": "planned",
+        "issuing_organization": "Neaera Consulting",
+        "update_date": "2020-09-30T16:07:45Z",
+        "creation_date": "2020-09-30T16:07:45Z",
+        "types_of_work": [
+          {
+            "types_of_work_id": "ff7f885f-4373-451e-9eae-d7ad525936a0",
+            "road_event_id": "41afe4ec-544a-49c8-8b4f-3af64a284803",
+            "type_name": "maintenance",
+            "is_architectural_change": false
+          }
+        ],
+        "total_num_lanes": 3,
+        "vehicle_impact": "some-lanes-closed",
+        "workers_present": false,
+        "reduced_speed_limit": 20,
+        "description": "sample work zone",
+        "restrictions": [
+          "hov-3",
+          "reduced-height",
+          "reduced-weight"
+        ],
+        "lanes": [
+          {
+            "lane_id": "b6a91a53-5297-4c60-8f4d-aeb5486e949c",
+            "road_event_id": "41afe4ec-544a-49c8-8b4f-3af64a284803",
+            "order": 1,
+            "lane_number": 1,
+            "status": "merge-left",
+            "type": "left-lane",
+            "restrictions": [
+              {
+                "lane_restriction_id": "36df4f50-a210-4947-8b20-ed2189e03b2a",
+                "lane_id": "b6a91a53-5297-4c60-8f4d-aeb5486e949c",
+                "restriction_type": "hov-3"
+              },
+              {
+                "lane_restriction_id": "de2395b5-e154-4176-856f-885a5d13de69",
+                "lane_id": "b6a91a53-5297-4c60-8f4d-aeb5486e949c",
+                "restriction_type": "reduced-height",
+                "restriction_value": 12.0,
+                "restriction_units": "feet"
+              }
+            ]
+          },
+          {
+            "lane_id": "23a0873d-b967-4c71-b1b4-2c9ac33ceadf",
+            "road_event_id": "41afe4ec-544a-49c8-8b4f-3af64a284803",
+            "order": 2,
+            "lane_number": 2,
+            "status": "open",
+            "type": "middle-lane",
+            "restrictions": [
+              {
+                "lane_restriction_id": "7f1f3d58-55c2-42dc-b7d8-fc38e5bd3c7b",
+                "lane_id": "23a0873d-b967-4c71-b1b4-2c9ac33ceadf",
+                "restriction_type": "reduced-weight",
+                "restriction_value": 50.0,
+                "restriction_units": "tons"
+              }
+            ]
+          },
+          {
+            "lane_id": "0dd91988-d726-4f31-b8c1-2ed80c0b0eae",
+            "road_event_id": "41afe4ec-544a-49c8-8b4f-3af64a284803",
+            "order": 3,
+            "lane_number": 3,
+            "status": "open",
+            "type": "right-lane",
+            "restrictions": []
+          }
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -105.2134273,
+            40.059232,
+            1590
+          ],
+          [
+            -105.2138748,
+            40.0592071,
+            1591
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_event_id": "ad6f5666-8858-44b7-a979-518775599db4",
+        "data_source_id": "b7ca7603-abf9-4703-b1da-f2065e3426e5",
+        "event_type": "work-zone",
+        "relationship": {
+          "relationship_id": "980cc800-812e-4a38-bbdb-0935fc626f8f",
+          "road_event_id": "ad6f5666-8858-44b7-a979-518775599db4",
+          "next": [
+            "5d642f7b-8c87-44c8-8c11-0db24de1b6bf",
+            "380c9c88-55b0-478f-9f40-48d97f59efc8",
+            "8373f28c-88e2-49d7-aaba-91771f379c58",
+            "ba05fd54-14eb-4e13-8907-7d3c66a105c9",
+            "99be087f-162b-4664-aaed-0ccf6615ecff",
+            "41afe4ec-544a-49c8-8b4f-3af64a284803",
+            "ad6f5666-8858-44b7-a979-518775599db4"
+          ]
+        },
+        "road_name": "White Rock Cir",
+        "road_number": "",
+        "direction": "southbound",
+        "beginning_cross_street": "Habitat Dr",
+        "ending_cross_street": "Spine Rd",
+        "beginning_milepost": 1,
+        "ending_milepost": 2,
+        "beginning_accuracy": "estimated",
+        "ending_accuracy": "estimated",
+        "start_date": "2020-06-06T00:00:00Z",
+        "end_date": "2020-06-15T23:48:00Z",
+        "start_date_accuracy": "estimated",
+        "end_date_accuracy": "estimated",
+        "event_status": "planned",
+        "issuing_organization": "Neaera Consulting",
+        "update_date": "2020-09-30T16:07:45Z",
+        "creation_date": "2020-09-30T16:07:45Z",
+        "types_of_work": [
+          {
+            "types_of_work_id": "ca6c717b-73c9-46e7-8bba-2328fec53686",
+            "road_event_id": "ad6f5666-8858-44b7-a979-518775599db4",
+            "type_name": "maintenance",
+            "is_architectural_change": false
+          }
+        ],
+        "total_num_lanes": 3,
+        "vehicle_impact": "all-lanes-open",
+        "workers_present": false,
+        "reduced_speed_limit": 20,
+        "description": "sample work zone",
+        "restrictions": [
+          "hov-3",
+          "reduced-height",
+          "reduced-weight"
+        ],
+        "lanes": [
+          {
+            "lane_id": "4a229c8a-f51c-41aa-97b3-13f5c6cefc56",
+            "road_event_id": "ad6f5666-8858-44b7-a979-518775599db4",
+            "order": 1,
+            "lane_number": 1,
+            "status": "open",
+            "type": "left-lane",
+            "restrictions": [
+              {
+                "lane_restriction_id": "1b513554-d240-4634-8172-04d40c1e7553",
+                "lane_id": "4a229c8a-f51c-41aa-97b3-13f5c6cefc56",
+                "restriction_type": "hov-3"
+              },
+              {
+                "lane_restriction_id": "e10aed6b-099a-41af-9ac4-5223113f4a5b",
+                "lane_id": "4a229c8a-f51c-41aa-97b3-13f5c6cefc56",
+                "restriction_type": "reduced-height",
+                "restriction_value": 12.0,
+                "restriction_units": "feet"
+              }
+            ]
+          },
+          {
+            "lane_id": "ceb634fd-e216-4128-82aa-d549f54006b4",
+            "road_event_id": "ad6f5666-8858-44b7-a979-518775599db4",
+            "order": 2,
+            "lane_number": 2,
+            "status": "open",
+            "type": "middle-lane",
+            "restrictions": [
+              {
+                "lane_restriction_id": "3e4834f2-07f4-4251-8c61-d3935811c196",
+                "lane_id": "ceb634fd-e216-4128-82aa-d549f54006b4",
+                "restriction_type": "reduced-weight",
+                "restriction_value": 50.0,
+                "restriction_units": "tons"
+              }
+            ]
+          },
+          {
+            "lane_id": "155622bd-b874-4908-82b9-0801ab1c5769",
+            "road_event_id": "ad6f5666-8858-44b7-a979-518775599db4",
+            "order": 3,
+            "lane_number": 3,
+            "status": "open",
+            "type": "right-lane",
+            "restrictions": []
+          }
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -105.2138748,
+            40.0592071,
+            1591
+          ],
+          [
+            -105.2157635,
+            40.059189,
+            1592
+          ]
+        ]
+      }
+    }
+  ]
+}

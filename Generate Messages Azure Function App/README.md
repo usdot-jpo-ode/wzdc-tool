@@ -1,0 +1,4 @@
+# Message Generation Azure Function
+This function app monitors the workzoneuploads container in the [wzdcstorage](https://portal.azure.com/#@alexanderfrye51gmail.onmicrosoft.com/resource/subscriptions/41be9a2e-4e5d-4c03-a6a1-3f5dc0b78768/resourcegroups/Workzone-Data-Collection-Tool/providers/Microsoft.Storage/storageAccounts/wzdcstorage/containersList) storage account. This monitoring is done through an event grid trigger, and filters for only CSV files. The message generation process is documented [here](https://dev.azure.com/leidos-cav/WZDC-Tool/_git/WZDC-Tool?path=%2FDocumentation%2FWZDC%20Tool%20Documentation%20Updates.pdf)
+
+[Azure Function App](https://portal.azure.com/#@alexanderfrye51gmail.onmicrosoft.com/resource/subscriptions/41be9a2e-4e5d-4c03-a6a1-3f5dc0b78768/resourceGroups/Workzone-Data-Collection-Tool/providers/Microsoft.Web/sites/wzdc-generate-messages/appServices)

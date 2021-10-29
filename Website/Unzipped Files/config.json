@@ -1,0 +1,131 @@
+{
+  "DateCreated": "6/11/2020",
+  "FeedInfoID": "7ea881b1-3ee1-40f5-ab29-00883b977144",
+  "GeneralInfo": {
+    "Description": "accuracy-test-3",
+    "RoadName": "Prairie Center Cir",
+    "RoadNumber": "",
+    "Direction": "eastbound",
+    "BeginningCrossStreet": "HR Ranch Road",
+    "EndingCrossStreet": "Laramie County Public Works",
+    "BeginningMilePost": 0,
+    "EndingMilePost": 0,
+    "EventStatus": "planned"
+  },
+  "TypesOfWork": [
+    {
+      "Is_Architectural_Change": false,
+      "WorkType": "maintenance"
+    }
+  ],
+  "LaneInfo": {
+    "NumberOfLanes": 2,
+    "AverageLaneWidth": 3.6,
+    "ApproachLanePadding": 0.0,
+    "WorkzoneLanePadding": 0.0,
+    "VehiclePathDataLane": 2,
+    "Lanes": [
+      {
+        "LaneNumber": 1,
+        "LaneType": "left-lane",
+        "LaneRestrictions": [
+          {
+            "RestrictionValue": null,
+            "RestrictionType": "no-trucks",
+            "RestrictionUnits": null
+          }
+        ]
+      },
+      {
+        "LaneNumber": 2,
+        "LaneType": "right-lane",
+        "LaneRestrictions": [
+          {
+            "RestrictionValue": null,
+            "RestrictionType": "towing-prohibited",
+            "RestrictionUnits": null
+          }
+        ]
+      }
+    ]
+  },
+  "SpeedLimits": {
+    "NormalSpeed": 25,
+    "ReferencePointSpeed": 20,
+    "WorkersPresentSpeed": 15
+  },
+  "CauseCodes": {
+    "CauseCode": 3,
+    "SubCauseCode": 0
+  },
+  "Schedule": {
+    "StartDate": "2020-06-15T06:00:00Z",
+    "StartDateAccuracy": "estimated",
+    "EndDate": "2020-06-20T11:59:00Z",
+    "EndDateAccuracy": "estimated",
+    "DaysOfWeek": [
+      "Mon",
+      "Tues",
+      "Wed",
+      "Thurs",
+      "Fri"
+    ]
+  },
+  "Location": {
+    "BeginningLocation": {
+      "Lat": 41.146949089427,
+      "Lon": -104.655958174084,
+      "Elev": null
+    },
+    "BeginningAccuracy": "estimated",
+    "EndingLocation": {
+      "Lat": 41.1504290591271,
+      "Lon": -104.644421993111,
+      "Elev": null
+    },
+    "EndingAccuracy": "estimated"
+  },
+  "metadata": {
+    "wz_location_method": "channel-device-method",
+    "lrs_type": "interpolative",
+    "location_verify_method": "GPS equipment accurate to 1 m",
+    "datafeed_frequency_update": "",
+    "timestamp_metadata_update": "2020-06-11T16:32:28Z",
+    "contact_name": "Jacob Frye",
+    "contact_email": "jfrye@neaeraconsulting.com",
+    "issuing_organization": "Neaera Consulting"
+  },
+  "ImageInfo": {
+    "Zoom": 21,
+    "Center": {
+      "Lat": 40.061127,
+      "Lon": -105.2083763,
+      "Elev": null
+    },
+    "Markers": [
+      {
+        "Name": "Start",
+        "Color": "Green",
+        "Location": {
+          "Lat": 40.0611284,
+          "Lon": -105.2083762,
+          "Elev": null
+        }
+      },
+      {
+        "Name": "End",
+        "Color": "Red",
+        "Location": {
+          "Lat": 40.0611256,
+          "Lon": -105.2083764,
+          "Elev": null
+        }
+      }
+    ],
+    "MapType": "roadmap",
+    "Height": 640,
+    "Width": 640,
+    "Format": "png",
+    "ImageString": "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"
+  }
+}

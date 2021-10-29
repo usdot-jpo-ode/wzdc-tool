@@ -1,0 +1,2754 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+    <assembly>
+        <name>Azure.Monitor.Query</name>
+    </assembly>
+    <members>
+        <member name="M:Azure.Monitor.Query.MetricDefinitionsRestClient.#ctor(Azure.Core.Pipeline.ClientDiagnostics,Azure.Core.Pipeline.HttpPipeline,System.Uri)">
+            <summary> Initializes a new instance of MetricDefinitionsRestClient. </summary>
+            <param name="clientDiagnostics"> The handler for diagnostic messaging in the client. </param>
+            <param name="pipeline"> The HTTP pipeline for sending and receiving REST requests and responses. </param>
+            <param name="endpoint"> server parameter. </param>
+        </member>
+        <member name="M:Azure.Monitor.Query.MetricDefinitionsRestClient.ListAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <summary> Lists the metric definitions for the resource. </summary>
+            <param name="resourceUri"> The identifier of the resource. </param>
+            <param name="metricnamespace"> Metric namespace to query metric definitions for. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="resourceUri" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Monitor.Query.MetricDefinitionsRestClient.List(System.String,System.String,System.Threading.CancellationToken)">
+            <summary> Lists the metric definitions for the resource. </summary>
+            <param name="resourceUri"> The identifier of the resource. </param>
+            <param name="metricnamespace"> Metric namespace to query metric definitions for. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="resourceUri" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Monitor.Query.MetricNamespacesRestClient.#ctor(Azure.Core.Pipeline.ClientDiagnostics,Azure.Core.Pipeline.HttpPipeline,System.Uri)">
+            <summary> Initializes a new instance of MetricNamespacesRestClient. </summary>
+            <param name="clientDiagnostics"> The handler for diagnostic messaging in the client. </param>
+            <param name="pipeline"> The HTTP pipeline for sending and receiving REST requests and responses. </param>
+            <param name="endpoint"> server parameter. </param>
+        </member>
+        <member name="M:Azure.Monitor.Query.MetricNamespacesRestClient.ListAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <summary> Lists the metric namespaces for the resource. </summary>
+            <param name="resourceUri"> The identifier of the resource. </param>
+            <param name="startTime"> The ISO 8601 conform Date start time from which to query for metric namespaces. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="resourceUri" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Monitor.Query.MetricNamespacesRestClient.List(System.String,System.String,System.Threading.CancellationToken)">
+            <summary> Lists the metric namespaces for the resource. </summary>
+            <param name="resourceUri"> The identifier of the resource. </param>
+            <param name="startTime"> The ISO 8601 conform Date start time from which to query for metric namespaces. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="resourceUri" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Monitor.Query.MetricsRestClient.#ctor(Azure.Core.Pipeline.ClientDiagnostics,Azure.Core.Pipeline.HttpPipeline,System.Uri)">
+            <summary> Initializes a new instance of MetricsRestClient. </summary>
+            <param name="clientDiagnostics"> The handler for diagnostic messaging in the client. </param>
+            <param name="pipeline"> The HTTP pipeline for sending and receiving REST requests and responses. </param>
+            <param name="endpoint"> server parameter. </param>
+        </member>
+        <member name="M:Azure.Monitor.Query.MetricsRestClient.ListAsync(System.String,System.String,System.Nullable{System.TimeSpan},System.String,System.String,System.Nullable{System.Int32},System.String,System.String,System.Nullable{Azure.Monitor.Query.Models.ResultType},System.String,System.Threading.CancellationToken)">
+            <summary> **Lists the metric values for a resource**. </summary>
+            <param name="resourceUri"> The identifier of the resource. </param>
+            <param name="timespan"> The timespan of the query. It is a string with the following format 'startDateTime_ISO/endDateTime_ISO'. </param>
+            <param name="interval"> The interval (i.e. timegrain) of the query. </param>
+            <param name="metricnames"> The names of the metrics (comma separated) to retrieve. Special case: If a metricname itself has a comma in it then use %2 to indicate it. Eg: 'Metric,Name1' should be **'Metric%2Name1'**. </param>
+            <param name="aggregation"> The list of aggregation types (comma separated) to retrieve. </param>
+            <param name="top">
+            The maximum number of records to retrieve.
+            Valid only if $filter is specified.
+            Defaults to 10.
+            </param>
+            <param name="orderby">
+            The aggregation to use for sorting results and the direction of the sort.
+            Only one order can be specified.
+            Examples: sum asc.
+            </param>
+            <param name="filter"> The **$filter** is used to reduce the set of metric data returned. Example: Metric contains metadata A, B and C. - Return all time series of C where A = a1 and B = b1 or b2 **$filter=A eq 'a1' and B eq 'b1' or B eq 'b2' and C eq '*'** - Invalid variant: **$filter=A eq 'a1' and B eq 'b1' and C eq '*' or B = 'b2'** This is invalid because the logical or operator cannot separate two different metadata names. - Return all time series where A = a1, B = b1 and C = c1: **$filter=A eq 'a1' and B eq 'b1' and C eq 'c1'** - Return all time series where A = a1 **$filter=A eq 'a1' and B eq '*' and C eq '*'**. Special case: When dimension name or dimension value uses round brackets. Eg: When dimension name is **dim (test) 1** Instead of using $filter= "dim (test) 1 eq '*' " use **$filter= "dim %2528test%2529 1 eq '*' "** When dimension name is **dim (test) 3** and dimension value is **dim3 (test) val** Instead of using $filter= "dim (test) 3 eq 'dim3 (test) val' " use **$filter= "dim %2528test%2529 3 eq 'dim3 %2528test%2529 val' "**. </param>
+            <param name="resultType"> Reduces the set of data collected. The syntax allowed depends on the operation. See the operation's description for details. </param>
+            <param name="metricnamespace"> Metric namespace to query metric definitions for. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="resourceUri" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Monitor.Query.MetricsRestClient.List(System.String,System.String,System.Nullable{System.TimeSpan},System.String,System.String,System.Nullable{System.Int32},System.String,System.String,System.Nullable{Azure.Monitor.Query.Models.ResultType},System.String,System.Threading.CancellationToken)">
+            <summary> **Lists the metric values for a resource**. </summary>
+            <param name="resourceUri"> The identifier of the resource. </param>
+            <param name="timespan"> The timespan of the query. It is a string with the following format 'startDateTime_ISO/endDateTime_ISO'. </param>
+            <param name="interval"> The interval (i.e. timegrain) of the query. </param>
+            <param name="metricnames"> The names of the metrics (comma separated) to retrieve. Special case: If a metricname itself has a comma in it then use %2 to indicate it. Eg: 'Metric,Name1' should be **'Metric%2Name1'**. </param>
+            <param name="aggregation"> The list of aggregation types (comma separated) to retrieve. </param>
+            <param name="top">
+            The maximum number of records to retrieve.
+            Valid only if $filter is specified.
+            Defaults to 10.
+            </param>
+            <param name="orderby">
+            The aggregation to use for sorting results and the direction of the sort.
+            Only one order can be specified.
+            Examples: sum asc.
+            </param>
+            <param name="filter"> The **$filter** is used to reduce the set of metric data returned. Example: Metric contains metadata A, B and C. - Return all time series of C where A = a1 and B = b1 or b2 **$filter=A eq 'a1' and B eq 'b1' or B eq 'b2' and C eq '*'** - Invalid variant: **$filter=A eq 'a1' and B eq 'b1' and C eq '*' or B = 'b2'** This is invalid because the logical or operator cannot separate two different metadata names. - Return all time series where A = a1, B = b1 and C = c1: **$filter=A eq 'a1' and B eq 'b1' and C eq 'c1'** - Return all time series where A = a1 **$filter=A eq 'a1' and B eq '*' and C eq '*'**. Special case: When dimension name or dimension value uses round brackets. Eg: When dimension name is **dim (test) 1** Instead of using $filter= "dim (test) 1 eq '*' " use **$filter= "dim %2528test%2529 1 eq '*' "** When dimension name is **dim (test) 3** and dimension value is **dim3 (test) val** Instead of using $filter= "dim (test) 3 eq 'dim3 (test) val' " use **$filter= "dim %2528test%2529 3 eq 'dim3 %2528test%2529 val' "**. </param>
+            <param name="resultType"> Reduces the set of data collected. The syntax allowed depends on the operation. See the operation's description for details. </param>
+            <param name="metricnamespace"> Metric namespace to query metric definitions for. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="resourceUri" /> is null. </exception>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.BatchQueryRequest">
+            <summary> An single request in a batch. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.BatchQueryRequest.#ctor(System.String,Azure.Monitor.Query.Models.QueryBody,System.String)">
+            <summary> Initializes a new instance of BatchQueryRequest. </summary>
+            <param name="id"> The error details. </param>
+            <param name="body"> The Analytics query. Learn more about the [Analytics query syntax](https://azure.microsoft.com/documentation/articles/app-insights-analytics-reference/). </param>
+            <param name="workspace"> Workspace Id to be included in the query. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="id" />, <paramref name="body" />, or <paramref name="workspace" /> is null. </exception>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.BatchQueryRequest.Id">
+            <summary> The error details. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.BatchQueryRequest.Headers">
+            <summary> Dictionary of &lt;string&gt;. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.BatchQueryRequest.Body">
+            <summary> The Analytics query. Learn more about the [Analytics query syntax](https://azure.microsoft.com/documentation/articles/app-insights-analytics-reference/). </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.BatchQueryRequest.Workspace">
+            <summary> Workspace Id to be included in the query. </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.BatchQueryResponse">
+            <summary> The BatchQueryResponse. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.BatchQueryResponse.#ctor">
+            <summary> Initializes a new instance of BatchQueryResponse. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.BatchQueryResponse.#ctor(System.String,System.Nullable{System.Int32},Azure.Monitor.Query.Models.LogsBatchQueryResult,System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})">
+            <summary> Initializes a new instance of BatchQueryResponse. </summary>
+            <param name="id"></param>
+            <param name="status"></param>
+            <param name="Body"> Contains the tables, columns &amp; rows resulting from a query. </param>
+            <param name="headers"> Dictionary of &lt;string&gt;. </param>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.BatchQueryResponse.Headers">
+            <summary> Dictionary of &lt;string&gt;. </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.BatchRequest">
+            <summary> An array of requests. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.BatchRequest.#ctor(System.Collections.Generic.IEnumerable{Azure.Monitor.Query.Models.BatchQueryRequest})">
+            <summary> Initializes a new instance of BatchRequest. </summary>
+            <param name="requests"> An single request in a batch. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="requests" /> is null. </exception>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.BatchRequest.Requests">
+            <summary> An single request in a batch. </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.ErrorDetail">
+            <summary> Error details. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.ErrorDetail.#ctor(System.String,System.String)">
+            <summary> Initializes a new instance of ErrorDetail. </summary>
+            <param name="code"> The error's code. </param>
+            <param name="message"> A human readable error message. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="code" /> or <paramref name="message" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.ErrorDetail.#ctor(System.String,System.String,System.String,System.String,System.Collections.Generic.IReadOnlyList{System.String},System.Object)">
+            <summary> Initializes a new instance of ErrorDetail. </summary>
+            <param name="code"> The error's code. </param>
+            <param name="message"> A human readable error message. </param>
+            <param name="target"> Indicates which property in the request is responsible for the error. </param>
+            <param name="value"> Indicates which value in 'target' is responsible for the error. </param>
+            <param name="resources"> Indicates resources which were responsible for the error. </param>
+            <param name="additionalProperties"> Additional properties that can be provided on the error details object. </param>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.ErrorDetail.Code">
+            <summary> The error's code. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.ErrorDetail.Message">
+            <summary> A human readable error message. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.ErrorDetail.Target">
+            <summary> Indicates which property in the request is responsible for the error. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.ErrorDetail.Value">
+            <summary> Indicates which value in 'target' is responsible for the error. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.ErrorDetail.Resources">
+            <summary> Indicates resources which were responsible for the error. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.ErrorDetail.AdditionalProperties">
+            <summary> Additional properties that can be provided on the error details object. </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.ErrorInfo">
+            <summary> The code and message for an error. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.ErrorInfo.#ctor(System.String,System.String)">
+            <summary> Initializes a new instance of ErrorInfo. </summary>
+            <param name="code"> A machine readable error code. </param>
+            <param name="message"> A human readable error message. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="code" /> or <paramref name="message" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.ErrorInfo.#ctor(System.String,System.String,System.Collections.Generic.IReadOnlyList{Azure.Monitor.Query.Models.ErrorDetail},Azure.Monitor.Query.Models.ErrorInfo,System.Object)">
+            <summary> Initializes a new instance of ErrorInfo. </summary>
+            <param name="code"> A machine readable error code. </param>
+            <param name="message"> A human readable error message. </param>
+            <param name="details"> error details. </param>
+            <param name="innererror"> Inner error details if they exist. </param>
+            <param name="additionalProperties"> Additional properties that can be provided on the error info object. </param>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.ErrorInfo.Code">
+            <summary> A machine readable error code. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.ErrorInfo.Message">
+            <summary> A human readable error message. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.ErrorInfo.Details">
+            <summary> error details. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.ErrorInfo.Innererror">
+            <summary> Inner error details if they exist. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.ErrorInfo.AdditionalProperties">
+            <summary> Additional properties that can be provided on the error info object. </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.ErrorResponse">
+            <summary> Contains details when the response code indicates an error. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.ErrorResponse.#ctor(Azure.Monitor.Query.Models.ErrorInfo)">
+            <summary> Initializes a new instance of ErrorResponse. </summary>
+            <param name="error"> The error details. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="error" /> is null. </exception>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.ErrorResponse.Error">
+            <summary> The error details. </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.ErrorResponseAutoGenerated">
+            <summary> Describes the format of Error response. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.ErrorResponseAutoGenerated.#ctor">
+            <summary> Initializes a new instance of ErrorResponseAutoGenerated. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.ErrorResponseAutoGenerated.#ctor(System.String,System.String)">
+            <summary> Initializes a new instance of ErrorResponseAutoGenerated. </summary>
+            <param name="code"> Error code. </param>
+            <param name="message"> Error message indicating why the operation failed. </param>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.ErrorResponseAutoGenerated.Code">
+            <summary> Error code. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.ErrorResponseAutoGenerated.Message">
+            <summary> Error message indicating why the operation failed. </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.LocalizableString">
+            <summary> The localizable string class. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LocalizableString.#ctor(System.String)">
+            <summary> Initializes a new instance of LocalizableString. </summary>
+            <param name="value"> the invariant value. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="value" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LocalizableString.#ctor(System.String,System.String)">
+            <summary> Initializes a new instance of LocalizableString. </summary>
+            <param name="value"> the invariant value. </param>
+            <param name="localizedValue"> the locale specific value. </param>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.LocalizableString.Value">
+            <summary> the invariant value. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.LocalizableString.LocalizedValue">
+            <summary> the locale specific value. </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.LogsBatchQueryResult">
+            <summary> Contains the tables, columns &amp; rows resulting from a query. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsBatchQueryResult.#ctor(System.Collections.Generic.IEnumerable{Azure.Monitor.Query.Models.LogsQueryResultTable})">
+            <summary> Initializes a new instance of LogsBatchQueryResult. </summary>
+            <param name="allTables"> The list of tables, columns and rows. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="allTables" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsBatchQueryResult.#ctor(System.Collections.Generic.IReadOnlyList{Azure.Monitor.Query.Models.LogsQueryResultTable},System.Text.Json.JsonElement,System.Text.Json.JsonElement,System.Text.Json.JsonElement)">
+            <summary> Initializes a new instance of LogsBatchQueryResult. </summary>
+            <param name="allTables"> The list of tables, columns and rows. </param>
+            <param name="Statistics"> Any object. </param>
+            <param name="Visualization"> Any object. </param>
+            <param name="Error"> Any object. </param>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.LogsBatchQueryResult.HasFailed">
+            <summary>
+            Gets or sets the value indicating whether the batch query was successful.
+            </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.LogsBatchQueryResult.Id">
+            <summary>
+            Gets or sets the query id.
+            </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.LogsBatchQueryResults">
+            <summary> Response to a batch query. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsBatchQueryResults.#ctor">
+            <summary> Initializes a new instance of LogsBatchQueryResults. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsBatchQueryResults.#ctor(System.Collections.Generic.IReadOnlyList{Azure.Monitor.Query.Models.BatchQueryResponse})">
+            <summary> Initializes a new instance of LogsBatchQueryResults. </summary>
+            <param name="responses"> An array of responses corresponding to each individual request in a batch. </param>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.LogsBatchQueryResults.Results">
+            <summary>
+            Gets the list of results for the batch query.
+            </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsBatchQueryResults.GetResult(System.String)">
+             <summary>
+             Gets the result for the query that was a part of the batch.
+             </summary>
+             <code snippet="Snippet:BatchQueryAddAndGet" language="csharp">
+             string countQueryId = batch.AddQuery(
+                 workspaceId,
+                 "AzureActivity | count",
+                 new DateTimeRange(TimeSpan.FromDays(1)));
+             string topQueryId = batch.AddQuery(
+                 workspaceId,
+                 "AzureActivity | summarize Count = count() by ResourceGroup | top 10 by Count",
+                 new DateTimeRange(TimeSpan.FromDays(1)));
+            
+             Response&lt;LogsBatchQueryResults&gt; response = await client.QueryBatchAsync(batch);
+            
+             var count = response.Value.GetResult&lt;int&gt;(countQueryId).Single();
+             var topEntries = response.Value.GetResult&lt;MyLogEntryModel&gt;(topQueryId);
+             </code>
+             <param name="queryId">The query identifier returned from the <see cref="M:Azure.Monitor.Query.LogsBatchQuery.AddQuery(System.String,System.String,Azure.Core.DateTimeRange,Azure.Monitor.Query.LogsQueryOptions)" />.</param>
+             <returns>The <see cref="T:Azure.Monitor.Query.Models.LogsBatchQueryResults" /> with the query results.</returns>
+             <exception cref="T:System.ArgumentException">When the query with <paramref name="queryId" /> was not part of the batch.</exception>
+             <exception cref="T:Azure.RequestFailedException">When the query <paramref name="queryId" /> failed.</exception>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsBatchQueryResults.GetResult``1(System.String)">
+            <summary>
+            Gets the result for the query that was a part of the batch.
+            </summary>
+            <param name="queryId">The query identifier returned from the <see cref="M:Azure.Monitor.Query.LogsBatchQuery.AddQuery(System.String,System.String,Azure.Core.DateTimeRange,Azure.Monitor.Query.LogsQueryOptions)" />.</param>
+            <returns>Query results mapped to a type <typeparamref name="T" />.</returns>
+            <exception cref="T:System.ArgumentException">When the query with <paramref name="queryId" /> was not part of the batch.</exception>
+            <exception cref="T:Azure.RequestFailedException">When the query <paramref name="queryId" /> failed.</exception>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.LogsColumnType">
+            <summary> The data type of this column. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsColumnType.#ctor(System.String)">
+            <summary> Determines if two <see cref="T:Azure.Monitor.Query.Models.LogsColumnType" /> values are the same. </summary>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="value" /> is null. </exception>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.LogsColumnType.Bool">
+            <summary> bool. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.LogsColumnType.Datetime">
+            <summary> datetime. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.LogsColumnType.Dynamic">
+            <summary> dynamic. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.LogsColumnType.Int">
+            <summary> int. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.LogsColumnType.Long">
+            <summary> long. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.LogsColumnType.Real">
+            <summary> real. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.LogsColumnType.String">
+            <summary> string. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.LogsColumnType.Guid">
+            <summary> guid. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.LogsColumnType.Decimal">
+            <summary> decimal. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.LogsColumnType.Timespan">
+            <summary> timespan. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsColumnType.op_Equality(Azure.Monitor.Query.Models.LogsColumnType,Azure.Monitor.Query.Models.LogsColumnType)">
+            <summary> Determines if two <see cref="T:Azure.Monitor.Query.Models.LogsColumnType" /> values are the same. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsColumnType.op_Inequality(Azure.Monitor.Query.Models.LogsColumnType,Azure.Monitor.Query.Models.LogsColumnType)">
+            <summary> Determines if two <see cref="T:Azure.Monitor.Query.Models.LogsColumnType" /> values are not the same. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsColumnType.op_Implicit(System.String)~Azure.Monitor.Query.Models.LogsColumnType">
+            <summary> Converts a string to a <see cref="T:Azure.Monitor.Query.Models.LogsColumnType" />. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsColumnType.Equals(System.Object)">
+            <summary>Indicates whether this instance and a specified object are equal.</summary><param name="obj">The object to compare with the current instance.</param><returns><see langword="true" /> if <paramref name="obj" /> and this instance are the same type and represent the same value; otherwise, <see langword="false" />.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsColumnType.Equals(Azure.Monitor.Query.Models.LogsColumnType)">
+            <summary>Indicates whether the current object is equal to another object of the same type.</summary><param name="other">An object to compare with this object.</param><returns><see langword="true" /> if the current object is equal to the <paramref name="other" /> parameter; otherwise, <see langword="false" />.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsColumnType.GetHashCode">
+            <summary>Returns the hash code for this instance.</summary><returns>A 32-bit signed integer that is the hash code for this instance.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsColumnType.ToString">
+            <summary>Returns the fully qualified type name of this instance.</summary><returns>The fully qualified type name.</returns>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.LogsQueryResult">
+            <summary> Contains the tables, columns &amp; rows resulting from a query. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsQueryResult.#ctor(System.Collections.Generic.IEnumerable{Azure.Monitor.Query.Models.LogsQueryResultTable})">
+            <summary> Initializes a new instance of LogsQueryResult. </summary>
+            <param name="allTables"> The list of tables, columns and rows. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="allTables" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsQueryResult.#ctor(System.Collections.Generic.IReadOnlyList{Azure.Monitor.Query.Models.LogsQueryResultTable},System.Text.Json.JsonElement,System.Text.Json.JsonElement,System.Text.Json.JsonElement)">
+            <summary> Initializes a new instance of LogsQueryResult. </summary>
+            <param name="allTables"> The list of tables, columns and rows. </param>
+            <param name="Statistics"> Any object. </param>
+            <param name="Visualization"> Any object. </param>
+            <param name="Error"> Any object. </param>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.LogsQueryResult.Table">
+            <summary>
+            Gets the single table result of the query.
+            </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.LogsQueryResult.AllTables">
+            <summary>
+            Gets the multi-table result of the query.
+            </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsQueryResult.GetStatistics">
+            <summary>
+            Returns the query statistics if the <see cref="P:Azure.Monitor.Query.LogsQueryOptions.IncludeStatistics" /> is set to <c>true</c>. <c>null</c> otherwise.
+            </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsQueryResult.GetVisualization">
+            <summary>
+            Returns the query visualization if the <see cref="P:Azure.Monitor.Query.LogsQueryOptions.IncludeVisualization" /> is set to <c>true</c>. <c>null</c> otherwise.
+            </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.LogsQueryResult.Error">
+            <summary>
+            Gets the error that occurred during query processing. The value is <c>null</c> if the query succeeds.
+            </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.LogsQueryResultColumn">
+            <summary> A column in a table. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsQueryResultColumn.#ctor(System.String,Azure.Monitor.Query.Models.LogsColumnType)">
+            <summary> Initializes a new instance of LogsQueryResultColumn. </summary>
+            <param name="name"> The name of this column. </param>
+            <param name="type"> The data type of this column. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="name" /> is null. </exception>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.LogsQueryResultColumn.Name">
+            <summary> The name of this column. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.LogsQueryResultColumn.Type">
+            <summary> The data type of this column. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsQueryResultColumn.ToString">
+            <summary>Returns a string that represents the current object.</summary><returns>A string that represents the current object.</returns>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.LogsQueryResultTable">
+            <summary> Contains the columns and rows for one table in a query response. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsQueryResultTable.#ctor(System.String,System.Collections.Generic.IEnumerable{Azure.Monitor.Query.Models.LogsQueryResultColumn},System.Text.Json.JsonElement)">
+            <summary> Initializes a new instance of LogsQueryResultTable. </summary>
+            <param name="name"> The name of the table. </param>
+            <param name="columns"> The list of columns in this table. </param>
+            <param name="internalRows"> The resulting rows from this query. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="name" /> or <paramref name="columns" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsQueryResultTable.#ctor(System.String,System.Collections.Generic.IReadOnlyList{Azure.Monitor.Query.Models.LogsQueryResultColumn},System.Text.Json.JsonElement)">
+            <summary> Initializes a new instance of LogsQueryResultTable. </summary>
+            <param name="name"> The name of the table. </param>
+            <param name="columns"> The list of columns in this table. </param>
+            <param name="internalRows"> The resulting rows from this query. </param>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.LogsQueryResultTable.Name">
+            <summary> The name of the table. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.LogsQueryResultTable.Columns">
+            <summary> The list of columns in this table. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.LogsQueryResultTable.Rows">
+            <summary>
+            Gets the rows of the result table.
+            </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsQueryResultTable.Deserialize``1">
+            <summary>
+            Maps table rows to a model of type <typeparamref name="T" />.
+            </summary>
+            <returns>Query results mapped to a type <typeparamref name="T" />.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsQueryResultTable.ToString">
+            <summary>Returns a string that represents the current object.</summary><returns>A string that represents the current object.</returns>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.MetadataApplication">
+            <summary> Application Insights apps that were part of the metadata request and that the user has access to. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetadataApplication.#ctor(System.String,System.String,System.String,System.String)">
+            <summary> Initializes a new instance of MetadataApplication. </summary>
+            <param name="id"> The ID of the Application Insights app. </param>
+            <param name="resourceId"> The ARM resource ID of the Application Insights app. </param>
+            <param name="name"> The name of the Application Insights app. </param>
+            <param name="region"> The Azure region of the Application Insights app. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="id" />, <paramref name="resourceId" />, <paramref name="name" />, or <paramref name="region" /> is null. </exception>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataApplication.Id">
+            <summary> The ID of the Application Insights app. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataApplication.ResourceId">
+            <summary> The ARM resource ID of the Application Insights app. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataApplication.Name">
+            <summary> The name of the Application Insights app. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataApplication.Region">
+            <summary> The Azure region of the Application Insights app. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataApplication.Related">
+            <summary> The related metadata items for the Application Insights app. </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.MetadataApplicationRelated">
+            <summary> The related metadata items for the Application Insights app. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetadataApplicationRelated.#ctor">
+            <summary> Initializes a new instance of MetadataApplicationRelated. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataApplicationRelated.Tables">
+            <summary> The related tables for the Application Insights app. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataApplicationRelated.Functions">
+            <summary> The related functions for the Application Insights app. </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.MetadataCategory">
+            <summary> Categories are used to group other metadata entities. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetadataCategory.#ctor(System.String,System.String)">
+            <summary> Initializes a new instance of MetadataCategory. </summary>
+            <param name="id"> The ID of the category. </param>
+            <param name="displayName"> The display name of the category. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="id" /> or <paramref name="displayName" /> is null. </exception>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataCategory.Id">
+            <summary> The ID of the category. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataCategory.DisplayName">
+            <summary> The display name of the category. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataCategory.Description">
+            <summary> The description of the category. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataCategory.Related">
+            <summary> The related metadata items for the category. </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.MetadataCategoryRelated">
+            <summary> The related metadata items for the category. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetadataCategoryRelated.#ctor">
+            <summary> Initializes a new instance of MetadataCategoryRelated. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataCategoryRelated.Tables">
+            <summary> The tables related to the category. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataCategoryRelated.Functions">
+            <summary> The functions related to the category. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataCategoryRelated.ResourceTypes">
+            <summary> The resource types related to the category. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataCategoryRelated.Queries">
+            <summary> The saved queries related to the category. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataCategoryRelated.Solutions">
+            <summary> The Log Analytics solutions related to the category. </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.MetadataColumnDataType">
+            <summary> The data type of the column. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetadataColumnDataType.#ctor(System.String)">
+            <summary> Determines if two <see cref="T:Azure.Monitor.Query.Models.MetadataColumnDataType" /> values are the same. </summary>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="value" /> is null. </exception>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataColumnDataType.Bool">
+            <summary> bool. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataColumnDataType.Datetime">
+            <summary> datetime. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataColumnDataType.Dynamic">
+            <summary> dynamic. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataColumnDataType.Int">
+            <summary> int. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataColumnDataType.Long">
+            <summary> long. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataColumnDataType.Real">
+            <summary> real. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataColumnDataType.String">
+            <summary> string. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataColumnDataType.Guid">
+            <summary> guid. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataColumnDataType.Decimal">
+            <summary> decimal. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataColumnDataType.Timespan">
+            <summary> timespan. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetadataColumnDataType.op_Equality(Azure.Monitor.Query.Models.MetadataColumnDataType,Azure.Monitor.Query.Models.MetadataColumnDataType)">
+            <summary> Determines if two <see cref="T:Azure.Monitor.Query.Models.MetadataColumnDataType" /> values are the same. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetadataColumnDataType.op_Inequality(Azure.Monitor.Query.Models.MetadataColumnDataType,Azure.Monitor.Query.Models.MetadataColumnDataType)">
+            <summary> Determines if two <see cref="T:Azure.Monitor.Query.Models.MetadataColumnDataType" /> values are not the same. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetadataColumnDataType.op_Implicit(System.String)~Azure.Monitor.Query.Models.MetadataColumnDataType">
+            <summary> Converts a string to a <see cref="T:Azure.Monitor.Query.Models.MetadataColumnDataType" />. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetadataColumnDataType.Equals(System.Object)">
+            <summary>Indicates whether this instance and a specified object are equal.</summary><param name="obj">The object to compare with the current instance.</param><returns><see langword="true" /> if <paramref name="obj" /> and this instance are the same type and represent the same value; otherwise, <see langword="false" />.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetadataColumnDataType.Equals(Azure.Monitor.Query.Models.MetadataColumnDataType)">
+            <summary>Indicates whether the current object is equal to another object of the same type.</summary><param name="other">An object to compare with this object.</param><returns><see langword="true" /> if the current object is equal to the <paramref name="other" /> parameter; otherwise, <see langword="false" />.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetadataColumnDataType.GetHashCode">
+            <summary>Returns the hash code for this instance.</summary><returns>A 32-bit signed integer that is the hash code for this instance.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetadataColumnDataType.ToString">
+            <summary>Returns the fully qualified type name of this instance.</summary><returns>The fully qualified type name.</returns>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.MetadataFunction">
+            <summary> Functions are stored Kusto queries that can be specified as part of queries by using their name. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetadataFunction.#ctor(System.String,System.String,System.String)">
+            <summary> Initializes a new instance of MetadataFunction. </summary>
+            <param name="id"> The ID of the function. </param>
+            <param name="name"> The name of the function, to be used in queries. </param>
+            <param name="body"> The KQL body of the function. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="id" />, <paramref name="name" />, or <paramref name="body" /> is null. </exception>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataFunction.Id">
+            <summary> The ID of the function. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataFunction.Name">
+            <summary> The name of the function, to be used in queries. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataFunction.Parameters">
+            <summary> The parameters/arguments of the function, if any. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataFunction.DisplayName">
+            <summary> The display name of the function. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataFunction.Description">
+            <summary> The description of the function. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataFunction.Body">
+            <summary> The KQL body of the function. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataFunction.Tags">
+            <summary> The tags associated with the function. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataFunction.Properties">
+            <summary> The properties of the function. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataFunction.Related">
+            <summary> The related metadata items for the function. </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.MetadataFunctionRelated">
+            <summary> The related metadata items for the function. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetadataFunctionRelated.#ctor">
+            <summary> Initializes a new instance of MetadataFunctionRelated. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataFunctionRelated.Tables">
+            <summary> The related tables for the function. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataFunctionRelated.Solutions">
+            <summary> The related Log Analytics solutions for the function. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataFunctionRelated.ResourceTypes">
+            <summary> The related resource types for the function. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataFunctionRelated.Categories">
+            <summary> The related categories for the function. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataFunctionRelated.Workspaces">
+            <summary> The related workspaces for the function. </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.MetadataPermissions">
+            <summary> Permission information for the metadata call, includes apps/workspaces/resource the user didn't have access to. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetadataPermissions.#ctor(System.Collections.Generic.IEnumerable{Azure.Monitor.Query.Models.MetadataPermissionsWorkspacesItem})">
+            <summary> Initializes a new instance of MetadataPermissions. </summary>
+            <param name="workspaces"> The permission indication for the workspaces on the metadata request. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="workspaces" /> is null. </exception>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataPermissions.Workspaces">
+            <summary> The permission indication for the workspaces on the metadata request. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataPermissions.Resources">
+            <summary> The permission indication for the Azure resources on the metadata request. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataPermissions.Applications">
+            <summary> The permission indication for the Application Insights apps on the metadata request. </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.MetadataPermissionsApplicationsItem">
+            <summary> The MetadataPermissionsApplicationsItem. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetadataPermissionsApplicationsItem.#ctor(System.String)">
+            <summary> Initializes a new instance of MetadataPermissionsApplicationsItem. </summary>
+            <param name="resourceId"> The resource ID on the permission indication. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="resourceId" /> is null. </exception>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataPermissionsApplicationsItem.ResourceId">
+            <summary> The resource ID on the permission indication. </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.MetadataPermissionsResourcesItem">
+            <summary> The MetadataPermissionsResourcesItem. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetadataPermissionsResourcesItem.#ctor(System.String)">
+            <summary> Initializes a new instance of MetadataPermissionsResourcesItem. </summary>
+            <param name="resourceId"> The resource ID on the permission indication. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="resourceId" /> is null. </exception>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataPermissionsResourcesItem.ResourceId">
+            <summary> The resource ID on the permission indication. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataPermissionsResourcesItem.DenyTables">
+            <summary> The list of tables that were denied access for the resource ID. </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.MetadataPermissionsWorkspacesItem">
+            <summary> The MetadataPermissionsWorkspacesItem. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetadataPermissionsWorkspacesItem.#ctor(System.String)">
+            <summary> Initializes a new instance of MetadataPermissionsWorkspacesItem. </summary>
+            <param name="resourceId"> The resource ID on the permission indication. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="resourceId" /> is null. </exception>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataPermissionsWorkspacesItem.ResourceId">
+            <summary> The resource ID on the permission indication. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataPermissionsWorkspacesItem.DenyTables">
+            <summary> The list of tables that were denied access for the resource ID. </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.MetadataQuery">
+            <summary> Queries are stored pieces of KQL, along with a list of relevant metadata items. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetadataQuery.#ctor(System.String,System.String)">
+            <summary> Initializes a new instance of MetadataQuery. </summary>
+            <param name="id"> The ID of the query. </param>
+            <param name="body"> The KQL body of the query. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="id" /> or <paramref name="body" /> is null. </exception>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataQuery.Id">
+            <summary> The ID of the query. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataQuery.DisplayName">
+            <summary> The display name of the query. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataQuery.Description">
+            <summary> The description of the query. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataQuery.Body">
+            <summary> The KQL body of the query. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataQuery.Labels">
+            <summary> The user defined labels associated with the query. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataQuery.Tags">
+            <summary> The tags associated with the query. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataQuery.Properties">
+            <summary> The properties of the query. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataQuery.Related">
+            <summary> The related metadata items for the query. </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.MetadataQueryRelated">
+            <summary> The related metadata items for the query. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetadataQueryRelated.#ctor">
+            <summary> Initializes a new instance of MetadataQueryRelated. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataQueryRelated.Categories">
+            <summary> The related categories for the query. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataQueryRelated.Solutions">
+            <summary> The related Log Analytics solutions for the query. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataQueryRelated.ResourceTypes">
+            <summary> The related resource types for the query. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataQueryRelated.Tables">
+            <summary> The related tables for the query. </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.MetadataResourceType">
+            <summary> Metadata about types of Azure resources, containing relevant tables, functions, etc. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetadataResourceType.#ctor(System.String,System.String)">
+            <summary> Initializes a new instance of MetadataResourceType. </summary>
+            <param name="id"> The ID of the resource-type. </param>
+            <param name="type"> The type of the resource-type. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="id" /> or <paramref name="type" /> is null. </exception>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataResourceType.Id">
+            <summary> The ID of the resource-type. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataResourceType.Type">
+            <summary> The type of the resource-type. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataResourceType.DisplayName">
+            <summary> The display name of the resource-type. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataResourceType.Description">
+            <summary> The description of the resource-type. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataResourceType.Labels">
+            <summary> The user-defined labels of the resource-type. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataResourceType.Tags">
+            <summary> The tags associated with the resource-type. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataResourceType.Properties">
+            <summary> The properties of the resource-type. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataResourceType.Related">
+            <summary> The related metadata items for the resource-type. </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.MetadataResourceTypeRelated">
+            <summary> The related metadata items for the resource-type. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetadataResourceTypeRelated.#ctor">
+            <summary> Initializes a new instance of MetadataResourceTypeRelated. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataResourceTypeRelated.Tables">
+            <summary> The tables related to the resource-type. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataResourceTypeRelated.Functions">
+            <summary> The functions related to the resource-type. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataResourceTypeRelated.Categories">
+            <summary> The categories related to the resource-type. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataResourceTypeRelated.Queries">
+            <summary> The queries related to the resource-type. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataResourceTypeRelated.Workspaces">
+            <summary> The Log Analytics workspaces related to the resource-type. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataResourceTypeRelated.Resources">
+            <summary> The Azure resources related to the resource-type. </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.MetadataResults">
+            <summary> The metadata response for the app, including available tables, etc. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetadataResults.#ctor">
+            <summary> Initializes a new instance of MetadataResults. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataResults.Categories">
+            <summary> The list of categories that are referenced in this metadata response. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataResults.ResourceTypes">
+            <summary> The list of resource types that are referenced in this metadata response. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataResults.Solutions">
+            <summary> The list of Log Analytics solutions installed on the workspace. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataResults.Tables">
+            <summary> The list of tables and columns that comprise the schema of the workspace. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataResults.Functions">
+            <summary> The list of functions stored on the workspace, or introduced by solutions etc. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataResults.Queries">
+            <summary> The list of saved queries stored on the workspace, or introduced by solutions, resource types, etc. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataResults.Applications">
+            <summary> The list of Application Insights apps that were referenced in the metadata request. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataResults.Workspaces">
+            <summary> The list of Log Analytics workspaces that were referenced in the metadata request. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataResults.Resources">
+            <summary> The list of Azure resources that were referenced in the metadata request. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataResults.Permissions">
+            <summary> The list of permission rules that affected the metadata request. </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.MetadataSolution">
+            <summary> Solutions can group tables and functions that are associated with a certain Azure Log Analytics offering. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetadataSolution.#ctor(System.String,System.String,Azure.Monitor.Query.Models.MetadataSolutionRelated)">
+            <summary> Initializes a new instance of MetadataSolution. </summary>
+            <param name="id"> The ID of the Log Analytics solution. </param>
+            <param name="name"> The name of the Log Analytics solution. </param>
+            <param name="related"> The related metadata items for the Log Analytics solution. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="id" />, <paramref name="name" />, or <paramref name="related" /> is null. </exception>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataSolution.Id">
+            <summary> The ID of the Log Analytics solution. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataSolution.Name">
+            <summary> The name of the Log Analytics solution. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataSolution.DisplayName">
+            <summary> The display name of the Log Analytics solution. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataSolution.Description">
+            <summary> The description of the Log Analytics solution. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataSolution.Tags">
+            <summary> The tags that are associated with the Log Analytics solution. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataSolution.Properties">
+            <summary> The properties of the Log Analytics solution. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataSolution.Related">
+            <summary> The related metadata items for the Log Analytics solution. </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.MetadataSolutionRelated">
+            <summary> The related metadata items for the Log Analytics solution. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetadataSolutionRelated.#ctor(System.Collections.Generic.IEnumerable{System.String})">
+            <summary> Initializes a new instance of MetadataSolutionRelated. </summary>
+            <param name="tables"> The tables related to the Log Analytics solution. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="tables" /> is null. </exception>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataSolutionRelated.Tables">
+            <summary> The tables related to the Log Analytics solution. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataSolutionRelated.Functions">
+            <summary> The functions related to the Log Analytics solution. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataSolutionRelated.Categories">
+            <summary> The categories related to the Log Analytics solution. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataSolutionRelated.Queries">
+            <summary> The saved queries related to the Log Analytics solution. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataSolutionRelated.Workspaces">
+            <summary> The Workspaces referenced in the metadata request that are related to the Log Analytics solution. </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.MetadataTable">
+            <summary> Tables are part of the workspace schema, and contain a list of columns and a reference to other relevant metadata items. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetadataTable.#ctor(System.String,System.String)">
+            <summary> Initializes a new instance of MetadataTable. </summary>
+            <param name="id"> The ID of the table. </param>
+            <param name="name"> The name of the table. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="id" /> or <paramref name="name" /> is null. </exception>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataTable.Id">
+            <summary> The ID of the table. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataTable.Name">
+            <summary> The name of the table. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataTable.Description">
+            <summary> The description of the table. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataTable.TimespanColumn">
+            <summary> The column associated with the timespan query parameter for the table. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataTable.Labels">
+            <summary> The user defined labels of the table. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataTable.Tags">
+            <summary> The tags associated with the table. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataTable.Properties">
+            <summary> The properties of the table. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataTable.Columns">
+            <summary> The list of columns defined on the table. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataTable.Related">
+            <summary> The related metadata items for the table. </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.MetadataTableColumnsItem">
+            <summary> The MetadataTableColumnsItem. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetadataTableColumnsItem.#ctor(System.String,Azure.Monitor.Query.Models.MetadataColumnDataType)">
+            <summary> Initializes a new instance of MetadataTableColumnsItem. </summary>
+            <param name="name"> The name of the column. </param>
+            <param name="type"> The data type of the column. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="name" /> is null. </exception>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataTableColumnsItem.Name">
+            <summary> The name of the column. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataTableColumnsItem.Description">
+            <summary> The description of the column. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataTableColumnsItem.Type">
+            <summary> The data type of the column. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataTableColumnsItem.IsPreferredFacet">
+            <summary> A flag indicating this column is a preferred facet. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataTableColumnsItem.Source">
+            <summary> an indication of the source of the column, used only when multiple workspaces have conflicting definition for the column. </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.MetadataTableRelated">
+            <summary> The related metadata items for the table. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetadataTableRelated.#ctor">
+            <summary> Initializes a new instance of MetadataTableRelated. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataTableRelated.Categories">
+            <summary> The related categories for the table. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataTableRelated.Solutions">
+            <summary> The related Log Analytics solutions for the table. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataTableRelated.ResourceTypes">
+            <summary> The related resource types for the table. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataTableRelated.Workspaces">
+            <summary> The related Log Analytics workspaces for the table. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataTableRelated.Functions">
+            <summary> The related functions for the table. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataTableRelated.Queries">
+            <summary> The related saved queries for the table. </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.MetadataValue">
+            <summary> Represents a metric metadata value. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetadataValue.#ctor">
+            <summary> Initializes a new instance of MetadataValue. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetadataValue.#ctor(Azure.Monitor.Query.Models.LocalizableString,System.String)">
+            <summary> Initializes a new instance of MetadataValue. </summary>
+            <param name="name"> the name of the metadata. </param>
+            <param name="value"> the value of the metadata. </param>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataValue.Name">
+            <summary> the name of the metadata. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataValue.Value">
+            <summary> the value of the metadata. </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.MetadataWorkspace">
+            <summary> Log Analytics workspaces that were part of the metadata request and that the user has access to. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetadataWorkspace.#ctor(System.String,System.String,System.String,System.String)">
+            <summary> Initializes a new instance of MetadataWorkspace. </summary>
+            <param name="id"> The ID of the Log Analytics workspace. </param>
+            <param name="resourceId"> The ARM resource ID of the Log Analytics workspace. </param>
+            <param name="name"> The name of the Log Analytics workspace. </param>
+            <param name="region"> The Azure region of the Log Analytics workspace. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="id" />, <paramref name="resourceId" />, <paramref name="name" />, or <paramref name="region" /> is null. </exception>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataWorkspace.Id">
+            <summary> The ID of the Log Analytics workspace. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataWorkspace.ResourceId">
+            <summary> The ARM resource ID of the Log Analytics workspace. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataWorkspace.Name">
+            <summary> The name of the Log Analytics workspace. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataWorkspace.Region">
+            <summary> The Azure region of the Log Analytics workspace. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataWorkspace.Related">
+            <summary> The related metadata items for the Log Analytics workspace. </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.MetadataWorkspaceRelated">
+            <summary> The related metadata items for the Log Analytics workspace. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetadataWorkspaceRelated.#ctor">
+            <summary> Initializes a new instance of MetadataWorkspaceRelated. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataWorkspaceRelated.Tables">
+            <summary> The related tables for the Log Analytics workspace. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataWorkspaceRelated.Solutions">
+            <summary> The related Log Analytics solutions for the Log Analytics workspace. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataWorkspaceRelated.ResourceTypes">
+            <summary> The related resource types for the Log Analytics workspace. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataWorkspaceRelated.Functions">
+            <summary> The related functions for the Log Analytics workspace. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetadataWorkspaceRelated.Resources">
+            <summary> The related Azure resources for the Log Analytics workspace. </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.Metric">
+            <summary> The result data of a query. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.Metric.#ctor(System.String,System.String,Azure.Monitor.Query.Models.LocalizableString,Azure.Monitor.Query.Models.MetricUnit,System.Collections.Generic.IEnumerable{Azure.Monitor.Query.Models.TimeSeriesElement})">
+            <summary> Initializes a new instance of Metric. </summary>
+            <param name="id"> the metric Id. </param>
+            <param name="type"> the resource type of the metric resource. </param>
+            <param name="localizedName"> the name and the display name of the metric, i.e. it is localizable string. </param>
+            <param name="unit"> The unit of the metric. </param>
+            <param name="timeSeries"> the time series returned when a data query is performed. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="id" />, <paramref name="type" />, <paramref name="localizedName" />, or <paramref name="timeSeries" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.Metric.#ctor(System.String,System.String,Azure.Monitor.Query.Models.LocalizableString,System.String,System.String,System.String,Azure.Monitor.Query.Models.MetricUnit,System.Collections.Generic.IReadOnlyList{Azure.Monitor.Query.Models.TimeSeriesElement})">
+            <summary> Initializes a new instance of Metric. </summary>
+            <param name="id"> the metric Id. </param>
+            <param name="type"> the resource type of the metric resource. </param>
+            <param name="localizedName"> the name and the display name of the metric, i.e. it is localizable string. </param>
+            <param name="displayDescription"> Detailed description of this metric. </param>
+            <param name="errorCode"> 'Success' or the error details on query failures for this metric. </param>
+            <param name="errorMessage"> Error message encountered querying this specific metric. </param>
+            <param name="unit"> The unit of the metric. </param>
+            <param name="timeSeries"> the time series returned when a data query is performed. </param>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.Metric.Id">
+            <summary> the metric Id. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.Metric.Type">
+            <summary> the resource type of the metric resource. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.Metric.DisplayDescription">
+            <summary> Detailed description of this metric. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.Metric.Unit">
+            <summary> The unit of the metric. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.Metric.Name">
+            <summary> The name of the metric. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.Metric.TimeSeries">
+            <summary> The time series returned when a data query is performed. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.Metric.Error">
+            <summary>
+            Gets the error that occurred while querying the metric.
+            </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.MetricAvailability">
+            <summary> Metric availability specifies the time grain (aggregation interval or frequency) and the retention period for that time grain. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetricAvailability.#ctor">
+            <summary> Initializes a new instance of MetricAvailability. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetricAvailability.#ctor(System.Nullable{System.TimeSpan},System.Nullable{System.TimeSpan})">
+            <summary> Initializes a new instance of MetricAvailability. </summary>
+            <param name="timeGrain"> the time grain specifies the aggregation interval for the metric. Expressed as a duration 'PT1M', 'P1D', etc. </param>
+            <param name="retention"> the retention period for the metric at the specified timegrain.  Expressed as a duration 'PT1M', 'P1D', etc. </param>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricAvailability.TimeGrain">
+            <summary> the time grain specifies the aggregation interval for the metric. Expressed as a duration 'PT1M', 'P1D', etc. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricAvailability.Retention">
+            <summary> the retention period for the metric at the specified timegrain.  Expressed as a duration 'PT1M', 'P1D', etc. </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.MetricClass">
+            <summary> The class of the metric. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetricClass.#ctor(System.String)">
+            <summary> Determines if two <see cref="T:Azure.Monitor.Query.Models.MetricClass" /> values are the same. </summary>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="value" /> is null. </exception>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricClass.Availability">
+            <summary> Availability. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricClass.Transactions">
+            <summary> Transactions. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricClass.Errors">
+            <summary> Errors. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricClass.Latency">
+            <summary> Latency. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricClass.Saturation">
+            <summary> Saturation. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetricClass.op_Equality(Azure.Monitor.Query.Models.MetricClass,Azure.Monitor.Query.Models.MetricClass)">
+            <summary> Determines if two <see cref="T:Azure.Monitor.Query.Models.MetricClass" /> values are the same. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetricClass.op_Inequality(Azure.Monitor.Query.Models.MetricClass,Azure.Monitor.Query.Models.MetricClass)">
+            <summary> Determines if two <see cref="T:Azure.Monitor.Query.Models.MetricClass" /> values are not the same. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetricClass.op_Implicit(System.String)~Azure.Monitor.Query.Models.MetricClass">
+            <summary> Converts a string to a <see cref="T:Azure.Monitor.Query.Models.MetricClass" />. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetricClass.Equals(System.Object)">
+            <summary>Indicates whether this instance and a specified object are equal.</summary><param name="obj">The object to compare with the current instance.</param><returns><see langword="true" /> if <paramref name="obj" /> and this instance are the same type and represent the same value; otherwise, <see langword="false" />.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetricClass.Equals(Azure.Monitor.Query.Models.MetricClass)">
+            <summary>Indicates whether the current object is equal to another object of the same type.</summary><param name="other">An object to compare with this object.</param><returns><see langword="true" /> if the current object is equal to the <paramref name="other" /> parameter; otherwise, <see langword="false" />.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetricClass.GetHashCode">
+            <summary>Returns the hash code for this instance.</summary><returns>A 32-bit signed integer that is the hash code for this instance.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetricClass.ToString">
+            <summary>Returns the fully qualified type name of this instance.</summary><returns>The fully qualified type name.</returns>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.MetricDefinition">
+            <summary> Metric definition class specifies the metadata for a metric. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetricDefinition.#ctor">
+            <summary> Initializes a new instance of MetricDefinition. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetricDefinition.#ctor(System.Nullable{System.Boolean},System.String,System.String,Azure.Monitor.Query.Models.LocalizableString,System.String,System.String,System.Nullable{Azure.Monitor.Query.Models.MetricClass},System.Nullable{Azure.Monitor.Query.Models.MetricUnit},System.Nullable{Azure.Monitor.Query.Models.MetricAggregationType},System.Collections.Generic.IReadOnlyList{Azure.Monitor.Query.Models.MetricAggregationType},System.Collections.Generic.IReadOnlyList{Azure.Monitor.Query.Models.MetricAvailability},System.String,System.Collections.Generic.IReadOnlyList{Azure.Monitor.Query.Models.LocalizableString})">
+            <summary> Initializes a new instance of MetricDefinition. </summary>
+            <param name="isDimensionRequired"> Flag to indicate whether the dimension is required. </param>
+            <param name="resourceId"> the resource identifier of the resource that emitted the metric. </param>
+            <param name="namespace"> the namespace the metric belongs to. </param>
+            <param name="localizedName"> the name and the display name of the metric, i.e. it is a localizable string. </param>
+            <param name="displayDescription"> Detailed description of this metric. </param>
+            <param name="category"> Custom category name for this metric. </param>
+            <param name="metricClass"> The class of the metric. </param>
+            <param name="unit"> The unit of the metric. </param>
+            <param name="primaryAggregationType"> the primary aggregation type value defining how to use the values for display. </param>
+            <param name="supportedAggregationTypes"> the collection of what aggregation types are supported. </param>
+            <param name="metricAvailabilities"> the collection of what aggregation intervals are available to be queried. </param>
+            <param name="id"> the resource identifier of the metric definition. </param>
+            <param name="localizedDimensions"> the name and the display name of the dimension, i.e. it is a localizable string. </param>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricDefinition.IsDimensionRequired">
+            <summary> Flag to indicate whether the dimension is required. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricDefinition.ResourceId">
+            <summary> the resource identifier of the resource that emitted the metric. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricDefinition.Namespace">
+            <summary> the namespace the metric belongs to. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricDefinition.DisplayDescription">
+            <summary> Detailed description of this metric. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricDefinition.Category">
+            <summary> Custom category name for this metric. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricDefinition.MetricClass">
+            <summary> The class of the metric. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricDefinition.Unit">
+            <summary> The unit of the metric. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricDefinition.PrimaryAggregationType">
+            <summary> the primary aggregation type value defining how to use the values for display. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricDefinition.SupportedAggregationTypes">
+            <summary> the collection of what aggregation types are supported. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricDefinition.MetricAvailabilities">
+            <summary> the collection of what aggregation intervals are available to be queried. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricDefinition.Id">
+            <summary> the resource identifier of the metric definition. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricDefinition.Name">
+            <summary> The name of the metric. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricDefinition.Dimensions">
+            <summary> Returns a list of dimension names. </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.MetricDefinitionCollection">
+            <summary> Represents collection of metric definitions. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetricDefinitionCollection.#ctor(System.Collections.Generic.IEnumerable{Azure.Monitor.Query.Models.MetricDefinition})">
+            <summary> Initializes a new instance of MetricDefinitionCollection. </summary>
+            <param name="value"> the values for the metric definitions. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="value" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetricDefinitionCollection.#ctor(System.Collections.Generic.IReadOnlyList{Azure.Monitor.Query.Models.MetricDefinition})">
+            <summary> Initializes a new instance of MetricDefinitionCollection. </summary>
+            <param name="value"> the values for the metric definitions. </param>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricDefinitionCollection.Value">
+            <summary> the values for the metric definitions. </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.MetricNamespace">
+            <summary> Metric namespace class specifies the metadata for a metric namespace. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetricNamespace.#ctor">
+            <summary> Initializes a new instance of MetricNamespace. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetricNamespace.#ctor(System.String,System.String,System.String,System.Nullable{Azure.Monitor.Query.Models.NamespaceClassification},Azure.Monitor.Query.Models.MetricNamespaceName)">
+            <summary> Initializes a new instance of MetricNamespace. </summary>
+            <param name="id"> The ID of the metric namespace. </param>
+            <param name="type"> The type of the namespace. </param>
+            <param name="name"> The escaped name of the namespace. </param>
+            <param name="classification"> Kind of namespace. </param>
+            <param name="properties"> Properties which include the fully qualified namespace name. </param>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricNamespace.Id">
+            <summary> The ID of the metric namespace. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricNamespace.Type">
+            <summary> The type of the namespace. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricNamespace.Name">
+            <summary> The escaped name of the namespace. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricNamespace.Classification">
+            <summary> Kind of namespace. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricNamespace.FullyQualifiedName">
+            <summary> The fully qualified namespace name. </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.MetricNamespaceCollection">
+            <summary> Represents collection of metric namespaces. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetricNamespaceCollection.#ctor(System.Collections.Generic.IEnumerable{Azure.Monitor.Query.Models.MetricNamespace})">
+            <summary> Initializes a new instance of MetricNamespaceCollection. </summary>
+            <param name="value"> The values for the metric namespaces. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="value" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetricNamespaceCollection.#ctor(System.Collections.Generic.IReadOnlyList{Azure.Monitor.Query.Models.MetricNamespace})">
+            <summary> Initializes a new instance of MetricNamespaceCollection. </summary>
+            <param name="value"> The values for the metric namespaces. </param>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricNamespaceCollection.Value">
+            <summary> The values for the metric namespaces. </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.MetricNamespaceName">
+            <summary> The fully qualified metric namespace name. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetricNamespaceName.#ctor">
+            <summary> Initializes a new instance of MetricNamespaceName. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetricNamespaceName.#ctor(System.String)">
+            <summary> Initializes a new instance of MetricNamespaceName. </summary>
+            <param name="metricNamespaceNameValue"> The metric namespace name. </param>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricNamespaceName.MetricNamespaceNameValue">
+            <summary> The metric namespace name. </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.MetricsQueryResult">
+            <summary> The response to a metrics query. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetricsQueryResult.#ctor(System.String,System.Collections.Generic.IEnumerable{Azure.Monitor.Query.Models.Metric})">
+            <summary> Initializes a new instance of MetricsQueryResult. </summary>
+            <param name="Timespan"> The timespan for which the data was retrieved. Its value consists of two datetimes concatenated, separated by '/'.  This may be adjusted in the future and returned back from what was originally requested. </param>
+            <param name="metrics"> the value of the collection. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="Timespan" /> or <paramref name="metrics" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetricsQueryResult.#ctor(System.Nullable{System.Int32},System.String,System.Nullable{System.TimeSpan},System.String,System.String,System.Collections.Generic.IReadOnlyList{Azure.Monitor.Query.Models.Metric})">
+            <summary> Initializes a new instance of MetricsQueryResult. </summary>
+            <param name="cost"> The integer value representing the relative cost of the query. </param>
+            <param name="Timespan"> The timespan for which the data was retrieved. Its value consists of two datetimes concatenated, separated by '/'.  This may be adjusted in the future and returned back from what was originally requested. </param>
+            <param name="interval"> The interval (window size) for which the metric data was returned in.  This may be adjusted in the future and returned back from what was originally requested.  This is not present if a metadata request was made. </param>
+            <param name="namespace"> The namespace of the metrics being queried. </param>
+            <param name="resourceRegion"> The region of the resource being queried for metrics. </param>
+            <param name="metrics"> the value of the collection. </param>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricsQueryResult.Cost">
+            <summary> The integer value representing the relative cost of the query. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricsQueryResult.Interval">
+            <summary> The interval (window size) for which the metric data was returned in.  This may be adjusted in the future and returned back from what was originally requested.  This is not present if a metadata request was made. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricsQueryResult.Namespace">
+            <summary> The namespace of the metrics being queried. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricsQueryResult.Metrics">
+            <summary> Metrics returned as the result of the query. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricsQueryResult.TimeSpan">
+            <summary>
+            The timespan for which the data was retrieved.
+            This may be adjusted in the future and returned back from what was originally requested.
+            </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricsQueryResult.ResourceRegion">
+            <summary> The region of the resource being queried for metrics. </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.MetricUnit">
+            <summary> The unit of the metric. </summary>
+            <summary> The unit of the metric. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetricUnit.#ctor(System.String)">
+            <summary> Determines if two <see cref="T:Azure.Monitor.Query.Models.MetricUnit" /> values are the same. </summary>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="value" /> is null. </exception>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricUnit.Count">
+            <summary> Count. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricUnit.Bytes">
+            <summary> Bytes. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricUnit.Seconds">
+            <summary> Seconds. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricUnit.CountPerSecond">
+            <summary> CountPerSecond. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricUnit.BytesPerSecond">
+            <summary> BytesPerSecond. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricUnit.Percent">
+            <summary> Percent. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricUnit.MilliSeconds">
+            <summary> MilliSeconds. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricUnit.ByteSeconds">
+            <summary> ByteSeconds. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricUnit.Unspecified">
+            <summary> Unspecified. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricUnit.Cores">
+            <summary> Cores. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricUnit.MilliCores">
+            <summary> MilliCores. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricUnit.NanoCores">
+            <summary> NanoCores. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricUnit.BitsPerSecond">
+            <summary> BitsPerSecond. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetricUnit.op_Equality(Azure.Monitor.Query.Models.MetricUnit,Azure.Monitor.Query.Models.MetricUnit)">
+            <summary> Determines if two <see cref="T:Azure.Monitor.Query.Models.MetricUnit" /> values are the same. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetricUnit.op_Inequality(Azure.Monitor.Query.Models.MetricUnit,Azure.Monitor.Query.Models.MetricUnit)">
+            <summary> Determines if two <see cref="T:Azure.Monitor.Query.Models.MetricUnit" /> values are not the same. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetricUnit.op_Implicit(System.String)~Azure.Monitor.Query.Models.MetricUnit">
+            <summary> Converts a string to a <see cref="T:Azure.Monitor.Query.Models.MetricUnit" />. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetricUnit.Equals(System.Object)">
+            <summary>Indicates whether this instance and a specified object are equal.</summary><param name="obj">The object to compare with the current instance.</param><returns><see langword="true" /> if <paramref name="obj" /> and this instance are the same type and represent the same value; otherwise, <see langword="false" />.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetricUnit.Equals(Azure.Monitor.Query.Models.MetricUnit)">
+            <summary>Indicates whether the current object is equal to another object of the same type.</summary><param name="other">An object to compare with this object.</param><returns><see langword="true" /> if the current object is equal to the <paramref name="other" /> parameter; otherwise, <see langword="false" />.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetricUnit.GetHashCode">
+            <summary>Returns the hash code for this instance.</summary><returns>A 32-bit signed integer that is the hash code for this instance.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetricUnit.ToString">
+            <summary>Returns the fully qualified type name of this instance.</summary><returns>The fully qualified type name.</returns>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.MetricValue">
+            <summary> Represents a metric value. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetricValue.#ctor(System.DateTimeOffset)">
+            <summary> Initializes a new instance of MetricValue. </summary>
+            <param name="timeStamp"> the timestamp for the metric value in ISO 8601 format. </param>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetricValue.#ctor(System.DateTimeOffset,System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double})">
+            <summary> Initializes a new instance of MetricValue. </summary>
+            <param name="timeStamp"> the timestamp for the metric value in ISO 8601 format. </param>
+            <param name="average"> the average value in the time range. </param>
+            <param name="minimum"> the least value in the time range. </param>
+            <param name="maximum"> the greatest value in the time range. </param>
+            <param name="total"> the sum of all of the values in the time range. </param>
+            <param name="count"> the number of samples in the time range. Can be used to determine the number of values that contributed to the average value. </param>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricValue.TimeStamp">
+            <summary> the timestamp for the metric value in ISO 8601 format. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricValue.Average">
+            <summary> the average value in the time range. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricValue.Minimum">
+            <summary> the least value in the time range. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricValue.Maximum">
+            <summary> the greatest value in the time range. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricValue.Total">
+            <summary> the sum of all of the values in the time range. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.MetricValue.Count">
+            <summary> the number of samples in the time range. Can be used to determine the number of values that contributed to the average value. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.MetricValue.ToString">
+            <summary>Returns a string that represents the current object.</summary><returns>A string that represents the current object.</returns>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.NamespaceClassification">
+            <summary> Kind of namespace. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.NamespaceClassification.#ctor(System.String)">
+            <summary> Determines if two <see cref="T:Azure.Monitor.Query.Models.NamespaceClassification" /> values are the same. </summary>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="value" /> is null. </exception>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.NamespaceClassification.Platform">
+            <summary> Platform. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.NamespaceClassification.Custom">
+            <summary> Custom. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.NamespaceClassification.Qos">
+            <summary> Qos. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.NamespaceClassification.op_Equality(Azure.Monitor.Query.Models.NamespaceClassification,Azure.Monitor.Query.Models.NamespaceClassification)">
+            <summary> Determines if two <see cref="T:Azure.Monitor.Query.Models.NamespaceClassification" /> values are the same. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.NamespaceClassification.op_Inequality(Azure.Monitor.Query.Models.NamespaceClassification,Azure.Monitor.Query.Models.NamespaceClassification)">
+            <summary> Determines if two <see cref="T:Azure.Monitor.Query.Models.NamespaceClassification" /> values are not the same. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.NamespaceClassification.op_Implicit(System.String)~Azure.Monitor.Query.Models.NamespaceClassification">
+            <summary> Converts a string to a <see cref="T:Azure.Monitor.Query.Models.NamespaceClassification" />. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.NamespaceClassification.Equals(System.Object)">
+            <summary>Indicates whether this instance and a specified object are equal.</summary><param name="obj">The object to compare with the current instance.</param><returns><see langword="true" /> if <paramref name="obj" /> and this instance are the same type and represent the same value; otherwise, <see langword="false" />.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.NamespaceClassification.Equals(Azure.Monitor.Query.Models.NamespaceClassification)">
+            <summary>Indicates whether the current object is equal to another object of the same type.</summary><param name="other">An object to compare with this object.</param><returns><see langword="true" /> if the current object is equal to the <paramref name="other" /> parameter; otherwise, <see langword="false" />.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.NamespaceClassification.GetHashCode">
+            <summary>Returns the hash code for this instance.</summary><returns>A 32-bit signed integer that is the hash code for this instance.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.NamespaceClassification.ToString">
+            <summary>Returns the fully qualified type name of this instance.</summary><returns>The fully qualified type name.</returns>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.QueryBody">
+            <summary> The Analytics query. Learn more about the [Analytics query syntax](https://azure.microsoft.com/documentation/articles/app-insights-analytics-reference/). </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.QueryBody.#ctor(System.String)">
+            <summary> Initializes a new instance of QueryBody. </summary>
+            <param name="query"> The query to execute. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="query" /> is null. </exception>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.QueryBody.Query">
+            <summary> The query to execute. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.QueryBody.Timespan">
+            <summary> Optional. The timespan over which to query data. This is an ISO8601 time period value.  This timespan is applied in addition to any that are specified in the query expression. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.QueryBody.Workspaces">
+            <summary> A list of workspaces that are included in the query. </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.TimeSeriesElement">
+            <summary> A time series result type. The discriminator value is always TimeSeries in this case. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.TimeSeriesElement.#ctor">
+            <summary> Initializes a new instance of TimeSeriesElement. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.TimeSeriesElement.#ctor(System.Collections.Generic.IReadOnlyList{Azure.Monitor.Query.Models.MetadataValue},System.Collections.Generic.IReadOnlyList{Azure.Monitor.Query.Models.MetricValue})">
+            <summary> Initializes a new instance of TimeSeriesElement. </summary>
+            <param name="metadatavalues"> the metadata values returned if $filter was specified in the call. </param>
+            <param name="data"> An array of data points representing the metric values.  This is only returned if a result type of data is specified. </param>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.TimeSeriesElement.Data">
+            <summary> An array of data points representing the metric values.  This is only returned if a result type of data is specified. </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.TimeSeriesElement.Metadata">
+            <summary>
+            The metadata values returned if <see cref="P:Azure.Monitor.Query.MetricsQueryOptions.Filter" /> was specified in the call.
+            </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.QueryModelFactory">
+            <summary> Model factory for read-only models. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.QueryModelFactory.LogsQueryResultColumn(System.String,Azure.Monitor.Query.Models.LogsColumnType)">
+            <summary> Initializes a new instance of LogsQueryResultColumn. </summary>
+            <param name="name"> The name of this column. </param>
+            <param name="type"> The data type of this column. </param>
+            <returns> A new <see cref="T:Azure.Monitor.Query.Models.LogsQueryResultColumn" /> instance for mocking. </returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.QueryModelFactory.MetricAvailability(System.Nullable{System.TimeSpan},System.Nullable{System.TimeSpan})">
+            <summary> Initializes a new instance of MetricAvailability. </summary>
+            <param name="timeGrain"> the time grain specifies the aggregation interval for the metric. Expressed as a duration 'PT1M', 'P1D', etc. </param>
+            <param name="retention"> the retention period for the metric at the specified timegrain.  Expressed as a duration 'PT1M', 'P1D', etc. </param>
+            <returns> A new <see cref="T:Azure.Monitor.Query.Models.MetricAvailability" /> instance for mocking. </returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.QueryModelFactory.MetricValue(System.DateTimeOffset,System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double})">
+            <summary> Initializes a new instance of MetricValue. </summary>
+            <param name="timeStamp"> the timestamp for the metric value in ISO 8601 format. </param>
+            <param name="average"> the average value in the time range. </param>
+            <param name="minimum"> the least value in the time range. </param>
+            <param name="maximum"> the greatest value in the time range. </param>
+            <param name="total"> the sum of all of the values in the time range. </param>
+            <param name="count"> the number of samples in the time range. Can be used to determine the number of values that contributed to the average value. </param>
+            <returns> A new <see cref="T:Azure.Monitor.Query.Models.MetricValue" /> instance for mocking. </returns>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.LogsQueryResultRow">
+            <summary>
+            Represents a row in the table of results returned from the logs query.
+            </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.LogsQueryResultRow.Count">
+            <summary>
+            Returns the cell count.
+            </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsQueryResultRow.GetInt32(System.Int32)">
+            <summary>
+            Gets the value of the column at the specified index as <see cref="T:System.Int32" />.
+            </summary>
+            <param name="index">The column index.</param>
+            <returns>The <see cref="T:System.Int32" /> value of the column.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsQueryResultRow.GetInt64(System.Int32)">
+            <summary>
+            Gets the value of the column at the specified index as <see cref="T:System.Int64" />.
+            </summary>
+            <param name="index">The column index.</param>
+            <returns>The <see cref="T:System.Int64" /> value of the column.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsQueryResultRow.GetBoolean(System.Int32)">
+            <summary>
+            Gets the value of the column at the specified index as <see cref="T:System.Boolean" />.
+            </summary>
+            <param name="index">The column index.</param>
+            <returns>The <see cref="T:System.Boolean" /> value of the column.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsQueryResultRow.GetDecimal(System.Int32)">
+            <summary>
+            Gets the value of the column at the specified index as <see cref="T:System.Decimal" />.
+            </summary>
+            <param name="index">The column index.</param>
+            <returns>The <see cref="T:System.Decimal" /> value of the column.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsQueryResultRow.GetDouble(System.Int32)">
+            <summary>
+            Gets the value of the column at the specified index as <see cref="T:System.Double" />.
+            </summary>
+            <param name="index">The column index.</param>
+            <returns>The <see cref="T:System.Double" /> value of the column.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsQueryResultRow.GetString(System.Int32)">
+            <summary>
+            Gets the value of the column at the specified index as <see cref="T:System.String" />.
+            </summary>
+            <param name="index">The column index.</param>
+            <returns>The <see cref="T:System.String" /> value of the column.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsQueryResultRow.GetDateTimeOffset(System.Int32)">
+            <summary>
+            Gets the value of the column at the specified index as <see cref="T:System.DateTimeOffset" />.
+            </summary>
+            <param name="index">The column index.</param>
+            <returns>The <see cref="T:System.DateTimeOffset" /> value of the column.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsQueryResultRow.GetTimeSpan(System.Int32)">
+            <summary>
+            Gets the value of the column at the specified index as <see cref="T:System.TimeSpan" />.
+            </summary>
+            <param name="index">The column index.</param>
+            <returns>The <see cref="T:System.TimeSpan" /> value of the column.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsQueryResultRow.GetGuid(System.Int32)">
+            <summary>
+            Gets the value of the column at the specified index as <see cref="T:System.Guid" />.
+            </summary>
+            <param name="index">The column index.</param>
+            <returns>The <see cref="T:System.Guid" /> value of the column.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsQueryResultRow.GetDynamic(System.Int32)">
+            <summary>
+            Gets the value of the column at the specified index as <see cref="T:System.BinaryData" />.
+            </summary>
+            <param name="index">The column index.</param>
+            <returns>The <see cref="T:System.BinaryData" /> value of the column.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsQueryResultRow.IsNull(System.Int32)">
+            <summary>
+            Returns <c>true</c> if the value of the column at the specified index is <c>null</c>, otherwise <c>false</c>.
+            </summary>
+            <param name="index">The column index.</param>
+            <returns><c>true</c> if the value is <c>null</c>, otherwise <c>false</c>.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsQueryResultRow.GetInt32(System.String)">
+            <summary>
+            Gets the value of the column with the specified name as <see cref="T:System.Int32" />.
+            </summary>
+            <param name="name">The column name.</param>
+            <returns>The <see cref="T:System.Int32" /> value of the column.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsQueryResultRow.GetInt64(System.String)">
+            <summary>
+            Gets the value of the column with the specified name as <see cref="T:System.Int64" />.
+            </summary>
+            <param name="name">The column name.</param>
+            <returns>The <see cref="T:System.Int64" /> value of the column.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsQueryResultRow.GetBoolean(System.String)">
+            <summary>
+            Gets the value of the column with the specified name as <see cref="T:System.Boolean" />.
+            </summary>
+            <param name="name">The column name.</param>
+            <returns>The <see cref="T:System.Boolean" /> value of the column.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsQueryResultRow.GetDecimal(System.String)">
+            <summary>
+            Gets the value of the column with the specified name as <see cref="T:System.Decimal" />.
+            </summary>
+            <param name="name">The column name.</param>
+            <returns>The <see cref="T:System.Decimal" /> value of the column.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsQueryResultRow.GetDouble(System.String)">
+            <summary>
+            Gets the value of the column with the specified name as <see cref="T:System.Double" />.
+            </summary>
+            <param name="name">The column name.</param>
+            <returns>The <see cref="T:System.Double" /> value of the column.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsQueryResultRow.GetString(System.String)">
+            <summary>
+            Gets the value of the column with the specified name as <see cref="T:System.String" />.
+            </summary>
+            <param name="name">The column name.</param>
+            <returns>The <see cref="T:System.String" /> value of the column.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsQueryResultRow.GetDateTimeOffset(System.String)">
+            <summary>
+            Gets the value of the column with the specified name as <see cref="T:System.DateTimeOffset" />.
+            </summary>
+            <param name="name">The column name.</param>
+            <returns>The <see cref="T:System.DateTimeOffset" /> value of the column.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsQueryResultRow.GetTimeSpan(System.String)">
+            <summary>
+            Gets the value of the column with the specified name as <see cref="T:System.TimeSpan" />.
+            </summary>
+            <param name="name">The column name.</param>
+            <returns>The <see cref="T:System.TimeSpan" /> value of the column.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsQueryResultRow.GetGuid(System.String)">
+            <summary>
+            Gets the value of the column with the specified name as <see cref="T:System.Guid" />.
+            </summary>
+            <param name="name">The column name.</param>
+            <returns>The <see cref="T:System.Guid" /> value of the column.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsQueryResultRow.GetDynamic(System.String)">
+            <summary>
+            Gets the value of the column with the specified name as <see cref="T:System.Guid" />.
+            </summary>
+            <param name="name">The column name.</param>
+            <returns>The <see cref="T:System.BinaryData" /> value of the column.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsQueryResultRow.IsNull(System.String)">
+            <summary>
+            Returns true if the value of the column with the specified name is null, otherwise false.
+            </summary>
+            <param name="name">The column name.</param>
+            <returns><c>true</c> if the value is <c>null</c>, otherwise <c>false</c>.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsQueryResultRow.GetObject(System.Int32)">
+            <summary>
+            Gets the value of the column at the specified index as <see cref="T:System.Object" />.
+            </summary>
+            <param name="index">The column index.</param>
+            <returns>The <see cref="T:System.Object" /> value of the column.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsQueryResultRow.GetObject(System.String)">
+            <summary>
+            Gets the value of the column with the specified name as <see cref="T:System.Object" />.
+            </summary>
+            <param name="name">The column name.</param>
+            <returns>The <see cref="T:System.Object" /> value of the column.</returns>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.LogsQueryResultRow.Item(System.Int32)">
+            <summary>
+            Gets the value of the column at the specified index as <see cref="T:System.Object" />.
+            </summary>
+            <param name="index">The column index.</param>
+            <returns>The <see cref="T:System.Object" /> value of the column.</returns>
+        </member>
+        <member name="P:Azure.Monitor.Query.Models.LogsQueryResultRow.Item(System.String)">
+            <summary>
+            Gets the value of the column with the specified name as <see cref="T:System.Object" />.
+            </summary>
+            <param name="name">The column name.</param>
+            <returns>The <see cref="T:System.Object" /> value of the column.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.Models.LogsQueryResultRow.ToString">
+            <summary>Returns a string that represents the current object.</summary><returns>A string that represents the current object.</returns>
+        </member>
+        <member name="T:Azure.Monitor.Query.Models.MetricAggregationType">
+            <summary> The aggregation type of the metric. </summary>
+        </member>
+        <member name="F:Azure.Monitor.Query.Models.MetricAggregationType.None">
+            <summary> None. </summary>
+        </member>
+        <member name="F:Azure.Monitor.Query.Models.MetricAggregationType.Average">
+            <summary> Average. </summary>
+        </member>
+        <member name="F:Azure.Monitor.Query.Models.MetricAggregationType.Count">
+            <summary> Count. </summary>
+        </member>
+        <member name="F:Azure.Monitor.Query.Models.MetricAggregationType.Minimum">
+            <summary> Minimum. </summary>
+        </member>
+        <member name="F:Azure.Monitor.Query.Models.MetricAggregationType.Maximum">
+            <summary> Maximum. </summary>
+        </member>
+        <member name="F:Azure.Monitor.Query.Models.MetricAggregationType.Total">
+            <summary> Total. </summary>
+        </member>
+        <member name="F:Azure.Monitor.Query.Models.ResultType.Data">
+            <summary> Data. </summary>
+        </member>
+        <member name="F:Azure.Monitor.Query.Models.ResultType.Metadata">
+            <summary> Metadata. </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.QueryRestClient.#ctor(Azure.Core.Pipeline.ClientDiagnostics,Azure.Core.Pipeline.HttpPipeline,System.Uri)">
+            <summary> Initializes a new instance of QueryRestClient. </summary>
+            <param name="clientDiagnostics"> The handler for diagnostic messaging in the client. </param>
+            <param name="pipeline"> The HTTP pipeline for sending and receiving REST requests and responses. </param>
+            <param name="endpoint"> server parameter. </param>
+        </member>
+        <member name="M:Azure.Monitor.Query.QueryRestClient.GetAsync(System.String,System.String,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)">
+            <summary> Executes an Analytics query for data. </summary>
+            <param name="workspaceId"> ID of the workspace. This is Workspace ID from the Properties blade in the Azure portal. </param>
+            <param name="query"> The Analytics query. Learn more about the [Analytics query syntax](https://azure.microsoft.com/documentation/articles/app-insights-analytics-reference/). </param>
+            <param name="timespan"> Optional. The timespan over which to query data. This is an ISO8601 time period value.  This timespan is applied in addition to any that are specified in the query expression. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="workspaceId" /> or <paramref name="query" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Monitor.Query.QueryRestClient.Get(System.String,System.String,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)">
+            <summary> Executes an Analytics query for data. </summary>
+            <param name="workspaceId"> ID of the workspace. This is Workspace ID from the Properties blade in the Azure portal. </param>
+            <param name="query"> The Analytics query. Learn more about the [Analytics query syntax](https://azure.microsoft.com/documentation/articles/app-insights-analytics-reference/). </param>
+            <param name="timespan"> Optional. The timespan over which to query data. This is an ISO8601 time period value.  This timespan is applied in addition to any that are specified in the query expression. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="workspaceId" /> or <paramref name="query" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Monitor.Query.QueryRestClient.ExecuteAsync(System.String,Azure.Monitor.Query.Models.QueryBody,System.String,System.Threading.CancellationToken)">
+            <summary> Executes an Analytics query for data. [Here](https://dev.loganalytics.io/documentation/Using-the-API) is an example for using POST with an Analytics query. </summary>
+            <param name="workspaceId"> ID of the workspace. This is Workspace ID from the Properties blade in the Azure portal. </param>
+            <param name="body"> The Analytics query. Learn more about the [Analytics query syntax](https://azure.microsoft.com/documentation/articles/app-insights-analytics-reference/). </param>
+            <param name="prefer"> Optional. The prefer header to set server timeout, query statistics and visualization information. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="workspaceId" /> or <paramref name="body" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Monitor.Query.QueryRestClient.Execute(System.String,Azure.Monitor.Query.Models.QueryBody,System.String,System.Threading.CancellationToken)">
+            <summary> Executes an Analytics query for data. [Here](https://dev.loganalytics.io/documentation/Using-the-API) is an example for using POST with an Analytics query. </summary>
+            <param name="workspaceId"> ID of the workspace. This is Workspace ID from the Properties blade in the Azure portal. </param>
+            <param name="body"> The Analytics query. Learn more about the [Analytics query syntax](https://azure.microsoft.com/documentation/articles/app-insights-analytics-reference/). </param>
+            <param name="prefer"> Optional. The prefer header to set server timeout, query statistics and visualization information. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="workspaceId" /> or <paramref name="body" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Monitor.Query.QueryRestClient.BatchAsync(Azure.Monitor.Query.Models.BatchRequest,System.Threading.CancellationToken)">
+            <summary> Executes a batch of Analytics queries for data. [Here](https://dev.loganalytics.io/documentation/Using-the-API) is an example for using POST with an Analytics query. </summary>
+            <param name="body"> The batch request body. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="body" /> is null. </exception>
+        </member>
+        <member name="M:Azure.Monitor.Query.QueryRestClient.Batch(Azure.Monitor.Query.Models.BatchRequest,System.Threading.CancellationToken)">
+            <summary> Executes a batch of Analytics queries for data. [Here](https://dev.loganalytics.io/documentation/Using-the-API) is an example for using POST with an Analytics query. </summary>
+            <param name="body"> The batch request body. </param>
+            <param name="cancellationToken"> The cancellation token to use. </param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="body" /> is null. </exception>
+        </member>
+        <member name="T:Azure.Monitor.Query.LogsQueryClient">
+            <summary>
+            The <see cref="T:Azure.Monitor.Query.LogsQueryClient" /> allows to query the Azure Monitor Logs service.
+            </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.LogsQueryClient.#ctor(Azure.Core.TokenCredential)">
+            <summary>
+            Initializes a new instance of <see cref="T:Azure.Monitor.Query.LogsQueryClient" />. Uses the default 'https://api.loganalytics.io' endpoint.
+            <code snippet="Snippet:CreateLogsClient" language="csharp">
+            var client = new LogsQueryClient(new DefaultAzureCredential());
+            </code>
+            </summary>
+            <param name="credential">The <see cref="T:Azure.Core.TokenCredential" /> instance to use for authentication.</param>
+        </member>
+        <member name="M:Azure.Monitor.Query.LogsQueryClient.#ctor(Azure.Core.TokenCredential,Azure.Monitor.Query.LogsQueryClientOptions)">
+            <summary>
+            Initializes a new instance of <see cref="T:Azure.Monitor.Query.LogsQueryClient" />. Uses the default 'https://api.loganalytics.io' endpoint.
+            </summary>
+            <param name="credential">The <see cref="T:Azure.Core.TokenCredential" /> instance to use for authentication.</param>
+            <param name="options">The <see cref="T:Azure.Monitor.Query.LogsQueryClientOptions" /> instance to use as client configuration.</param>
+        </member>
+        <member name="M:Azure.Monitor.Query.LogsQueryClient.#ctor(System.Uri,Azure.Core.TokenCredential)">
+            <summary>
+            Initializes a new instance of <see cref="T:Azure.Monitor.Query.LogsQueryClient" />.
+            </summary>
+            <param name="endpoint">The service endpoint to use.</param>
+            <param name="credential">The <see cref="T:Azure.Core.TokenCredential" /> instance to use for authentication.</param>
+        </member>
+        <member name="M:Azure.Monitor.Query.LogsQueryClient.#ctor(System.Uri,Azure.Core.TokenCredential,Azure.Monitor.Query.LogsQueryClientOptions)">
+            <summary>
+            Initializes a new instance of <see cref="T:Azure.Monitor.Query.LogsQueryClient" />.
+            </summary>
+            <param name="endpoint">The service endpoint to use.</param>
+            <param name="credential">The <see cref="T:Azure.Core.TokenCredential" /> instance to use for authentication.</param>
+            <param name="options">The <see cref="T:Azure.Monitor.Query.LogsQueryClientOptions" /> instance to use as client configuration.</param>
+        </member>
+        <member name="M:Azure.Monitor.Query.LogsQueryClient.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:Azure.Monitor.Query.LogsQueryClient" /> for mocking.
+            </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.LogsQueryClient.Query``1(System.String,System.String,Azure.Core.DateTimeRange,Azure.Monitor.Query.LogsQueryOptions,System.Threading.CancellationToken)">
+             <summary>
+             Executes the logs query. Deserializes the result into a strongly typed model class or a primitive type if the query returns a single column.
+            
+             Example of querying a model:
+             <code snippet="Snippet:QueryLogsAsModelCall" language="csharp">
+             Response&lt;IReadOnlyList&lt;MyLogEntryModel&gt;&gt; response = await client.QueryAsync&lt;MyLogEntryModel&gt;(
+                 workspaceId,
+                 "AzureActivity | summarize Count = count() by ResourceGroup | top 10 by Count",
+                 new DateTimeRange(TimeSpan.FromDays(1)));
+             </code>
+            
+             Example of querying a primitive:
+             <code snippet="Snippet:QueryLogsAsPrimitiveCall" language="csharp">
+             Response&lt;IReadOnlyList&lt;string&gt;&gt; response = await client.QueryAsync&lt;string&gt;(
+                 workspaceId,
+                 "AzureActivity | summarize Count = count() by ResourceGroup | top 10 by Count | project ResourceGroup",
+                 new DateTimeRange(TimeSpan.FromDays(1)));
+             </code>
+             </summary>
+             <param name="workspaceId">The workspace id to include in the query (<c>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</c>).</param>
+             <param name="query">The query text to execute.</param>
+             <param name="timeRange">The timespan over which to query data. Logs will be filtered to include entries produced starting at <c>Now - timeSpan</c>. </param>
+             <param name="options">The <see cref="T:Azure.Monitor.Query.LogsQueryOptions" /> to configure the query.</param>
+             <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken" /> to use.</param>
+             <returns>Query results mapped to a type <typeparamref name="T" />.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.LogsQueryClient.QueryAsync``1(System.String,System.String,Azure.Core.DateTimeRange,Azure.Monitor.Query.LogsQueryOptions,System.Threading.CancellationToken)">
+             <summary>
+             Executes the logs query. Deserializes the result into a strongly typed model class or a primitive type if the query returns a single column.
+            
+             Example of querying a model:
+             <code snippet="Snippet:QueryLogsAsModelCall" language="csharp">
+             Response&lt;IReadOnlyList&lt;MyLogEntryModel&gt;&gt; response = await client.QueryAsync&lt;MyLogEntryModel&gt;(
+                 workspaceId,
+                 "AzureActivity | summarize Count = count() by ResourceGroup | top 10 by Count",
+                 new DateTimeRange(TimeSpan.FromDays(1)));
+             </code>
+            
+             Example of querying a primitive:
+             <code snippet="Snippet:QueryLogsAsPrimitiveCall" language="csharp">
+             Response&lt;IReadOnlyList&lt;string&gt;&gt; response = await client.QueryAsync&lt;string&gt;(
+                 workspaceId,
+                 "AzureActivity | summarize Count = count() by ResourceGroup | top 10 by Count | project ResourceGroup",
+                 new DateTimeRange(TimeSpan.FromDays(1)));
+             </code>
+             </summary>
+             <param name="workspaceId">The workspace id to include in the query (<c>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</c>).</param>
+             <param name="query">The query text to execute.</param>
+             <param name="timeRange">The timespan over which to query data. Logs will be filtered to include entries produced starting at <c>Now - timeSpan</c>. </param>
+             <param name="options">The <see cref="T:Azure.Monitor.Query.LogsQueryOptions" /> to configure the query.</param>
+             <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken" /> to use.</param>
+             <returns>Query results mapped to a type <typeparamref name="T" />.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.LogsQueryClient.Query(System.String,System.String,Azure.Core.DateTimeRange,Azure.Monitor.Query.LogsQueryOptions,System.Threading.CancellationToken)">
+            <summary>
+            Executes the logs query.
+            </summary>
+            <param name="workspaceId">The workspace id to include in the query (<c>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</c>).</param>
+            <param name="query">The query text to execute.</param>
+            <param name="timeRange">The timespan over which to query data. Logs will be filtered to include entries produced starting at <c>Now - timeSpan</c>. </param>
+            <param name="options">The <see cref="T:Azure.Monitor.Query.LogsQueryOptions" /> to configure the query.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken" /> to use.</param>
+            <returns>The <see cref="T:Azure.Monitor.Query.Models.LogsQueryResult" /> containing the query results.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.LogsQueryClient.QueryAsync(System.String,System.String,Azure.Core.DateTimeRange,Azure.Monitor.Query.LogsQueryOptions,System.Threading.CancellationToken)">
+            <summary>
+            Executes the logs query.
+            </summary>
+            <param name="workspaceId">The workspace id to include in the query (<c>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</c>).</param>
+            <param name="query">The query text to execute.</param>
+            <param name="timeRange">The timespan over which to query data. Logs will be filtered to include entries produced starting at <c>Now - timeSpan</c>. </param>
+            <param name="options">The <see cref="T:Azure.Monitor.Query.LogsQueryOptions" /> to configure the query.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken" /> to use.</param>
+            <returns>The <see cref="T:Azure.Monitor.Query.Models.LogsQueryResult" /> with the query results.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.LogsQueryClient.QueryBatch(Azure.Monitor.Query.LogsBatchQuery,System.Threading.CancellationToken)">
+             <summary>
+             Submits the batch query. Use the <see cref="T:Azure.Monitor.Query.LogsBatchQuery" /> to compose a batch query.
+             <code snippet="Snippet:BatchQuery" language="csharp">
+             string workspaceId = "&lt;workspace_id&gt;";
+            
+             var client = new LogsQueryClient(new DefaultAzureCredential());
+            
+             // Query TOP 10 resource groups by event count
+             // And total event count
+             var batch = new LogsBatchQuery();
+            
+             string countQueryId = batch.AddQuery(
+                 workspaceId,
+                 "AzureActivity | count",
+                 new DateTimeRange(TimeSpan.FromDays(1)));
+             string topQueryId = batch.AddQuery(
+                 workspaceId,
+                 "AzureActivity | summarize Count = count() by ResourceGroup | top 10 by Count",
+                 new DateTimeRange(TimeSpan.FromDays(1)));
+            
+             Response&lt;LogsBatchQueryResults&gt; response = await client.QueryBatchAsync(batch);
+            
+             var count = response.Value.GetResult&lt;int&gt;(countQueryId).Single();
+             var topEntries = response.Value.GetResult&lt;MyLogEntryModel&gt;(topQueryId);
+            
+             Console.WriteLine($"AzureActivity has total {count} events");
+             foreach (var logEntryModel in topEntries)
+             {
+                 Console.WriteLine($"{logEntryModel.ResourceGroup} had {logEntryModel.Count} events");
+             }
+             </code>
+             </summary>
+             <param name="batch">The batch of queries to send.</param>
+             <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken" /> to use.</param>
+             <returns>The <see cref="T:Azure.Monitor.Query.Models.LogsBatchQueryResults" /> containing the query identifier that has to be passed into <see cref="M:Azure.Monitor.Query.Models.LogsBatchQueryResults.GetResult(System.String)" /> to get the result.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.LogsQueryClient.QueryBatchAsync(Azure.Monitor.Query.LogsBatchQuery,System.Threading.CancellationToken)">
+             <summary>
+             Submits the batch query. Use the <see cref="T:Azure.Monitor.Query.LogsBatchQuery" /> to compose a batch query.
+             <code snippet="Snippet:BatchQuery" language="csharp">
+             string workspaceId = "&lt;workspace_id&gt;";
+            
+             var client = new LogsQueryClient(new DefaultAzureCredential());
+            
+             // Query TOP 10 resource groups by event count
+             // And total event count
+             var batch = new LogsBatchQuery();
+            
+             string countQueryId = batch.AddQuery(
+                 workspaceId,
+                 "AzureActivity | count",
+                 new DateTimeRange(TimeSpan.FromDays(1)));
+             string topQueryId = batch.AddQuery(
+                 workspaceId,
+                 "AzureActivity | summarize Count = count() by ResourceGroup | top 10 by Count",
+                 new DateTimeRange(TimeSpan.FromDays(1)));
+            
+             Response&lt;LogsBatchQueryResults&gt; response = await client.QueryBatchAsync(batch);
+            
+             var count = response.Value.GetResult&lt;int&gt;(countQueryId).Single();
+             var topEntries = response.Value.GetResult&lt;MyLogEntryModel&gt;(topQueryId);
+            
+             Console.WriteLine($"AzureActivity has total {count} events");
+             foreach (var logEntryModel in topEntries)
+             {
+                 Console.WriteLine($"{logEntryModel.ResourceGroup} had {logEntryModel.Count} events");
+             }
+             </code>
+             </summary>
+             <param name="batch">The batch of queries to send.</param>
+             <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken" /> to use.</param>
+             <returns>The <see cref="T:Azure.Monitor.Query.Models.LogsBatchQueryResults" /> that allows retrieving query results.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.LogsQueryClient.CreateQuery(System.FormattableString)">
+            <summary>
+            Create a Kusto query from an interpolated string. The interpolated values will be quoted and escaped as necessary.
+            </summary>
+            <param name="filter">An interpolated query string.</param>
+            <returns>A valid Kusto query.</returns>
+        </member>
+        <member name="T:Azure.Monitor.Query.LogsQueryClientOptions">
+            <summary>
+            Provides the client configuration options for connecting to Azure Monitor Logs service.
+            </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.LogsQueryClientOptions.#ctor(Azure.Monitor.Query.LogsQueryClientOptions.ServiceVersion)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Azure.Monitor.Query.LogsQueryClientOptions" /> class.
+            </summary>
+            <param name="version">
+            The <see cref="T:Azure.Monitor.Query.LogsQueryClientOptions.ServiceVersion" /> of the service API used when
+            making requests.
+            </param>
+        </member>
+        <member name="T:Azure.Monitor.Query.LogsQueryClientOptions.ServiceVersion">
+            <summary>
+            The versions of Azure Monitor Logs service supported by this client
+            library.
+            </summary>
+        </member>
+        <member name="F:Azure.Monitor.Query.LogsQueryClientOptions.ServiceVersion.V1">
+            <summary>
+            The V1 version of the service
+            </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.LogsQueryClientOptions.AuthenticationScope">
+            <summary>
+            Gets or sets the authentication scope to use for authentication with Azure Active Directory. The default scope will be used if the property is null.
+            </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.LogsQueryOptions">
+            <summary>
+            Options for <see cref="M:Azure.Monitor.Query.LogsQueryClient.QueryAsync(System.String,System.String,Azure.Core.DateTimeRange,Azure.Monitor.Query.LogsQueryOptions,System.Threading.CancellationToken)" /> and <see cref="M:Azure.Monitor.Query.LogsBatchQuery.AddQuery(System.String,System.String,Azure.Core.DateTimeRange,Azure.Monitor.Query.LogsQueryOptions)" /> methods.
+            </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.LogsQueryOptions.ServerTimeout">
+            <summary>
+            Gets or sets the value indicating the service timeout for the query. Defaults to <c>null</c>.
+            </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.LogsQueryOptions.IncludeStatistics">
+            <summary>
+            Gets or sets the value indicating whether to include query execution statistics as part of the response.
+            Statistics can be retrieved via the <see cref="M:Azure.Monitor.Query.Models.LogsQueryResult.GetStatistics" /> method.
+            Defaults to <c>false</c>.
+            </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.LogsQueryOptions.IncludeVisualization">
+            <summary>
+            Gets or sets the value indicating whether to include query visualization as part of the response.
+            Visualization can be retrieved via the <see cref="M:Azure.Monitor.Query.Models.LogsQueryResult.GetVisualization" /> method.
+            Defaults to <c>false</c>.
+            </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.LogsQueryOptions.AdditionalWorkspaces">
+            <summary>
+            Gets a list of additional workspaces names to include in the query.
+            </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.MetricsQueryClient">
+            <summary>
+            The <see cref="T:Azure.Monitor.Query.MetricsQueryClient" /> allows you to query the Azure Monitor Metrics service.
+            </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.MetricsQueryClient.#ctor(Azure.Core.TokenCredential)">
+            <summary>
+            Initializes a new instance of <see cref="T:Azure.Monitor.Query.MetricsQueryClient" />. Uses the default 'https://management.azure.com' endpoint.
+            <code snippet="Snippet:CreateMetricsClient" language="csharp">
+            var metricsClient = new MetricsQueryClient(new DefaultAzureCredential());
+            </code>
+            </summary>
+            <param name="credential">The <see cref="T:Azure.Core.TokenCredential" /> instance to use for authentication.</param>
+        </member>
+        <member name="M:Azure.Monitor.Query.MetricsQueryClient.#ctor(Azure.Core.TokenCredential,Azure.Monitor.Query.MetricsQueryClientOptions)">
+            <summary>
+            Initializes a new instance of <see cref="T:Azure.Monitor.Query.MetricsQueryClient" />. Uses the default 'https://management.azure.com' endpoint.
+            </summary>
+            <param name="credential">The <see cref="T:Azure.Core.TokenCredential" /> instance to use for authentication.</param>
+            <param name="options">The <see cref="T:Azure.Monitor.Query.MetricsQueryClientOptions" /> instance to as client configuration.</param>
+        </member>
+        <member name="M:Azure.Monitor.Query.MetricsQueryClient.#ctor(System.Uri,Azure.Core.TokenCredential,Azure.Monitor.Query.MetricsQueryClientOptions)">
+            <summary>
+            Initializes a new instance of <see cref="T:Azure.Monitor.Query.MetricsQueryClient" />.
+            </summary>
+            <param name="endpoint">The resource manager service endpoint to use. For example <c>https://management.azure.com/</c> for public cloud.</param>
+            <param name="credential">The <see cref="T:Azure.Core.TokenCredential" /> instance to use for authentication.</param>
+            <param name="options">The <see cref="T:Azure.Monitor.Query.MetricsQueryClientOptions" /> instance to as client configuration.</param>
+        </member>
+        <member name="M:Azure.Monitor.Query.MetricsQueryClient.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:Azure.Monitor.Query.MetricsQueryClient" /> for mocking.
+            </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.MetricsQueryClient.Query(System.String,System.Collections.Generic.IEnumerable{System.String},Azure.Monitor.Query.MetricsQueryOptions,System.Threading.CancellationToken)">
+             <summary>
+             Queries metrics for a resource.
+             <code snippet="Snippet:QueryMetrics" language="csharp">
+             string resourceId =
+                 "/subscriptions/&lt;subscription_id&gt;/resourceGroups/&lt;resource_group_name&gt;/providers/&lt;resource_provider&gt;/&lt;resource&gt;";
+            
+             var metricsClient = new MetricsQueryClient(new DefaultAzureCredential());
+            
+             Response&lt;MetricsQueryResult&gt; results = await metricsClient.QueryAsync(
+                 resourceId,
+                 new[] {"Microsoft.OperationalInsights/workspaces"}
+             );
+            
+             foreach (var metric in results.Value.Metrics)
+             {
+                 Console.WriteLine(metric.Name);
+                 foreach (var element in metric.TimeSeries)
+                 {
+                     Console.WriteLine("Dimensions: " + string.Join(",", element.Metadata));
+            
+                     foreach (var metricValue in element.Data)
+                     {
+                         Console.WriteLine(metricValue);
+                     }
+                 }
+             }
+             </code>
+             </summary>
+             <param name="resourceId">The resource name.
+             For example:
+             <c>/subscriptions/&lt;subscription_id&gt;/resourceGroups/&lt;resource_group_name&gt;/providers/&lt;resource_provider&gt;/&lt;resource&gt;</c>,<br />
+             <c>/subscriptions/faa080af-c1d8-40ad-9cce-e1a450ca5b57/resourceGroups/resource-group/providers/Microsoft.Storage/storageAccounts/mystorage</c>,<br />
+             <c>/subscriptions/faa080af-c1d8-40ad-9cce-e1a450ca5b57/resourceGroups/resource-group/providers/Microsoft.Compute/virtualMachines/myvm</c><br />
+             </param>
+             <param name="metrics">The list of metrics to query.</param>
+             <param name="options">The additional request options.</param>
+             <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken" /> to use.</param>
+             <returns>The <see cref="T:Azure.Monitor.Query.Models.MetricsQueryResult" /> instance containing the query results.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.MetricsQueryClient.QueryAsync(System.String,System.Collections.Generic.IEnumerable{System.String},Azure.Monitor.Query.MetricsQueryOptions,System.Threading.CancellationToken)">
+             <summary>
+             Queries metrics for a resource.
+             <code snippet="Snippet:QueryMetrics" language="csharp">
+             string resourceId =
+                 "/subscriptions/&lt;subscription_id&gt;/resourceGroups/&lt;resource_group_name&gt;/providers/&lt;resource_provider&gt;/&lt;resource&gt;";
+            
+             var metricsClient = new MetricsQueryClient(new DefaultAzureCredential());
+            
+             Response&lt;MetricsQueryResult&gt; results = await metricsClient.QueryAsync(
+                 resourceId,
+                 new[] {"Microsoft.OperationalInsights/workspaces"}
+             );
+            
+             foreach (var metric in results.Value.Metrics)
+             {
+                 Console.WriteLine(metric.Name);
+                 foreach (var element in metric.TimeSeries)
+                 {
+                     Console.WriteLine("Dimensions: " + string.Join(",", element.Metadata));
+            
+                     foreach (var metricValue in element.Data)
+                     {
+                         Console.WriteLine(metricValue);
+                     }
+                 }
+             }
+             </code>
+             </summary>
+             <param name="resourceId">The resource name.
+             For example:
+             <c>/subscriptions/&lt;subscription_id&gt;/resourceGroups/&lt;resource_group_name&gt;/providers/&lt;resource_provider&gt;/&lt;resource&gt;</c>,<br />
+             <c>/subscriptions/faa080af-c1d8-40ad-9cce-e1a450ca5b57/resourceGroups/resource-group/providers/Microsoft.Storage/storageAccounts/mystorage</c>,<br />
+             <c>/subscriptions/faa080af-c1d8-40ad-9cce-e1a450ca5b57/resourceGroups/resource-group/providers/Microsoft.Compute/virtualMachines/myvm</c><br />
+             </param>
+             <param name="metrics">The list of metrics to query.</param>
+             <param name="options">The additional request options.</param>
+             <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken" /> to use.</param>
+             <returns>The <see cref="T:Azure.Monitor.Query.Models.MetricsQueryResult" /> instance with query results.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.MetricsQueryClient.GetMetricDefinitions(System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Gets metric definitions for a particular resource and metric namespace.
+            </summary>
+            <param name="resourceId">The resource name.
+            For example:
+            <c>/subscriptions/&lt;subscription_id&gt;/resourceGroups/&lt;resource_group_name&gt;/providers/&lt;resource_provider&gt;/&lt;resource&gt;</c>,<br />
+            <c>/subscriptions/faa080af-c1d8-40ad-9cce-e1a450ca5b57/resourceGroups/resource-group/providers/Microsoft.Storage/storageAccounts/mystorage</c>,<br />
+            <c>/subscriptions/faa080af-c1d8-40ad-9cce-e1a450ca5b57/resourceGroups/resource-group/providers/Microsoft.Compute/virtualMachines/myvm</c><br />
+            </param>
+            <param name="metricsNamespace">The metric namespace.
+            For example: <c>Microsoft.OperationalInsights/workspaces</c>.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken" /> to use.</param>
+            <returns>A pageable collection of metric definitions.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.MetricsQueryClient.GetMetricDefinitionsAsync(System.String,System.String,System.Threading.CancellationToken)">
+             <summary>
+             Gets metric definitions for a particular resource and metric namespace.
+             </summary>
+             <param name="resourceId">The resource name.
+            
+             For example:
+             <c>/subscriptions/&lt;subscription_id&gt;/resourceGroups/&lt;resource_group_name&gt;/providers/&lt;resource_provider&gt;/&lt;resource&gt;</c>,<br />
+             <c>/subscriptions/faa080af-c1d8-40ad-9cce-e1a450ca5b57/resourceGroups/resource-group/providers/Microsoft.Storage/storageAccounts/mystorage</c>,<br />
+             <c>/subscriptions/faa080af-c1d8-40ad-9cce-e1a450ca5b57/resourceGroups/resource-group/providers/Microsoft.Compute/virtualMachines/myvm</c><br />
+             </param>
+             <param name="metricsNamespace">The metric namespace.
+             For example: <c>Microsoft.OperationalInsights/workspaces</c>.</param>
+             <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken" /> to use.</param>
+             <returns>A pageable collection of metric definitions.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.MetricsQueryClient.GetMetricNamespaces(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Gets metric namespaces for a particular resource.
+            </summary>
+            <param name="resourceId">The resource name.
+            For example:
+            <c>/subscriptions/&lt;subscription_id&gt;/resourceGroups/&lt;resource_group_name&gt;/providers/&lt;resource_provider&gt;/&lt;resource&gt;</c>,<br />
+            <c>/subscriptions/faa080af-c1d8-40ad-9cce-e1a450ca5b57/resourceGroups/resource-group/providers/Microsoft.Storage/storageAccounts/mystorage</c>,<br />
+            <c>/subscriptions/faa080af-c1d8-40ad-9cce-e1a450ca5b57/resourceGroups/resource-group/providers/Microsoft.Compute/virtualMachines/myvm</c><br />
+            </param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken" /> to use.</param>
+            <returns>A pageable collection of metric namespaces.</returns>
+        </member>
+        <member name="M:Azure.Monitor.Query.MetricsQueryClient.GetMetricNamespacesAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Gets metric namespaces for a particular resource.
+            </summary>
+            <param name="resourceId">The resource name.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken" /> to use.</param>
+            <returns>A pageable collection of metric namespaces.</returns>
+        </member>
+        <member name="T:Azure.Monitor.Query.MetricsQueryClientOptions">
+            <summary>
+            Provides the client configuration options for connecting to Azure Monitor Metrics service.
+            </summary>
+        </member>
+        <member name="F:Azure.Monitor.Query.MetricsQueryClientOptions.LatestVersion">
+            <summary>
+            The latest service version supported by this client library.
+            </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.MetricsQueryClientOptions.#ctor(Azure.Monitor.Query.MetricsQueryClientOptions.ServiceVersion)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Azure.Monitor.Query.MetricsQueryClientOptions" /> class.
+            </summary>
+            <param name="version">
+            The <see cref="T:Azure.Monitor.Query.MetricsQueryClientOptions.ServiceVersion" /> of the service API used when
+            making requests.
+            </param>
+        </member>
+        <member name="T:Azure.Monitor.Query.MetricsQueryClientOptions.ServiceVersion">
+            <summary>
+            The versions of Azure Monitor Query service supported by this client
+            library.
+            </summary>
+        </member>
+        <member name="F:Azure.Monitor.Query.MetricsQueryClientOptions.ServiceVersion.V2018_01_01">
+            <summary>
+            Version 2018-01-01 of the service.
+            </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.MetricsQueryOptions">
+            <summary>
+            Options for <see cref="M:Azure.Monitor.Query.MetricsQueryClient.QueryAsync(System.String,System.Collections.Generic.IEnumerable{System.String},Azure.Monitor.Query.MetricsQueryOptions,System.Threading.CancellationToken)" />.
+            </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.MetricsQueryOptions.TimeSpan">
+            <summary>
+            Gets or sets the timespan over which the metric will be queried.
+            </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.MetricsQueryOptions.Interval">
+            <summary>
+            Gets or sets the interval at which to sample metrics.
+            </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.MetricsQueryOptions.Aggregations">
+            <summary>
+            Gets the list of metric aggregations to retrieve.
+            </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.MetricsQueryOptions.Top">
+            <summary>
+            Gets or sets the maximum number of records to retrieve. Valid only when <see cref="P:Azure.Monitor.Query.MetricsQueryOptions.Filter" /> is specified. Defaults to <c>null</c>.
+            </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.MetricsQueryOptions.Filter">
+            <summary>
+            Gets or sets the filter that is used to refine the set of metric data returned.
+            <example>
+            Metric contains metadata A, B and C.<br />
+            <br />
+                - Return all time series of C where A = a1 and B = b1 or b2:<br />
+                    <c>A eq 'a1' and B eq 'b1' or B eq 'b2' and C eq '*'</c><br />
+                - Invalid variant:<br />
+                    <c>A eq 'a1' and B eq 'b1' and C eq '*' or B = 'b2'</c><br />
+                    This is invalid because the logical or operator cannot separate two different metadata names.<br />
+                - Return all time series where A = a1, B = b1 and C = c1:<br />
+                    <c>A eq 'a1' and B eq 'b1' and C eq 'c1'</c><br />
+                - Return all time series where A = a1<br />
+                    <c>A eq 'a1' and B eq '*' and C eq '*'.</c><br />
+            </example>
+            </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.MetricsQueryOptions.OrderBy">
+            <summary>
+            Gets or sets the aggregation to use for sorting results and the direction of the sort.
+            Only one order can be specified.
+            Examples: sum asc.
+            </summary>
+        </member>
+        <member name="P:Azure.Monitor.Query.MetricsQueryOptions.MetricNamespace">
+            <summary>
+            Gets or sets the metric namespace to query.
+            </summary>
+        </member>
+        <member name="T:Azure.Monitor.Query.LogsBatchQuery">
+            <summary>
+            Represents a batch that consists of multiple log queries.
+            </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.LogsBatchQuery.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:Azure.Monitor.Query.LogsBatchQuery" />.
+            </summary>
+        </member>
+        <member name="M:Azure.Monitor.Query.LogsBatchQuery.AddQuery(System.String,System.String,Azure.Core.DateTimeRange,Azure.Monitor.Query.LogsQueryOptions)">
+             <summary>
+             Adds the specified query to the batch. Results can be retrieved after the query is submitted via the <see cref="M:Azure.Monitor.Query.LogsQueryClient.QueryBatchAsync(Azure.Monitor.Query.LogsBatchQuery,System.Threading.CancellationToken)" /> call.
+             <code snippet="Snippet:BatchQueryAddAndGet" language="csharp">
+             string countQueryId = batch.AddQuery(
+                 workspaceId,
+                 "AzureActivity | count",
+                 new DateTimeRange(TimeSpan.FromDays(1)));
+             string topQueryId = batch.AddQuery(
+                 workspaceId,
+                 "AzureActivity | summarize Count = count() by ResourceGroup | top 10 by Count",
+                 new DateTimeRange(TimeSpan.FromDays(1)));
+            
+             Response&lt;LogsBatchQueryResults&gt; response = await client.QueryBatchAsync(batch);
+            
+             var count = response.Value.GetResult&lt;int&gt;(countQueryId).Single();
+             var topEntries = response.Value.GetResult&lt;MyLogEntryModel&gt;(topQueryId);
+             </code>
+             </summary>
+             <param name="workspaceId">The workspace to include in the query.</param>
+             <param name="query">The query text to execute.</param>
+             <param name="timeRange">The timespan over which to query data.</param>
+             <param name="options">The <see cref="T:Azure.Monitor.Query.LogsQueryOptions" /> to configure the query.</param>
+             <returns>The query identifier that has to be passed into <see cref="M:Azure.Monitor.Query.Models.LogsBatchQueryResults.GetResult(System.String)" /> to get the result.</returns>
+        </member>
+        <member name="T:Azure.Core.Argument">
+            <summary>
+            Argument validation.
+            </summary>
+            <remarks>
+              <para>This class should be shared via source using Azure.Core.props and contain only common argument validation.
+                It is declared partial so that you can use the same familiar class name but extend it with project-specific validation.
+                To extend the functionality of this class, just declare your own partial <see cref="T:Azure.Core.Argument" /> class with project-specific methods.
+              </para>
+              <para>
+                Be sure to document exceptions thrown by these methods on your public methods.
+              </para>
+            </remarks>
+        </member>
+        <member name="M:Azure.Core.Argument.AssertNotNull``1(``0,System.String)">
+            <summary>
+            Throws if <paramref name="value" /> is null.
+            </summary>
+            <param name="value">The value to validate.</param>
+            <param name="name">The name of the parameter.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="value" /> is null.</exception>
+        </member>
+        <member name="M:Azure.Core.Argument.AssertNotNull``1(System.Nullable{``0},System.String)">
+            <summary>
+            Throws if <paramref name="value" /> has not been initialized.
+            </summary>
+            <param name="value">The value to validate.</param>
+            <param name="name">The name of the parameter.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="value" /> has not been initialized.</exception>
+        </member>
+        <member name="M:Azure.Core.Argument.AssertNotNullOrEmpty``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+            Throws if <paramref name="value" /> is null or an empty collection.
+            </summary>
+            <param name="value">The value to validate.</param>
+            <param name="name">The name of the parameter.</param>
+            <exception cref="T:System.ArgumentException"><paramref name="value" /> is an empty collection.</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="value" /> is null.</exception>
+        </member>
+        <member name="M:Azure.Core.Argument.AssertNotNullOrEmpty(System.String,System.String)">
+            <summary>
+            Throws if <paramref name="value" /> is null or an empty string.
+            </summary>
+            <param name="value">The value to validate.</param>
+            <param name="name">The name of the parameter.</param>
+            <exception cref="T:System.ArgumentException"><paramref name="value" /> is an empty string.</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="value" /> is null.</exception>
+        </member>
+        <member name="M:Azure.Core.Argument.AssertNotNullOrWhiteSpace(System.String,System.String)">
+            <summary>
+            Throws if <paramref name="value" /> is null, an empty string, or consists only of white-space characters.
+            </summary>
+            <param name="value">The value to validate.</param>
+            <param name="name">The name of the parameter.</param>
+            <exception cref="T:System.ArgumentException"><paramref name="value" /> is an empty string or consists only of white-space characters.</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="value" /> is null.</exception>
+        </member>
+        <member name="M:Azure.Core.Argument.AssertNotDefault``1(``0@,System.String)">
+            <summary>
+            Throws if <paramref name="value" /> is the default value for type <typeparamref name="T" />.
+            </summary>
+            <typeparam name="T">The type of structure to validate which implements <see cref="T:System.IEquatable`1" />.</typeparam>
+            <param name="value">The value to validate.</param>
+            <param name="name">The name of the parameter.</param>
+            <exception cref="T:System.ArgumentException"><paramref name="value" /> is the default value for type <typeparamref name="T" />.</exception>
+        </member>
+        <member name="M:Azure.Core.Argument.AssertInRange``1(``0,``0,``0,System.String)">
+            <summary>
+            Throws if <paramref name="value" /> is less than the <paramref name="minimum" /> or greater than the <paramref name="maximum" />.
+            </summary>
+            <typeparam name="T">The type of to validate which implements <see cref="T:System.IComparable`1" />.</typeparam>
+            <param name="value">The value to validate.</param>
+            <param name="minimum">The minimum value to compare.</param>
+            <param name="maximum">The maximum value to compare.</param>
+            <param name="name">The name of the parameter.</param>
+        </member>
+        <member name="M:Azure.Core.Argument.CheckNotNull``1(``0,System.String)">
+            <summary>
+            Throws if <paramref name="value" /> has not been initialized; otherwise, returns <paramref name="value" />.
+            </summary>
+            <param name="value">The value to validate.</param>
+            <param name="name">The name of the parameter.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="value" /> has not been initialized.</exception>
+        </member>
+        <member name="M:Azure.Core.Argument.CheckNotNullOrEmpty(System.String,System.String)">
+            <summary>
+            Throws if <paramref name="value" /> is null or an empty string; otherwise, returns <paramref name="value" />.
+            </summary>
+            <param name="value">The value to validate.</param>
+            <param name="name">The name of the parameter.</param>
+            <exception cref="T:System.ArgumentException"><paramref name="value" /> is an empty string.</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="value" /> is null.</exception>
+        </member>
+        <member name="T:Azure.Core.ArrayBufferWriter`1">
+            <summary>
+            Represents a heap-based, array-backed output sink into which <typeparam name="T" /> data can be written.
+            </summary>
+        </member>
+        <member name="M:Azure.Core.ArrayBufferWriter`1.#ctor">
+            <summary>
+            Creates an instance of an <see cref="T:Azure.Core.ArrayBufferWriter`1" />, in which data can be written to,
+            with the default initial capacity.
+            </summary>
+        </member>
+        <member name="M:Azure.Core.ArrayBufferWriter`1.#ctor(System.Int32)">
+            <summary>
+            Creates an instance of an <see cref="T:Azure.Core.ArrayBufferWriter`1" />, in which data can be written to,
+            with an initial capacity specified.
+            </summary>
+            <param name="initialCapacity">The minimum capacity with which to initialize the underlying buffer.</param>
+            <exception cref="T:System.ArgumentException">
+            Thrown when <paramref name="initialCapacity" /> is not positive (i.e. less than or equal to 0).
+            </exception>
+        </member>
+        <member name="P:Azure.Core.ArrayBufferWriter`1.WrittenMemory">
+            <summary>
+            Returns the data written to the underlying buffer so far, as a <see cref="T:System.ReadOnlyMemory`1" />.
+            </summary>
+        </member>
+        <member name="P:Azure.Core.ArrayBufferWriter`1.WrittenSpan">
+            <summary>
+            Returns the data written to the underlying buffer so far, as a <see cref="T:System.ReadOnlySpan`1" />.
+            </summary>
+        </member>
+        <member name="P:Azure.Core.ArrayBufferWriter`1.WrittenCount">
+            <summary>
+            Returns the amount of data written to the underlying buffer so far.
+            </summary>
+        </member>
+        <member name="P:Azure.Core.ArrayBufferWriter`1.Capacity">
+            <summary>
+            Returns the total amount of space within the underlying buffer.
+            </summary>
+        </member>
+        <member name="P:Azure.Core.ArrayBufferWriter`1.FreeCapacity">
+            <summary>
+            Returns the amount of space available that can still be written into without forcing the underlying buffer to grow.
+            </summary>
+        </member>
+        <member name="M:Azure.Core.ArrayBufferWriter`1.Clear">
+            <summary>
+            Clears the data written to the underlying buffer.
+            </summary>
+            <remarks>
+            You must clear the <see cref="T:Azure.Core.ArrayBufferWriter`1" /> before trying to re-use it.
+            </remarks>
+        </member>
+        <member name="M:Azure.Core.ArrayBufferWriter`1.Advance(System.Int32)">
+            <summary>
+            Notifies <see cref="T:System.Buffers.IBufferWriter`1" /> that <paramref name="count" /> amount of data was written to the output <see cref="T:System.Span`1" />/<see cref="T:System.Memory`1" />.
+            </summary>
+            <exception cref="T:System.ArgumentException">
+            Thrown when <paramref name="count" /> is negative.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown when attempting to advance past the end of the underlying buffer.
+            </exception>
+            <remarks>
+            You must request a new buffer after calling Advance to continue writing more data and cannot write to a previously acquired buffer.
+            </remarks>
+        </member>
+        <member name="M:Azure.Core.ArrayBufferWriter`1.GetMemory(System.Int32)">
+            <summary>
+            Returns a <see cref="T:System.Memory`1" /> to write to that is at least the requested length (specified by <paramref name="sizeHint" />).
+            If no <paramref name="sizeHint" /> is provided (or it's equal to <code>0</code>), some non-empty buffer is returned.
+            </summary>
+            <exception cref="T:System.ArgumentException">
+            Thrown when <paramref name="sizeHint" /> is negative.
+            </exception>
+            <remarks>
+            This will never return an empty <see cref="T:System.Memory`1" />.
+            </remarks>
+            <remarks>
+            There is no guarantee that successive calls will return the same buffer or the same-sized buffer.
+            </remarks>
+            <remarks>
+            You must request a new buffer after calling Advance to continue writing more data and cannot write to a previously acquired buffer.
+            </remarks>
+        </member>
+        <member name="M:Azure.Core.ArrayBufferWriter`1.GetSpan(System.Int32)">
+            <summary>
+            Returns a <see cref="T:System.Span`1" /> to write to that is at least the requested length (specified by <paramref name="sizeHint" />).
+            If no <paramref name="sizeHint" /> is provided (or it's equal to <code>0</code>), some non-empty buffer is returned.
+            </summary>
+            <exception cref="T:System.ArgumentException">
+            Thrown when <paramref name="sizeHint" /> is negative.
+            </exception>
+            <remarks>
+            This will never return an empty <see cref="T:System.Span`1" />.
+            </remarks>
+            <remarks>
+            There is no guarantee that successive calls will return the same buffer or the same-sized buffer.
+            </remarks>
+            <remarks>
+            You must request a new buffer after calling Advance to continue writing more data and cannot write to a previously acquired buffer.
+            </remarks>
+        </member>
+        <member name="M:Azure.Core.Pipeline.ClientDiagnostics.ExtractFailureContent(System.String,Azure.Core.ResponseHeaders,System.String@,System.String@,System.Collections.Generic.IDictionary{System.String,System.String}@)">
+            <summary>
+            Partial method that can optionally be defined to extract the error
+            message, code, and details in a service specific manner.
+            </summary>
+            <param name="content">The error content.</param>
+            <param name="responseHeaders">The response headers.</param>
+            <param name="message">The error message.</param>
+            <param name="errorCode">The error code.</param>
+            <param name="additionalInfo">Additional error details.</param>
+        </member>
+        <member name="T:Azure.Core.Pipeline.ActivityExtensions">
+            <summary>
+            HACK HACK HACK. Some runtime environments like Azure.Functions downgrade System.Diagnostic.DiagnosticSource package version causing method not found exceptions in customer apps
+            This type is a temporary workaround to avoid the issue.
+            </summary>
+        </member>
+        <member name="T:Azure.Core.Pipeline.TaskExtensions.Enumerable`1">
+            <summary>
+            Both <see cref="T:Azure.Core.Pipeline.TaskExtensions.Enumerable`1" /> and <see cref="T:Azure.Core.Pipeline.TaskExtensions.Enumerator`1" /> are defined as public structs so that foreach can use duck typing
+            to call <see cref="M:Azure.Core.Pipeline.TaskExtensions.Enumerable`1.GetEnumerator" /> and avoid heap memory allocation.
+            Please don't delete this method and don't make these types private.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:Azure.Core.HashCodeBuilder">
+            <summary>
+            Copied from https://github.com/dotnet/corefx/blob/master/src/Common/src/CoreLib/System/HashCode.cs.
+            </summary>
+        </member>
+        <member name="T:Azure.Core.AzureResourceProviderNamespaceAttribute">
+            <summary>
+            This attribute should be set on all client assemblies with value of one of the resource providers
+            from the https://docs.microsoft.com/azure/azure-resource-manager/management/azure-services-resource-providers list.
+            </summary>
+        </member>
+        <member name="P:Azure.Core.CodeGenModelAttribute.Usage">
+            <summary>
+            Gets or sets a coma separated list of additional model usage modes. Allowed values: model, error, intput, output.
+            </summary>
+        </member>
+        <member name="P:Azure.Core.CodeGenModelAttribute.Formats">
+            <summary>
+            Gets or sets a coma separated list of additional model serialization formats.
+            </summary>
+        </member>
+        <member name="T:Azure.Core.LowLevelBinaryDataOperation">
+            <summary>
+            The common operation type used by all low level client methods. The result of the operation is the `Response.Content` property of the final state.
+            </summary>
+        </member>
+        <member name="P:Azure.Core.LowLevelBinaryDataOperation.Id">
+            <summary>
+            Gets an ID representing the operation that can be used to poll for
+            the status of the long-running operation.
+            </summary>
+        </member>
+        <member name="P:Azure.Core.LowLevelBinaryDataOperation.Value">
+            <summary>
+            Final result of the long-running operation.
+            </summary><remarks>
+            This property can be accessed only after the operation completes successfully (HasValue is true).
+            </remarks>
+        </member>
+        <member name="P:Azure.Core.LowLevelBinaryDataOperation.HasCompleted">
+            <summary>
+            Returns true if the long-running operation completed.
+            </summary>
+        </member>
+        <member name="P:Azure.Core.LowLevelBinaryDataOperation.HasValue">
+            <summary>
+            Returns true if the long-running operation completed successfully and has produced final result (accessible by Value property).
+            </summary>
+        </member>
+        <member name="M:Azure.Core.LowLevelBinaryDataOperation.GetRawResponse">
+            <summary>
+            The last HTTP response received from the server.
+            </summary><remarks>
+            The last response returned from the server during the lifecycle of this instance.
+            An instance of <see cref="T:Azure.Operation`1" /> sends requests to a server in UpdateStatusAsync, UpdateStatus, and other methods.
+            Responses from these requests can be accessed using GetRawResponse.
+            </remarks>
+        </member>
+        <member name="M:Azure.Core.LowLevelBinaryDataOperation.UpdateStatus(System.Threading.CancellationToken)">
+            <summary>
+            Calls the server to get updated status of the long-running operation.
+            </summary><param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken" /> used for the service call.</param><returns>The HTTP response received from the server.</returns><remarks>
+            This operation will update the value returned from GetRawResponse and might update HasCompleted, HasValue, and Value.
+            </remarks>
+        </member>
+        <member name="M:Azure.Core.LowLevelBinaryDataOperation.UpdateStatusAsync(System.Threading.CancellationToken)">
+            <summary>
+            Calls the server to get updated status of the long-running operation.
+            </summary><param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken" /> used for the service call.</param><returns>The HTTP response received from the server.</returns><remarks>
+            This operation will update the value returned from GetRawResponse and might update HasCompleted, HasValue, and Value.
+            </remarks>
+        </member>
+        <member name="M:Azure.Core.LowLevelBinaryDataOperation.WaitForCompletionAsync(System.Threading.CancellationToken)">
+            <summary>
+            Periodically calls the server till the long-running operation completes.
+            </summary><param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken" /> used for the periodical service calls.</param><returns>The last HTTP response received from the server.</returns><remarks>
+            This method will periodically call UpdateStatusAsync till HasCompleted is true, then return the final result of the operation.
+            </remarks>
+        </member>
+        <member name="M:Azure.Core.LowLevelBinaryDataOperation.WaitForCompletionAsync(System.TimeSpan,System.Threading.CancellationToken)">
+            <summary>
+            Periodically calls the server till the long-running operation completes.
+            </summary><param name="pollingInterval">
+            The interval between status requests to the server.
+            The interval can change based on information returned from the server.
+            For example, the server might communicate to the client that there is not reason to poll for status change sooner than some time.
+            </param><param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken" /> used for the periodical service calls.</param><returns>The last HTTP response received from the server.</returns><remarks>
+            This method will periodically call UpdateStatusAsync till HasCompleted is true, then return the final result of the operation.
+            </remarks>
+        </member>
+        <member name="T:Azure.Core.OperationInternals">
+            <summary>
+            This implements the ARM scenarios for LROs. It is highly recommended to read the ARM spec prior to modifying this code:
+            https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#asynchronous-operations
+            Other reference documents include:
+            https://github.com/Azure/autorest/blob/master/docs/extensions/readme.md#x-ms-long-running-operation
+            https://github.com/Azure/adx-documentation-pr/blob/master/sdks/LRO/LRO_AzureSDK.md
+            </summary>
+        </member>
+        <member name="T:Azure.Core.OperationInternals`1">
+            <summary>
+            This implements the ARM scenarios for LROs. It is highly recommended to read the ARM spec prior to modifying this code:
+            https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#asynchronous-operations
+            Other reference documents include:
+            https://github.com/Azure/autorest/blob/master/docs/extensions/readme.md#x-ms-long-running-operation
+            https://github.com/Azure/adx-documentation-pr/blob/master/sdks/LRO/LRO_AzureSDK.md
+            </summary>
+            <typeparam name="T">The final result of the LRO.</typeparam>
+        </member>
+        <member name="T:Azure.Core.OperationOrResponseInternals">
+            <summary>
+            This implements the ARM scenarios for LROs. It is highly recommended to read the ARM spec prior to modifying this code:
+            https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#asynchronous-operations
+            Other reference documents include:
+            https://github.com/Azure/autorest/blob/master/docs/extensions/readme.md#x-ms-long-running-operation
+            https://github.com/Azure/adx-documentation-pr/blob/master/sdks/LRO/LRO_AzureSDK.md
+            </summary>
+        </member>
+        <member name="T:Azure.Core.OperationOrResponseInternals`1">
+            <summary>
+            This implements the ARM scenarios for LROs. It is highly recommended to read the ARM spec prior to modifying this code:
+            https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#asynchronous-operations
+            Other reference documents include:
+            https://github.com/Azure/autorest/blob/master/docs/extensions/readme.md#x-ms-long-running-operation
+            https://github.com/Azure/adx-documentation-pr/blob/master/sdks/LRO/LRO_AzureSDK.md
+            </summary>
+            <typeparam name="T">The final result of the LRO.</typeparam>
+        </member>
+        <member name="M:Azure.Core.ChangeTrackingDictionary`2.System#Collections#IEnumerable#GetEnumerator">
+            <summary>Returns an enumerator that iterates through a collection.</summary><returns>An <see cref="T:System.Collections.IEnumerator" /> object that can be used to iterate through the collection.</returns>
+        </member>
+        <member name="P:Azure.Core.ChangeTrackingDictionary`2.System#Collections#Generic#IReadOnlyDictionary{TKey@TValue}#Keys">
+            <summary>Gets an enumerable collection that contains the keys in the read-only dictionary.</summary><returns>An enumerable collection that contains the keys in the read-only dictionary.</returns>
+        </member>
+        <member name="P:Azure.Core.ChangeTrackingDictionary`2.System#Collections#Generic#IReadOnlyDictionary{TKey@TValue}#Values">
+            <summary>Gets an enumerable collection that contains the values in the read-only dictionary.</summary><returns>An enumerable collection that contains the values in the read-only dictionary.</returns>
+        </member>
+        <member name="M:Azure.Core.ChangeTrackingList`1.System#Collections#IEnumerable#GetEnumerator">
+            <summary>Returns an enumerator that iterates through a collection.</summary><returns>An <see cref="T:System.Collections.IEnumerator" /> object that can be used to iterate through the collection.</returns>
+        </member>
+        <member name="M:Azure.Core.Pipeline.TaskExtensions.Enumerable`1.System#Collections#Generic#IEnumerable{T}#GetEnumerator">
+            <summary>Returns an enumerator that iterates through the collection.</summary><returns>An enumerator that can be used to iterate through the collection.</returns>
+        </member>
+        <member name="M:Azure.Core.Pipeline.TaskExtensions.Enumerable`1.System#Collections#IEnumerable#GetEnumerator">
+            <summary>Returns an enumerator that iterates through a collection.</summary><returns>An <see cref="T:System.Collections.IEnumerator" /> object that can be used to iterate through the collection.</returns>
+        </member>
+        <member name="P:Azure.Core.Pipeline.TaskExtensions.Enumerator`1.System#Collections#IEnumerator#Current">
+            <summary>Gets the element in the collection at the current position of the enumerator.</summary><returns>The element in the collection at the current position of the enumerator.</returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/MainFragment">
+
+    <fragment
+        android:id="@+id/FirstFragment"
+        android:name="com.wzdctool.android.ui.configuration.ConfigurationFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/configuration_fragment">
+
+        <action
+            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            app:destination="@id/SecondFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/SecondFragment"
+        android:name="com.wzdctool.android.ui.data_collection.DataCollectionFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/data_collection_fragment">
+        <action
+            android:id="@+id/action_SecondFragment_to_MainFragment"
+            app:destination="@id/MainFragment" />
+        <action
+            android:id="@+id/action_SecondFragment_to_editingFragment2"
+            app:destination="@id/editingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/SettingsFragment"
+        android:name="com.wzdctool.android.ui.settings.SettingsFragment"
+        android:label="Settings_fragment"
+        tools:layout="@layout/settings_fragment">
+        <action
+            android:id="@+id/action_SettingsFragment_to_MainFragment"
+            app:destination="@id/MainFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/slide_out_top" />
+        <action
+            android:id="@+id/action_SettingsFragment_to_helpFragment"
+            app:destination="@id/helpFragment"
+            app:enterAnim="@anim/slide_in_top"
+            app:exitAnim="@anim/slide_out_bottom" />
+    </fragment>
+    <fragment
+        android:id="@+id/MainFragment"
+        android:name="com.wzdctool.android.ui.main.MainFragment"
+        android:label="Main_fragment"
+        tools:layout="@layout/main_fragment">
+        <action
+            android:id="@+id/action_MainFragment_to_SettingsFragment"
+            app:destination="@id/SettingsFragment"
+            app:enterAnim="@anim/slide_in_top"
+            app:exitAnim="@anim/slide_out_bottom" />
+        <action
+            android:id="@+id/action_MainFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/action_MainFragment_to_downloadFragment"
+            app:destination="@id/downloadFragment" />
+        <action
+            android:id="@+id/action_MainFragment_to_uploadFragment"
+            app:destination="@id/uploadFragment" />
+        <action
+            android:id="@+id/action_MainFragment_to_editingSelectionFragment"
+            app:destination="@id/editingSelectionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/downloadFragment"
+        android:name="com.wzdctool.android.ui.download.DownloadFragment"
+        android:label="download_fragment"
+        tools:layout="@layout/download_fragment" >
+        <action
+            android:id="@+id/action_downloadFragment_to_MainFragment"
+            app:destination="@id/MainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/uploadFragment"
+        android:name="com.wzdctool.android.ui.upload.UploadFragment"
+        android:label="upload_fragment"
+        tools:layout="@layout/upload_fragment" >
+        <action
+            android:id="@+id/action_uploadFragment_to_MainFragment"
+            app:destination="@id/MainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/helpFragment"
+        android:name="com.wzdctool.android.ui.help.HelpFragment"
+        android:label="help_fragment"
+        tools:layout="@layout/help_fragment" >
+        <action
+            android:id="@+id/action_helpFragment_to_SettingsFragment"
+            app:destination="@id/SettingsFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/slide_out_top" />
+    </fragment>
+    <fragment
+        android:id="@+id/editingFragment"
+        android:name="com.wzdctool.android.ui.visualization.EditingFragment"
+        android:label="editing_fragment"
+        tools:layout="@layout/editing_fragment" >
+        <action
+            android:id="@+id/action_editingFragment_to_MainFragment"
+            app:destination="@id/MainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editingSelectionFragment"
+        android:name="com.wzdctool.android.ui.visualization.EditingSelectionFragment"
+        android:label="editing_selection_fragment"
+        tools:layout="@layout/editing_selection_fragment" >
+        <action
+            android:id="@+id/action_editingSelectionFragment_to_editingFragment"
+            app:destination="@id/editingFragment" />
+    </fragment>
+</navigation>

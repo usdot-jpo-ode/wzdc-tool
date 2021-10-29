@@ -1,0 +1,139 @@
+{
+  "DateCreated": "2020-09-30T03:59:20Z",
+  "FeedInfoID": "1165fb22-0da0-49d0-9447-dea9f35f6eba",
+  "GeneralInfo": {
+    "Description": "sample work zone",
+    "RoadName": "White Rock Cir",
+    "RoadNumber": "",
+    "Direction": "southbound",
+    "BeginningCrossStreet": "Habitat Dr",
+    "EndingCrossStreet": "Spine Rd",
+    "BeginningMilePost": 1,
+    "EndingMilePost": 2,
+    "EventStatus": "planned"
+  },
+  "TypesOfWork": [
+    {
+      "Is_Architectural_Change": false,
+      "WorkType": "maintenance"
+    }
+  ],
+  "LaneInfo": {
+    "NumberOfLanes": 3,
+    "AverageLaneWidth": 3.6,
+    "ApproachLanePadding": 0.0,
+    "WorkzoneLanePadding": 0.0,
+    "VehiclePathDataLane": 3,
+    "Lanes": [
+      {
+        "LaneNumber": 1,
+        "LaneType": "left-lane",
+        "LaneRestrictions": [
+          {
+            "RestrictionValue": null,
+            "RestrictionType": "hov-3",
+            "RestrictionUnits": null
+          },
+          {
+            "RestrictionValue": 12.0,
+            "RestrictionType": "reduced-height",
+            "RestrictionUnits": "feet"
+          }
+        ]
+      },
+      {
+        "LaneNumber": 2,
+        "LaneType": "middle-lane",
+        "LaneRestrictions": [
+          {
+            "RestrictionValue": 50.0,
+            "RestrictionType": "reduced-weight",
+            "RestrictionUnits": "tons"
+          }
+        ]
+      },
+      {
+        "LaneNumber": 3,
+        "LaneType": "right-lane",
+        "LaneRestrictions": []
+      }
+    ]
+  },
+  "SpeedLimits": {
+    "NormalSpeed": 25,
+    "ReferencePointSpeed": 20,
+    "WorkersPresentSpeed": 15
+  },
+  "CauseCodes": {
+    "CauseCode": 3,
+    "SubCauseCode": 0
+  },
+  "Schedule": {
+    "StartDate": "2020-06-06T00:00:00Z",
+    "StartDateAccuracy": "estimated",
+    "EndDate": "2020-06-15T23:48:00Z",
+    "EndDateAccuracy": "estimated",
+    "DaysOfWeek": [
+      "Mon",
+      "Wed",
+      "Fri"
+    ]
+  },
+  "Location": {
+    "BeginningLocation": {
+      "Lat": 40.0611216,
+      "Lon": -105.2083918,
+      "Elev": null
+    },
+    "BeginningAccuracy": "estimated",
+    "EndingLocation": {
+      "Lat": 40.0611205,
+      "Lon": -105.2083939,
+      "Elev": null
+    },
+    "EndingAccuracy": "estimated"
+  },
+  "metadata": {
+    "wz_location_method": "channel-device-method",
+    "lrs_type": "interlopative",
+    "location_verify_method": "GPS equipment accurate to 1 m",
+    "datafeed_frequency_update": "",
+    "timestamp_metadata_update": "2020-09-30T03:59:20Z",
+    "contact_name": "test name",
+    "contact_email": "test@gmail.com",
+    "issuing_organization": "Neaera Consulting"
+  },
+  "ImageInfo": {
+    "Zoom": 21,
+    "Center": {
+      "Lat": 40.06112105,
+      "Lon": -105.20839285,
+      "Elev": null
+    },
+    "Markers": [
+      {
+        "Name": "Start",
+        "Color": "Green",
+        "Location": {
+          "Lat": 40.0611216,
+          "Lon": -105.2083918,
+          "Elev": null
+        }
+      },
+      {
+        "Name": "End",
+        "Color": "Red",
+        "Location": {
+          "Lat": 40.0611205,
+          "Lon": -105.2083939,
+          "Elev": null
+        }
+      }
+    ],
+    "MapType": "roadmap",
+    "Height": 640,
+    "Width": 640,
+    "Format": "png",
+    "ImageString": "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"
+  }
+}

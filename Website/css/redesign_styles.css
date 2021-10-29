@@ -1,0 +1,104 @@
+.nextStepsBox {
+  background-color: #f2f2f2;
+  border-radius: 6px;
+  height:100%;
+}
+
+.nextStepsBox a {
+  text-decoration: none;
+}
+
+.nextStepsBox a:hover, a:focus {
+  text-decoration: underline;
+}
+
+.smallIconContainer {
+  width: 100px;
+  height: 100px;
+}
+
+.mediumIconContainer {
+  height: 150px;
+  width: 150px;
+}
+
+.largeIconContainer {
+  height: 200px;
+  width: 200px;
+}
+
+.currentDataInfoBox a {
+  text-decoration: none;
+}
+
+.currentDataInfoBox a:focus, a:hover {
+  text-decoration: underline;
+}
+
+.lifecycleImgContainer {
+  height: 100px;
+  width: 100px;
+}
+
+.lifecycleOrangeBorder {
+  border: solid #ffbe2e 8px;
+}
+
+.lifecycleGreenBorder {
+  border: solid #98D036 8px;
+}
+
+.lifecyclePurpleBorder {
+  border: solid #C39DEB 8px;
+}
+
+.lifecycleDownArrowIconContainer {
+  background: white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  box-shadow: 0 0 5px 2px lightgray;
+  text-align: center;
+  display: table;
+  z-index: 1;
+}
+
+@media (max-width: 63.99em) {
+  .lifecycleHeader {
+    text-align: center;
+  }
+  .externalDotLink:focus, .externalDotLink:hover {
+    color: #565656 !important
+  }
+}
+
+.lifecycleDownArrowIcon {
+  font-size:30px;
+  color: grey;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+#last_hr {
+  border-top: 1px solid lightgrey;
+}
+
+#footer a {
+  text-decoration: none;
+}
+
+#footer a:focus, #footer a:hover {
+  text-decoration: underline;
+}
+
+.trainingVideo {
+  width: 23rem;
+}
+
+.dataList li {
+  margin-bottom: 0.5rem;
+}
+
+.greenTableBox {
+  background-color: #eaf4dd !important;
+}

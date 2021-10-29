@@ -1,0 +1,50 @@
+CREATE TABLE ApiKeys (
+    ID int NOT NULL IDENTITY(1,1),
+    ApiKeyHash varchar(64) NOT NULL UNIQUE,
+	UserName varchar(32),
+    Email varchar(320),
+    DateCreated DATETIME NOT NULL,
+    DateUpdated DATETIME,
+	IsDeleted bit,
+);
+
+CREATE TABLE ApiTokens (
+    ID int NOT NULL IDENTITY(1,1),
+    ApiTokenHash varchar(64) NOT NULL UNIQUE,
+	TokenType varchar(32) NOT NULL,
+    DateExpires DATETIME NOT NULL,
+    DateCreated DATETIME NOT NULL,
+	IsDeleted bit,
+);
+
+CREATE PROCEDURE create_key @key varchar(64)
+AS
+insert into ApiKeys (ApiKeyHash, DateCreated)
+values(@key, GETDATE())
+GO;
+
+CREATE PROCEDURE create_key_with_email @key varchar(64), @email varchar(254)
+AS
+insert into ApiKeys (ApiKeyHash, Email, DateCreated)
+values(@key, @email, GETDATE())
+GO;
+
+CREATE PROCEDURE delete_key @key varchar(64)
+AS
+delete from ApiKeys where ApiKeyHash = @key
+GO;
+
+CREATE PROCEDURE find_key @key varchar(64)
+AS
+select 1 from ApiKeys where ApiKeyHash = @key and (IsDeleted IS NULL OR IsDeleted <> 1)
+GO;
+
+CREATE PROCEDURE create_token @token_hash varchar(64), @type varchar(32), @expires bigint
+AS
+insert into ApiTokens (ApiTokenHash, TokenType, DateCreated)
+values(@token_hash, @type, DATEADD(MILLISECOND, @expires % 1000, DATEADD(SECOND, @expires / 1000, '19700101')))
+GO;
+
+CREATE PROCEDURE find_token @token_hash varchar(64)
+AS
+select DateExpires from ApiTokens where (ApiTokenHash = @token_hash) and (IsDeleted IS NULL OR IsDeleted <> 1)
